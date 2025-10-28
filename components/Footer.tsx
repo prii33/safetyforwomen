@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SocialIcon = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-pink transition-colors">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors">
         {children}
     </a>
 );
@@ -15,29 +15,29 @@ const TwitterIcon = () => <svg className="w-6 h-6" fill="currentColor" viewBox="
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-brand-purple text-white">
+        <footer className="bg-brand-dark text-white">
             <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
-                        <h3 className="text-lg font-bold">Safety for Women</h3>
+                        <h3 className="text-lg font-bold text-brand-red">Safety for Women</h3>
                         <p className="mt-2 text-sm text-gray-300">One Voice, One Mission. Creating a safer nation for women across India.</p>
-                        <p className="mt-4 text-sm text-gray-300">Email: <a href="mailto:teamsafetyforwomen@gmail.com" className="hover:text-brand-yellow">teamsafetyforwomen@gmail.com</a></p>
+                        <p className="mt-4 text-sm text-gray-300">Email: <a href="mailto:teamsafetyforwomen@gmail.com" className="hover:text-brand-red">teamsafetyforwomen@gmail.com</a></p>
                     </div>
                     <div>
                         <h4 className="font-semibold tracking-wider uppercase">Quick Links</h4>
                         <ul className="mt-4 space-y-2">
-                            <li><Link to="/about" className="hover:text-brand-yellow text-sm">About Us</Link></li>
-                            <li><Link to="/impact" className="hover:text-brand-yellow text-sm">Our Impact</Link></li>
-                            <li><Link to="/get-involved" className="hover:text-brand-yellow text-sm">Get Involved</Link></li>
-                            <li><Link to="/resources" className="hover:text-brand-yellow text-sm">Resources</Link></li>
+                            <li><Link to="/about" className="hover:text-brand-red text-sm">About Us</Link></li>
+                            <li><Link to="/impact" className="hover:text-brand-red text-sm">Our Impact</Link></li>
+                            <li><Link to="/get-involved" className="hover:text-brand-red text-sm">Get Involved</Link></li>
+                            <li><Link to="/resources" className="hover:text-brand-red text-sm">Resources</Link></li>
                         </ul>
                     </div>
                     <div>
                         <h4 className="font-semibold tracking-wider uppercase">Connect</h4>
                         <ul className="mt-4 space-y-2">
-                            <li><a href="#" className="hover:text-brand-yellow text-sm">Request a Program</a></li>
-                            <li><a href="#" className="hover:text-brand-yellow text-sm">Join as Volunteer</a></li>
-                            <li><a href="#" className="hover:text-brand-yellow text-sm">Partner with Us</a></li>
+                            <li><a href="#" className="hover:text-brand-red text-sm">Request a Program</a></li>
+                            <li><a href="#" className="hover:text-brand-red text-sm">Join as Volunteer</a></li>
+                            <li><a href="#" className="hover:text-brand-red text-sm">Partner with Us</a></li>
                         </ul>
                     </div>
                     <div>

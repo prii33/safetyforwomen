@@ -13,7 +13,7 @@ import GetInvolvedPage from './pages/GetInvolvedPage';
 const App: React.FC = () => {
   return (
     <HashRouter>
-      <div className="flex flex-col min-h-screen bg-brand-light font-sans text-gray-800">
+      <div className="flex flex-col min-h-screen bg-brand-dark font-sans text-brand-light">
         <Header />
         <main className="flex-grow">
           <Routes>
@@ -28,7 +28,7 @@ const App: React.FC = () => {
         <Footer />
         <a 
           href="tel:112" 
-          className="fixed bottom-4 right-4 bg-red-600 text-white p-4 rounded-full shadow-lg hover:bg-red-700 transition-colors z-50 flex items-center justify-center lg:hidden"
+          className="fixed bottom-4 right-4 bg-brand-red text-white p-4 rounded-full shadow-lg hover:bg-brand-red-dark transition-colors z-50 flex items-center justify-center lg:hidden"
           aria-label="Call National Emergency Helpline 112"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
