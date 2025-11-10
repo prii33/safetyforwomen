@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { initiatives } from '../data/mockData';
 import { PledgeForm } from '../components/PledgeForm';
+import video from '@/assets/smoke2.mp4';
+import image from '@/assets/image3.png';
 
 // Fix: Changed component to be of type React.FC to correctly handle the 'key' prop when used in a list.
 const InitiativeCard: React.FC<{ icon: React.ReactNode, title: string, description: string }> = ({ icon, title, description }) => (
@@ -26,12 +28,12 @@ const HomePage: React.FC = () => {
                     muted
                     className="absolute z-0 w-auto min-w-full min-h-full max-w-none"
                 >
-                    <source src="/assets/smoke2.mp4" type="video/mp4" />
+                    <source src={video} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
                 <div 
                     className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 opacity-25"
-                    style={{ backgroundImage: "url('/assets/image3.png')" }}
+                    style={{ backgroundImage: `url(${image})` }}
                 ></div>
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
