@@ -4,7 +4,7 @@ import { safetyTips, survivorSupport } from '../data/mockData';
 import type { Resource } from '../types';
 
 const ResourceCard: React.FC<{ resource: Resource }> = ({ resource }) => (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+    <div className="p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
         <h3 className="font-bold text-brand-red text-lg">{resource.title}</h3>
         <p className="text-gray-400 mt-2 text-sm">{resource.description}</p>
         <a href={resource.link} className="text-brand-red hover:underline mt-4 inline-block font-semibold text-sm">Learn More &rarr;</a>
@@ -27,7 +27,7 @@ const ResourcesPage: React.FC = () => {
                 {/* Safety Tips Section */}
                 <section className="mt-16">
                     <h2 className="text-3xl font-bold text-brand-red text-center mb-8">Safety Tips for All Ages</h2>
-                    <div className="max-w-3xl mx-auto bg-gray-800 rounded-lg shadow-lg p-8">
+                    <div className="max-w-3xl mx-auto rounded-lg shadow-lg p-8">
                         <div className="flex justify-center border-b border-gray-700">
                             <button onClick={() => setActiveTab('teens')} className={`px-6 py-3 font-semibold ${activeTab === 'teens' ? 'text-brand-red border-b-2 border-brand-red' : 'text-gray-400'}`}>For Teens</button>
                             <button onClick={() => setActiveTab('adults')} className={`px-6 py-3 font-semibold ${activeTab === 'adults' ? 'text-brand-red border-b-2 border-brand-red' : 'text-gray-400'}`}>For Adults</button>
@@ -49,7 +49,7 @@ const ResourcesPage: React.FC = () => {
                     <h2 className="text-3xl font-bold text-brand-red text-center mb-8">Self-Defense Demos</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[1, 2, 3].map(i => (
-                            <div key={i} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                            <div key={i} className="rounded-lg shadow-lg overflow-hidden">
                                 <img src={`https://picsum.photos/400/225?random=def${i}`} alt={`Self-defense move ${i}`} className="w-full h-48 object-cover"/>
                                 <div className="p-6">
                                     <h3 className="font-bold text-brand-red">Basic Escape Technique {i}</h3>
@@ -72,7 +72,7 @@ const ResourcesPage: React.FC = () => {
                 <section className="mt-16">
                     <h2 className="text-3xl font-bold text-brand-red text-center mb-8">Safety Apps & Wearables</h2>
                      <div className="grid md:grid-cols-2 gap-12">
-                         <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+                         <div className="p-8 rounded-lg shadow-lg">
                              <h3 className="font-bold text-brand-red text-2xl mb-4">Authorized Safety Apps</h3>
                              <ul className="space-y-3 list-disc list-inside text-gray-400">
                                 <li><strong>Himmat Plus:</strong> Official app by Delhi Police for women's safety.</li>
@@ -80,7 +80,7 @@ const ResourcesPage: React.FC = () => {
                                 <li><strong>SHOUT:</strong> An emergency app connecting you with a network of responders.</li>
                              </ul>
                          </div>
-                         <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+                         <div className="p-8 rounded-lg shadow-lg">
                              <h3 className="font-bold text-brand-red text-2xl mb-4">Modern Safety Devices</h3>
                              <ul className="space-y-3 list-disc list-inside text-gray-400">
                                 <li><strong>Smart Jewelry:</strong> Bracelets and pendants with discreet SOS buttons.</li>

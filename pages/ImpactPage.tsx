@@ -30,7 +30,7 @@ const ImpactPage: React.FC = () => {
                 </div>
 
                 {/* Statistics Section */}
-                <section className="mt-16 bg-gray-800 p-8 rounded-lg shadow-lg">
+                <section className="mt-16 p-8 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold text-brand-red mb-6 text-center">Movement by the Numbers</h2>
                     <div style={{ width: '100%', height: 400 }}>
                         <ResponsiveContainer>
@@ -47,7 +47,7 @@ const ImpactPage: React.FC = () => {
                 </section>
 
                 {/* Volunteer Map Section */}
-                <section className="mt-16 bg-gray-800 p-8 rounded-lg shadow-lg">
+                <section className="mt-16 p-8 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold text-brand-red mb-2 text-center">Our Pan-India Volunteer Network</h2>
                     <p className="text-center text-gray-400 mb-6">Hover over the dots to see our presence across the nation.</p>
                     <div className="relative">
@@ -58,7 +58,7 @@ const ImpactPage: React.FC = () => {
                 {/* Street Safety Audit & Heatmap */}
                 <section className="mt-16">
                     <div className="grid lg:grid-cols-2 gap-12">
-                        <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <div className="p-8 rounded-lg shadow-lg">
                             <h2 className="text-2xl font-bold text-brand-red mb-4">Audit Your Street's Safety</h2>
                             <p className="text-gray-400 mb-6">Your feedback helps us identify and address unsafe areas. Fill out this quick survey to contribute to our community safety heatmap.</p>
                             {isSubmitted ? (
@@ -86,7 +86,7 @@ const ImpactPage: React.FC = () => {
                                 </form>
                             )}
                         </div>
-                        <div className="bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col items-center justify-center">
+                        <div className="p-8 rounded-lg shadow-lg flex flex-col items-center justify-center">
                             <h2 className="text-2xl font-bold text-brand-red mb-4 text-center">Community Safety Heatmap</h2>
                             <p className="text-gray-400 mb-6 text-center">This map highlights areas based on citizen safety audits. Red indicates areas needing attention.</p>
                             <div className="w-full h-64 bg-gray-200 rounded-md flex items-center justify-center relative overflow-hidden">

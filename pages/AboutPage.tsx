@@ -30,7 +30,7 @@ const AboutPage: React.FC = () => {
                     <h2 className="text-3xl font-bold text-center text-brand-red">Our Core Objectives</h2>
                     <div className="mt-10 grid gap-8 md:grid-cols-3">
                         {initiatives.map(item => (
-                            <div key={item.id} className="bg-gray-800 p-6 rounded-lg">
+                            <div key={item.id} className="p-6 rounded-lg">
                                 <div className="flex items-center space-x-4">
                                     <div className="flex-shrink-0 text-brand-red">{item.icon}</div>
                                     <h3 className="text-lg font-semibold text-brand-red">{item.title}</h3>

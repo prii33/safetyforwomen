@@ -19,14 +19,23 @@ const HomePage: React.FC = () => {
     return (
         <div className="bg-brand-dark">
             {/* Hero Section */}
-            <section className="relative bg-brand-dark">
-                 <div className="absolute inset-0 bg-brand-red opacity-5"></div>
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center relative z-10">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-brand-light tracking-tight">
+            <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    className="absolute z-0 w-auto min-w-full min-h-full max-w-none"
+                >
+                    <source src="/assets/redmist1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-black opacity-50"></div>
+                <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+                    <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
                         <span className="block">One Voice, One Mission</span>
                         <span className="block text-brand-red">A Safer India for Women</span>
                     </h1>
-                    <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-400">
+                    <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
                         Join our diverse, pan-India collective dedicated to transforming distress into meaningful action and building a nation where every woman feels secure.
                     </p>
                     <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
