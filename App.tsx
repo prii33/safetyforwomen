@@ -9,11 +9,13 @@ import ImpactPage from './pages/ImpactPage';
 import ResourcesPage from './pages/ResourcesPage';
 import EventsMediaPage from './pages/EventsMediaPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
+import FluidCursor from './components/FluidCursor';
 
 const App: React.FC = () => {
   return (
     <HashRouter>
-      <div className="flex flex-col min-h-screen bg-brand-dark font-sans text-brand-light">
+      <div className="flex flex-col min-h-screen font-sans">
+        <FluidCursor />
         <Header />
         <main className="flex-grow">
           <Routes>
