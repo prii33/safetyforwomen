@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { PledgeForm } from '../components/PledgeForm';
+import Hero from '../components/Hero';
 
 const GetInvolvedPage: React.FC = () => {
     const [request, setRequest] = useState({ name: '', email: '', organization: '', type: 'School', message: '' });
@@ -16,15 +17,15 @@ const GetInvolvedPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-brand-dark py-16 sm:py-20 text-brand-light">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center">
-                    <h1 className="text-4xl font-extrabold text-brand-red">Join The Movement</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-400">
-                        Your voice, time, and commitment can create a ripple effect of change. Here’s how you can contribute.
-                    </p>
-                </div>
-                
+        <div className="bg-brand-dark text-brand-light">
+            <Hero
+                title="Join The Movement"
+                subtitle="Be the Change"
+                description="Your voice, time, and commitment can create a ripple effect of change. Here’s how you can contribute."
+                videoSrc="/assets/redmist2.mp4"
+            />
+
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
                 {/* Take the Pledge */}
                 <section className="mt-16 p-8 md:p-12 rounded-lg shadow-lg">
                      <div className="text-center mb-10">

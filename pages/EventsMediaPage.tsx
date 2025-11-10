@@ -1,18 +1,19 @@
 
 import React from 'react';
 import { pastPrograms, pressCoverage } from '../data/mockData';
+import Hero from '../components/Hero';
 
 const EventsMediaPage: React.FC = () => {
     return (
-        <div className="bg-brand-dark py-16 sm:py-20 text-brand-light">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center">
-                    <h1 className="text-4xl font-extrabold text-brand-red">Events & Media</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-400">
-                        Stay updated with our latest events, browse our history of programs, and see our media features.
-                    </p>
-                </div>
+        <div className="bg-brand-dark text-brand-light">
+            <Hero
+                title="Events & Media"
+                subtitle="Join Us and Spread the Word"
+                description="Stay updated with our latest events, browse our history of programs, and see our media features."
+                videoSrc="/assets/redmist2.mp4"
+            />
 
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
                 {/* Upcoming Events */}
                 <section className="mt-16">
                     <h2 className="text-3xl font-bold text-brand-red text-center mb-8">Upcoming Events</h2>

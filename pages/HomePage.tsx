@@ -26,10 +26,13 @@ const HomePage: React.FC = () => {
                     muted
                     className="absolute z-0 w-auto min-w-full min-h-full max-w-none"
                 >
-                    <source src="/assets/redmist1.mp4" type="video/mp4" />
+                    <source src="/assets/smoke2.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
-                <div className="absolute inset-0 bg-black opacity-50"></div>
+                <div 
+                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 opacity-25"
+                    style={{ backgroundImage: "url('/assets/image3.png')" }}
+                ></div>
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
                         <span className="block">One Voice, One Mission</span>

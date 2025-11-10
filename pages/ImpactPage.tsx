@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { impactStats, volunteers } from '../data/mockData';
 import type { Volunteer } from '../types';
 import Map from '../components/Map';
+import Hero from '../components/Hero';
 
 const ImpactPage: React.FC = () => {
     const [activeVolunteer, setActiveVolunteer] = useState<Volunteer | null>(null);
@@ -21,14 +22,14 @@ const ImpactPage: React.FC = () => {
 
     return (
         <div className="bg-brand-dark text-brand-light">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                <div className="text-center">
-                    <h1 className="text-4xl font-extrabold text-brand-red">Our Collective Impact</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-400">
-                        Visualizing our journey towards a safer India, one step at a time.
-                    </p>
-                </div>
+            <Hero
+                title="Our Collective Impact"
+                subtitle="Visualizing Our Journey"
+                description="Visualizing our journey towards a safer India, one step at a time."
+                videoSrc="/assets/redmist2.mp4"
+            />
 
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
                 {/* Statistics Section */}
                 <section className="mt-16 p-8 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold text-brand-red mb-6 text-center">Movement by the Numbers</h2>

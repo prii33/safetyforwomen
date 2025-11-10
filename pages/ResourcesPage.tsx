@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { safetyTips, survivorSupport } from '../data/mockData';
 import type { Resource } from '../types';
+import Hero from '../components/Hero';
 
 const ResourceCard: React.FC<{ resource: Resource }> = ({ resource }) => (
     <div className="p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -15,15 +16,15 @@ const ResourcesPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState('teens');
 
     return (
-        <div className="bg-brand-dark py-16 sm:py-20 text-brand-light">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center">
-                    <h1 className="text-4xl font-extrabold text-brand-red">Knowledge & Support</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-400">
-                        Empower yourself with essential safety information, skills, and access to support networks.
-                    </p>
-                </div>
+        <div className="bg-brand-dark text-brand-light">
+            <Hero
+                title="Knowledge & Support"
+                subtitle="Empowerment Through Information"
+                description="Empower yourself with essential safety information, skills, and access to support networks."
+                videoSrc="/assets/redmist2.mp4"
+            />
 
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
                 {/* Safety Tips Section */}
                 <section className="mt-16">
                     <h2 className="text-3xl font-bold text-brand-red text-center mb-8">Safety Tips for All Ages</h2>

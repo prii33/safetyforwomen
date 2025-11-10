@@ -1,18 +1,18 @@
-
 import React from 'react';
 import { initiatives, partners } from '../data/mockData';
+import Hero from '../components/Hero';
 
 const AboutPage: React.FC = () => {
     return (
-        <div className="bg-brand-dark py-16 sm:py-20 text-brand-light">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center">
-                    <h1 className="text-4xl font-extrabold text-brand-red">About the Movement</h1>
-                    <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-400">
-                        A diverse, non-partisan, non-political, and pan-India collective dedicated to creating a safer nation for women.
-                    </p>
-                </div>
+        <div className="bg-brand-dark text-brand-light">
+            <Hero
+                title="About the Movement"
+                subtitle="Our Story, Mission, and Vision"
+                description="A diverse, non-partisan, non-political, and pan-India collective dedicated to creating a safer nation for women."
+                videoSrc="/assets/redmist2.mp4"
+            />
 
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
                 <div className="mt-16 grid md:grid-cols-2 gap-16 items-center">
                     <img src="https://picsum.photos/600/400?random=100" alt="Group of diverse people" className="rounded-lg shadow-xl" />
                     <div>

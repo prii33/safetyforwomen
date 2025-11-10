@@ -21,10 +21,10 @@ const Header: React.FC = () => {
     return (
         <header className={`${isHomePage ? 'absolute w-full' : 'sticky'} top-0 z-40 ${isHomePage ? 'bg-transparent' : 'bg-brand-dark'}`}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
+                <div className="flex items-center justify-between h-48">
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0">
-                            <h1 className="text-xl font-bold text-brand-red">Safety For Women</h1>
+                            <img className="h-[150px] mt-4" src="/assets/logo1.png" alt="Safety For Women" />
                         </Link>
                     </div>
                     <div className="hidden md:block">
