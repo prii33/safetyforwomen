@@ -2,7 +2,6 @@
 import React from 'react';
 import { pastPrograms, pressCoverage } from '../data/mockData';
 import Hero from '../components/Hero';
-import redmist from '@/assets/redmist2.mp4';
 
 const EventsMediaPage: React.FC = () => {
     return (
@@ -11,7 +10,7 @@ const EventsMediaPage: React.FC = () => {
                 title="Events & Media"
                 subtitle="Join Us and Spread the Word"
                 description="Stay updated with our latest events, browse our history of programs, and see our media features."
-                videoSrc={redmist}
+                videoSrc="/assets/redmist2.mp4"
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">

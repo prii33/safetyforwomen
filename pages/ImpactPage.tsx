@@ -5,7 +5,6 @@ import { impactStats, volunteers } from '../data/mockData';
 import type { Volunteer } from '../types';
 import Map from '../components/Map';
 import Hero from '../components/Hero';
-import redmist from '@/assets/redmist2.mp4';
 
 const ImpactPage: React.FC = () => {
     const [activeVolunteer, setActiveVolunteer] = useState<Volunteer | null>(null);
@@ -27,7 +26,7 @@ const ImpactPage: React.FC = () => {
                 title="Our Collective Impact"
                 subtitle="Visualizing Our Journey"
                 description="Visualizing our journey towards a safer India, one step at a time."
-                videoSrc={redmist}
+                videoSrc="/assets/redmist2.mp4"
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">

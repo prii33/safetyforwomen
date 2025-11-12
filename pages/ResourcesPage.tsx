@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { safetyTips, survivorSupport } from '../data/mockData';
 import type { Resource } from '../types';
 import Hero from '../components/Hero';
-import redmist from '@/assets/redmist2.mp4';
 
 const ResourceCard: React.FC<{ resource: Resource }> = ({ resource }) => (
     <div className="p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -22,7 +21,7 @@ const ResourcesPage: React.FC = () => {
                 title="Knowledge & Support"
                 subtitle="Empowerment Through Information"
                 description="Empower yourself with essential safety information, skills, and access to support networks."
-                videoSrc={redmist}
+                videoSrc="/assets/redmist2.mp4"
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">

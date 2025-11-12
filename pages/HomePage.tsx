@@ -2,10 +2,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PledgeForm } from '../components/PledgeForm';
-import video from '@/assets/smoke2.mp4';
-import image from '@/assets/image3.png';
-import pledgebk from '@/assets/pledgebk.jpg';
-import pledge from '@/assets/pledge.png';
+import video from '/assets/smoke2.mp4';
+import image from '/assets/image3.png';
+import pledgebk from '/assets/pledgebk.jpg';
 import InteractiveObjectives from '../components/InteractiveObjectives';
 
 const HomePage: React.FC = () => {
@@ -67,7 +66,7 @@ const HomePage: React.FC = () => {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-center justify-center gap-8">
                         <div className="flex-shrink-0">
-                            <img src={pledge} alt="Pledge Icon" className="h-24 w-24" />
+                            <img src="/assets/pledge.png" alt="Pledge Icon" className="h-24 w-24" />
                         </div>
                         <div className="text-center md:text-left">
                             <h2 className="text-5xl font-bold" style={{ color: '#e1d5d5' }}>
