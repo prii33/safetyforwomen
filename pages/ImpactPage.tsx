@@ -50,7 +50,7 @@ const ImpactPage: React.FC = () => {
                 {/* Volunteer Map Section */}
                 <section className="mt-16 p-8 rounded-lg shadow-lg">
                     <h2 className="text-2xl font-bold text-brand-red mb-2 text-center">Our Pan-India Volunteer Network</h2>
-                    <p className="text-center text-gray-400 mb-6">Hover over the dots to see our presence across the nation.</p>
+                    <p className="text-center text-brand-light-text mb-6">Hover over the dots to see our presence across the nation.</p>
                     <div className="relative">
                         <Map volunteers={volunteers} />
                     </div>
@@ -61,7 +61,7 @@ const ImpactPage: React.FC = () => {
                     <div className="grid lg:grid-cols-2 gap-12">
                         <div className="p-8 rounded-lg shadow-lg">
                             <h2 className="text-2xl font-bold text-brand-red mb-4">Audit Your Street's Safety</h2>
-                            <p className="text-gray-400 mb-6">Your feedback helps us identify and address unsafe areas. Fill out this quick survey to contribute to our community safety heatmap.</p>
+                            <p className="text-brand-light-text mb-6">Your feedback helps us identify and address unsafe areas. Fill out this quick survey to contribute to our community safety heatmap.</p>
                             {isSubmitted ? (
                                 <div className="text-center p-8 bg-green-900 text-green-100 rounded-lg">
                                     <h3 className="text-xl font-bold">Thank you for your submission!</h3>
@@ -89,7 +89,7 @@ const ImpactPage: React.FC = () => {
                         </div>
                         <div className="p-8 rounded-lg shadow-lg flex flex-col items-center justify-center">
                             <h2 className="text-2xl font-bold text-brand-red mb-4 text-center">Community Safety Heatmap</h2>
-                            <p className="text-gray-400 mb-6 text-center">This map highlights areas based on citizen safety audits. Red indicates areas needing attention.</p>
+                            <p className="text-brand-light-text mb-6 text-center">This map highlights areas based on citizen safety audits. Red indicates areas needing attention.</p>
                             <div className="w-full h-64 bg-gray-200 rounded-md flex items-center justify-center relative overflow-hidden">
                                 <img src="https://picsum.photos/seed/map/500/300" alt="Map of a city" className="w-full h-full object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-tr from-red-500/50 via-yellow-500/30 to-green-500/20 mix-blend-multiply"></div>

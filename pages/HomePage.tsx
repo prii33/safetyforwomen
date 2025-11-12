@@ -1,21 +1,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { initiatives } from '../data/mockData';
 import { PledgeForm } from '../components/PledgeForm';
 import video from '@/assets/smoke2.mp4';
 import image from '@/assets/image3.png';
-
-// Fix: Changed component to be of type React.FC to correctly handle the 'key' prop when used in a list.
-const InitiativeCard: React.FC<{ icon: React.ReactNode, title: string, description: string }> = ({ icon, title, description }) => (
-    <div className="bg-brand-dark p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-        <div className="flex justify-center items-center h-16 w-16 rounded-full bg-brand-red/10 text-brand-red mx-auto">
-            {icon}
-        </div>
-        <h3 className="mt-4 text-lg font-semibold text-brand-red">{title}</h3>
-        <p className="mt-2 text-sm text-gray-400">{description}</p>
-    </div>
-);
+import pledgebk from '@/assets/pledgebk.jpg';
+import InteractiveObjectives from '../components/InteractiveObjectives';
 
 const HomePage: React.FC = () => {
     return (
@@ -32,8 +22,8 @@ const HomePage: React.FC = () => {
                     Your browser does not support the video tag.
                 </video>
                 <div 
-                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0 opacity-25"
-                    style={{ backgroundImage: `url(${image})` }}
+                    className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
+                    style={{ backgroundImage: `url(${image})`, opacity: 0.30 }}
                 ></div>
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight">
@@ -44,10 +34,10 @@ const HomePage: React.FC = () => {
                         Join our diverse, pan-India collective dedicated to transforming distress into meaningful action and building a nation where every woman feels secure.
                     </p>
                     <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link to="/get-involved" className="w-full sm:w-auto bg-brand-red text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-opacity-90 transition-colors shadow-md">
+                        <Link to="/get-involved" className="w-full sm:w-auto text-white px-8 py-3 rounded-md text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]">
                             Join the Movement
                         </Link>
-                        <Link to="/impact" className="w-full sm:w-auto bg-brand-dark text-brand-red border border-brand-red px-8 py-3 rounded-md text-lg font-semibold hover:bg-brand-red/10 transition-colors shadow-md">
+                        <Link to="/impact" className="w-full sm:w-auto bg-transparent text-[#FF0440] border border-[#FF0440] px-8 py-3 rounded-md text-lg font-semibold hover:bg-[#FF0440] hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg">
                             See Our Impact
                         </Link>
                     </div>
@@ -55,32 +45,43 @@ const HomePage: React.FC = () => {
             </section>
             
             {/* Our Mission Section */}
-            <section className="py-16 sm:py-24">
+            <section className="py-16 sm:py-24" style={{ backgroundColor: '#0a0a0a' }}>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold text-brand-red">Our 9 Core Objectives</h2>
-                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-400">
+                        <h2 className="text-5xl font-bold">
+                            <span style={{ color: '#e1d5d5' }}>Our 9</span> <span style={{ color: '#ff0440' }}>Core Objectives</span>
+                        </h2>
+                        <p className="mt-4 max-w-3xl mx-auto text-xl text-brand-light-text">
                             To empower communities, engage key stakeholders, and drive actionable change to create a safer environment for women across India.
                         </p>
                     </div>
-                    <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {initiatives.map((initiative) => (
-                            <InitiativeCard key={initiative.id} icon={initiative.icon} title={initiative.title} description={initiative.description} />
-                        ))}
+                    <div className="mt-12">
+                        <InteractiveObjectives />
                     </div>
                 </div>
             </section>
 
             {/* Take the Pledge Section */}
-             <section className="bg-brand-dark py-16 sm:py-24">
+            <section className="py-16 sm:py-24 bg-cover bg-center" style={{ backgroundImage: `url(${pledgebk})` }}>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-brand-red">Take The Safety Pledge</h2>
-                        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-400">
-                            Commit to being an active part of the solution. Your pledge is a promise to stand for safety, respect, and equality.
-                        </p>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+                        <div className="flex-shrink-0">
+                            <img src="/assets/pledge.png" alt="Pledge Icon" className="h-24 w-24" />
+                        </div>
+                        <div className="text-center md:text-left">
+                            <h2 className="text-5xl font-bold" style={{ color: '#e1d5d5' }}>
+                                Take the <span className="block text-6xl text-black">Safety Pledge</span>
+                            </h2>
+                        </div>
+                        <div className="max-w-sm text-center md:text-left">
+                            <p className="text-base" style={{ color: '#e1d5d5' }}>
+                                Commit to being an active part of the solution. Your pledge is a promise to stand for safety, respect, and equality.
+                            </p>
+                        </div>
                     </div>
-                    <PledgeForm />
+                    <div className="mt-12">
+                        <PledgeForm />
+                    </div>
                 </div>
             </section>
         </div>

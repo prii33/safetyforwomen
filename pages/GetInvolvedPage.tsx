@@ -30,7 +30,7 @@ const GetInvolvedPage: React.FC = () => {
                 <section className="mt-16 p-8 md:p-12 rounded-lg shadow-lg">
                      <div className="text-center mb-10">
                         <h2 className="text-3xl font-bold text-brand-red">1. Take The Safety Pledge</h2>
-                        <p className="mt-2 max-w-2xl mx-auto text-gray-400">
+                        <p className="mt-2 max-w-2xl mx-auto text-brand-light-text">
                             A personal commitment to fostering a safer environment for women in your community.
                         </p>
                     </div>
@@ -41,7 +41,7 @@ const GetInvolvedPage: React.FC = () => {
                 <section className="mt-16 p-8 md:p-12 rounded-lg shadow-lg">
                      <div className="text-center mb-10">
                         <h2 className="text-3xl font-bold text-brand-red">2. Request an Awareness Program</h2>
-                        <p className="mt-2 max-w-2xl mx-auto text-gray-400">
+                        <p className="mt-2 max-w-2xl mx-auto text-brand-light-text">
                             Bring our workshops to your school, college, workplace, or community.
                         </p>
                     </div>
@@ -91,12 +91,12 @@ const GetInvolvedPage: React.FC = () => {
                     <div className="grid lg:grid-cols-2 gap-12">
                         <div className="p-8 rounded-lg shadow-lg text-center">
                             <h2 className="text-3xl font-bold text-brand-red">3. Become a Volunteer</h2>
-                            <p className="mt-4 text-gray-400">Join our on-ground safety squadrons, contribute your skills, and be a last-mile responder in your community.</p>
+                            <p className="mt-4 text-brand-light-text">Join our on-ground safety squadrons, contribute your skills, and be a last-mile responder in your community.</p>
                             <button className="mt-6 bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">Sign Up Now</button>
                         </div>
                          <div className="p-8 rounded-lg shadow-lg text-center">
                             <h2 className="text-3xl font-bold text-brand-red">4. Partner With Us</h2>
-                            <p className="mt-4 text-gray-400">Unite with other organizations and doers. Collaborate with us to amplify our impact and create systemic change.</p>
+                            <p className="mt-4 text-brand-light-text">Unite with other organizations and doers. Collaborate with us to amplify our impact and create systemic change.</p>
                             <button className="mt-6 bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">Connect With Us</button>
                         </div>
                     </div>

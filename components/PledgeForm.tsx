@@ -36,19 +36,23 @@ export const PledgeForm: React.FC = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-xl mx-auto flex flex-col sm:flex-row gap-4">
-            <input 
-                type="text" 
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Enter your full name"
-                required
-                className="flex-grow w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-red"
-            />
-            <button 
+        <form onSubmit={handleSubmit} className="max-w-4xl mx-auto flex items-stretch gap-0">
+            <div className="flex-grow p-[2px] rounded-l-md bg-gradient-to-r from-red-600 to-[#FF0440]">
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your full name to take the pledge"
+                    required
+                    className="w-full h-full px-6 py-4 text-lg text-black border-0 rounded-l-md focus:outline-none"
+                    style={{ backgroundColor: '#e1d5d5' }}
+                />
+            </div>
+            <button
                 type="submit"
-                className="w-full sm:w-auto bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-colors shadow-md">
-                Take the Pledge
+                className="text-white px-8 py-4 text-lg font-semibold rounded-r-md transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]"
+            >
+                Pledge
             </button>
         </form>
     );

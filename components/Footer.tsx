@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SocialIcon = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-red transition-colors">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-brand-light-text hover:text-brand-red transition-colors">
         {children}
     </a>
 );
@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <div className="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-brand-light-text">
                     <p>&copy; {new Date().getFullYear()} Safety for Women Movement. All rights reserved.</p>
                 </div>
             </div>

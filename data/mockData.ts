@@ -1,6 +1,15 @@
 
 import React from 'react';
 import type { Initiative, ImpactStat, Volunteer, Program, Partner, Resource } from '../types';
+import icon1 from '@/assets/icon1.gif';
+import icon2 from '@/assets/icon2.gif';
+import icon3 from '@/assets/icon3.gif';
+import icon4 from '@/assets/icon4.gif';
+import icon5 from '@/assets/icon5.gif';
+import icon6 from '@/assets/icon6.gif';
+import icon7 from '@/assets/icon7.gif';
+import icon8 from '@/assets/icon8.gif';
+import icon9 from '@/assets/icon9.gif';
 
 // Icons for initiatives
 // Fix: Converted all icon components from JSX to React.createElement to be valid in a .ts file.
@@ -16,15 +25,15 @@ const EmpowerIcon = () => React.createElement('svg', { xmlns: "http://www.w3.org
 
 export const initiatives: Initiative[] = [
   // Fix: Converted icon JSX to React.createElement calls to be valid in a .ts file.
-  { id: 1, icon: React.createElement(AwarenessIcon), title: "Awareness Programs", description: "Workshops and training in schools, colleges, workplaces, and communities on self-defense, legal rights, and safety protocols." },
-  { id: 2, icon: React.createElement(TechIcon), title: "Tech Solutions for Safety", description: "Developing safety rating apps, running hackathons, and partnering with tech companies to innovate on women’s safety." },
-  { id: 3, icon: React.createElement(VolunteerIcon), title: "Volunteer Networks", description: "Training street-wise safety squadrons to assist communities and serve as last-mile safety responders." },
-  { id: 4, icon: React.createElement(CommunityIcon), title: "Safe & Well-Lit Communities", description: "Addressing dark spots through lighting, CCTV, and public space improvements via CSR and local partnerships." },
-  { id: 5, icon: React.createElement(PoliceIcon), title: "Citizen-Police Alliances", description: "Fostering collaborative teams for community-police engagement and training citizens to be proactive about safety." },
-  { id: 6, icon: React.createElement(SupportIcon), title: "Victim Support Systems", description: "Connecting victims to NGOs, legal, medical, and counseling support for immediate and accessible help." },
-  { id: 7, icon: React.createElement(EducationIcon), title: "Safety Education in Schools", description: "Integrating safety, consent, and respect into curricula and equipping teachers to promote safe practices." },
-  { id: 8, icon: React.createElement(AwardIcon), title: "Annual Safety Recognition Awards", description: "National awards to honor contributions and best practices in women’s safety, spotlighting changemakers." },
-  { id: 9, icon: React.createElement(EmpowerIcon), title: "Women Empowerment & Livelihood", description: "Supporting skill training, employment, and entrepreneurship to empower women with independence." },
+  { id: 1, icon: React.createElement('img', { src: icon1, alt: 'Awareness Programs' }), title: "Awareness Programs", description: "Workshops and training in schools, colleges, workplaces, and communities on self-defense, legal rights, and safety protocols." },
+  { id: 2, icon: React.createElement('img', { src: icon2, alt: 'Tech Solutions for Safety' }), title: "Tech Solutions for Safety", description: "Developing safety rating apps, running hackathons, and partnering with tech companies to innovate on women’s safety." },
+  { id: 3, icon: React.createElement('img', { src: icon3, alt: 'Volunteer Networks' }), title: "Volunteer Networks", description: "Training street-wise safety squadrons to assist communities and serve as last-mile safety responders." },
+  { id: 4, icon: React.createElement('img', { src: icon4, alt: 'Safe & Well-Lit Communities' }), title: "Safe & Well-Lit Communities", description: "Addressing dark spots through lighting, CCTV, and public space improvements via CSR and local partnerships." },
+  { id: 5, icon: React.createElement('img', { src: icon5, alt: 'Citizen-Police Alliances' }), title: "Citizen-Police Alliances", description: "Fostering collaborative teams for community-police engagement and training citizens to be proactive about safety." },
+  { id: 6, icon: React.createElement('img', { src: icon6, alt: 'Victim Support Systems' }), title: "Victim Support Systems", description: "Connecting victims to NGOs, legal, medical, and counseling support for immediate and accessible help." },
+  { id: 7, icon: React.createElement('img', { src: icon7, alt: 'Safety Education in Schools' }), title: "Safety Education in Schools", description: "Integrating safety, consent, and respect into curricula and equipping teachers to promote safe practices." },
+  { id: 8, icon: React.createElement('img', { src: icon8, alt: 'Annual Safety Recognition Awards' }), title: "Annual Safety Recognition Awards", description: "National awards to honor contributions and best practices in women’s safety, spotlighting changemakers." },
+  { id: 9, icon: React.createElement('img', { src: icon9, alt: 'Women Empowerment & Livelihood' }), title: "Women Empowerment & Livelihood", description: "Supporting skill training, employment, and entrepreneurship to empower women with independence." },
 ];
 
 export const impactStats: ImpactStat[] = [

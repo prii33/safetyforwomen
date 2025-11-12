@@ -21,12 +21,12 @@ const EventsMediaPage: React.FC = () => {
                         <div className="p-6 rounded-lg border-l-4 border-brand-red">
                             <p className="text-sm font-semibold text-brand-red">DEC 15, 2024</p>
                             <h3 className="font-bold text-brand-light mt-1 text-lg">Annual Safety Recognition Awards</h3>
-                            <p className="text-gray-400 text-sm mt-2">Virtual Event - Honoring changemakers in women's safety.</p>
+                            <p className="text-brand-light-text text-sm mt-2">Virtual Event - Honoring changemakers in women's safety.</p>
                         </div>
                         <div className="p-6 rounded-lg border-l-4 border-brand-red">
                             <p className="text-sm font-semibold text-brand-red">JAN 10, 2025</p>
                             <h3 className="font-bold text-brand-light mt-1 text-lg">Community Safety Walk - Delhi</h3>
-                            <p className="text-gray-400 text-sm mt-2">Connaught Place, New Delhi - Join us to identify and report safety hazards.</p>
+                            <p className="text-brand-light-text text-sm mt-2">Connaught Place, New Delhi - Join us to identify and report safety hazards.</p>
                         </div>
                     </div>
                 </section>
@@ -40,7 +40,7 @@ const EventsMediaPage: React.FC = () => {
                                 <img src={program.imageUrl} alt={program.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
                                 <div className="p-4">
                                     <h3 className="font-bold text-brand-light">{program.title}</h3>
-                                    <p className="text-sm text-gray-400">{program.location} - {program.date}</p>
+                                    <p className="text-sm text-brand-light-text">{program.location} - {program.date}</p>
                                 </div>
                             </div>
                         ))}
@@ -57,14 +57,14 @@ const EventsMediaPage: React.FC = () => {
                             <h2 className="text-2xl font-bold text-brand-red mb-4 text-center">Our Podcast: Safety Stories</h2>
                             <div className="flex flex-col items-center">
                                 <img src="https://picsum.photos/seed/podcast/200/200" alt="Podcast cover" className="w-40 h-40 rounded-lg shadow-lg"/>
-                                <p className="text-center text-gray-400 mt-4">Listen to inspiring stories from survivors, experts, and volunteers. Available on all major platforms.</p>
+                                <p className="text-center text-brand-light-text mt-4">Listen to inspiring stories from survivors, experts, and volunteers. Available on all major platforms.</p>
                                 <button className="mt-4 bg-brand-red text-white px-6 py-2 rounded-md font-semibold hover:bg-opacity-90">Listen Now</button>
                             </div>
                         </div>
                         <div className="p-8 rounded-lg">
                             <h2 className="text-2xl font-bold text-brand-red mb-4 text-center">Social Media Feed</h2>
                             <div className="h-64 bg-gray-700 rounded-md flex items-center justify-center">
-                                <p className="text-gray-400 font-semibold">Social media feed would be embedded here.</p>
+                                <p className="text-brand-light-text font-semibold">Social media feed would be embedded here.</p>
                             </div>
                         </div>
                     </div>
