@@ -1,15 +1,15 @@
 
 import React from 'react';
 import type { Initiative, ImpactStat, Volunteer, Program, Partner, Resource } from '../types';
-import icon1 from '@/assets/icon1.gif';
-import icon2 from '@/assets/icon2.gif';
-import icon3 from '@/assets/icon3.gif';
-import icon4 from '@/assets/icon4.gif';
-import icon5 from '@/assets/icon5.gif';
-import icon6 from '@/assets/icon6.gif';
-import icon7 from '@/assets/icon7.gif';
-import icon8 from '@/assets/icon8.gif';
-import icon9 from '@/assets/icon9.gif';
+import icon1 from '/assets/icon1.gif';
+import icon2 from '/assets/icon2.gif';
+import icon3 from '/assets/icon3.gif';
+import icon4 from '/assets/icon4.gif';
+import icon5 from '/assets/icon5.gif';
+import icon6 from '/assets/icon6.gif';
+import icon7 from '/assets/icon7.gif';
+import icon8 from '/assets/icon8.gif';
+import icon9 from '/assets/icon9.gif';
 
 // Icons for initiatives
 // Fix: Converted all icon components from JSX to React.createElement to be valid in a .ts file.
