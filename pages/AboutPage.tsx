@@ -1,6 +1,7 @@
 import React from 'react';
 import { initiatives, partners } from '../data/mockData';
 import Hero from '../components/Hero';
+import redmist from '@/assets/redmist2.mov';
 
 const AboutPage: React.FC = () => {
     return (
@@ -9,7 +10,7 @@ const AboutPage: React.FC = () => {
                 title="About the Movement"
                 subtitle="Our Story, Mission, and Vision"
                 description="A diverse, non-partisan, non-political, and pan-India collective dedicated to creating a safer nation for women."
-                videoSrc="/assets/redmist2.mp4"
+                videoSrc={redmist}
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
