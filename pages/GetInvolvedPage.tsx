@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { PledgeForm } from '../components/PledgeForm';
 import Hero from '../components/Hero';
 import redmist from '@/assets/redmist2.mov';
+import JoinButton from '../components/JoinButton';
 
 const GetInvolvedPage: React.FC = () => {
     const [request, setRequest] = useState({ name: '', email: '', organization: '', type: 'School', message: '' });
@@ -101,6 +102,11 @@ const GetInvolvedPage: React.FC = () => {
                             <button className="mt-6 bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">Connect With Us</button>
                         </div>
                     </div>
+                </section>
+
+                {/* Join the Movement */}
+                <section className="mt-16 text-center">
+                    <JoinButton />
                 </section>
 
             </div>

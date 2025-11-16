@@ -1,0 +1,38 @@
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.star-border {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 2rem;
+  background-color: #109277;
+}
+
+.star-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle),
+    #19e1b8,
+    #109277,
+    #19e1b8
+  );
+  animation: spin 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes spin {
+  to {
+    --angle: 360deg;
+  }
+}

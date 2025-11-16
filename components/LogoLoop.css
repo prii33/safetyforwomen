@@ -1,0 +1,109 @@
+.logoloop {
+  position: relative;
+  overflow: hidden;
+}
+
+.logoloop__track {
+  display: flex;
+  position: relative;
+  white-space: nowrap;
+}
+
+.logoloop__list {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+  gap: var(--logoloop-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logoloop__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--logoloop-logoHeight);
+  font-size: var(--logoloop-logoHeight);
+  line-height: 1;
+}
+
+.logoloop__link,
+.logoloop__node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.logoloop__item img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.logoloop--vertical {
+  height: 100%;
+}
+
+.logoloop--vertical .logoloop__track {
+  flex-direction: column;
+  width: 100%;
+}
+
+.logoloop--vertical .logoloop__list {
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  min-width: auto;
+}
+
+.logoloop--fade::before,
+.logoloop--fade::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+}
+
+.logoloop--horizontal.logoloop--fade::before {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 10%;
+  background: linear-gradient(to right, var(--logoloop-fadeColor, white) 0%, transparent 100%);
+}
+.logoloop--horizontal.logoloop--fade::after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10%;
+  background: linear-gradient(to left, var(--logoloop-fadeColor, white) 0%, transparent 100%);
+}
+
+.logoloop--vertical.logoloop--fade::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10%;
+  background: linear-gradient(to bottom, var(--logoloop-fadeColor, white) 0%, transparent 100%);
+}
+.logoloop--vertical.logoloop--fade::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10%;
+  background: linear-gradient(to top, var(--logoloop-fadeColor, white) 0%, transparent 100%);
+}
+
+.logoloop--scale-hover .logoloop__item {
+  transition: transform 0.2s ease-in-out;
+}
+.logoloop--scale-hover .logoloop__item:hover {
+  transform: scale(1.2);
+}

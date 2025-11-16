@@ -1,11 +1,21 @@
 import React from 'react';
-import { initiatives, partners } from '../data/mockData';
+import { partners } from '../data/mockData';
+import LogoLoop from '../components/LogoLoop';
 import Hero from '../components/Hero';
 import redmist from '@/assets/redmist2.mov';
-
+import storyBg from '../assets/story.png';
+import UNSDGSection from '../components/UNSDGSection';
 const AboutPage: React.FC = () => {
     return (
-        <div className="bg-brand-dark text-brand-light">
+        <div 
+            className="bg-brand-dark text-brand-light"
+            style={{
+                backgroundImage: `url(${storyBg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
+            }}
+        >
             <Hero
                 title="About the Movement"
                 subtitle="Our Story, Mission, and Vision"
@@ -13,11 +23,10 @@ const AboutPage: React.FC = () => {
                 videoSrc={redmist}
             />
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                <div className="mt-16 grid md:grid-cols-2 gap-16 items-center">
-                    <img src="https://picsum.photos/600/400?random=100" alt="Group of diverse people" className="rounded-lg shadow-xl" />
-                    <div>
-                        <h2 className="text-3xl font-bold text-brand-red">Our Story</h2>
+            <div className="bg-black bg-opacity-50">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="p-6 rounded-lg text-left">
+                        <h2 className="text-4xl font-bold text-brand-red tracking-wide">Our Story</h2>
                         <p className="mt-4 text-brand-light-text">
                             Born from the urgent need for change following tragic gender-based violence incidents, the Safety for Women Movement transforms distress and outrage into meaningful action. Uniting members from all backgrounds, we focus on practical solutions, community collaboration, and sustainable impact.
                         </p>
@@ -26,50 +35,43 @@ const AboutPage: React.FC = () => {
                         </p>
                     </div>
                 </div>
+            </div>
 
-                <div className="mt-20">
-                    <h2 className="text-3xl font-bold text-center text-brand-red">Our Core Objectives</h2>
-                    <div className="mt-10 grid gap-8 md:grid-cols-3">
-                        {initiatives.map(item => (
-                            <div key={item.id} className="bg-brand-grid-bg p-6 rounded-lg">
-                                <div className="flex items-center space-x-4">
-                                    <div className="flex-shrink-0 text-brand-red">{item.icon}</div>
-                                    <h3 className="text-2xl font-semibold text-brand-red">{item.title}</h3>
-                                </div>
-                                <p className="mt-3 text-sm text-brand-light-text">{item.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="mt-20 text-center">
-                    <h2 className="text-3xl font-bold text-brand-red">Aligned with UN SDGs</h2>
-                    <p className="mt-4 text-brand-light-text">We are committed to advancing the UN Sustainable Development Goals, particularly:</p>
-                    <div className="flex justify-center space-x-8 mt-6">
-                        <div className="text-center">
-                            <div className="w-24 h-24 bg-brand-red text-white flex items-center justify-center rounded-full mx-auto font-bold text-lg">Goal 5</div>
-                            <p className="mt-2 font-semibold">Gender Equality</p>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+                <div className="mt-10">
+                    <div className="grid gap-8 md:grid-cols-3">
+                        <div className="p-6 rounded-lg text-left">
+                            <p className="text-sm font-semibold text-brand-red tracking-widest">WHAT WE DO</p>
+                            <h3 className=" text-4xl font-bold ">Our Mission</h3>
+                            <p className="mt-4 text-brand-light-text">Our goal is to convert emotional distress into concrete actions that ensure real and lasting change for women’s safety. We seek to channel our grief, anger, and frustration into productive efforts. While recognizing the ideals of what ‘can be,’ ‘should be,’ and ‘must be,’ we are dedicated to the practical question: ‘how can it be changed?’</p>
                         </div>
-                        <div className="text-center">
-                             <div className="w-24 h-24 bg-brand-red text-white flex items-center justify-center rounded-full mx-auto font-bold text-lg">Goal 11</div>
-                            <p className="mt-2 font-semibold">Sustainable Cities</p>
+                        <div className="p-6 rounded-lg text-left">
+                            <p className="text-sm font-semibold text-brand-red tracking-widest">WHAT WE ASPIRE TO BE</p>
+                            <h3 className="mt-2 text-4xl font-bold">Our Vision</h3>
+                            <p className="mt-4 text-brand-light-text">Identify the steps to drive change by engaging key stakeholders. Research and gather data to understand the current state and identify gaps. Develop strategies and implement solutions to address these gaps. Explore methods for lasting change. Focusing on the “how” turns our vision into concrete actions and creates meaningful impact.</p>
                         </div>
-                        <div className="text-center">
-                            <div className="w-24 h-24 bg-brand-red text-white flex items-center justify-center rounded-full mx-auto font-bold text-lg">Goal 16</div>
-                            <p className="mt-2 font-semibold">Peace & Justice</p>
+                        <div className="p-6 rounded-lg text-left">
+                            <p className="text-sm font-semibold text-brand-red tracking-widest">WHAT GUIDES US</p>
+                            <h3 className="mt-2 text-4xl font-bold ">Our Values</h3>
+                            <p className="mt-4 text-brand-light-text">We are non-political, non-religious, non-partisan, and do not engage in monetary transactions or accept donations. Our belief is in driving change through direct action.</p>
                         </div>
                     </div>
                 </div>
 
-                <div className="mt-20">
-                    <h2 className="text-3xl font-bold text-center text-brand-red">Our Partners & Collaborators</h2>
-                    <p className="mt-4 text-center max-w-2xl mx-auto text-brand-light-text">We are grateful for the support of organizations who share our vision for a safer India.</p>
-                    <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-                        {partners.map(partner => (
-                            <div key={partner.name} className="flex justify-center">
-                                <img src={partner.logoUrl} alt={partner.name} className="h-16 object-contain" />
-                            </div>
-                        ))}
+                <UNSDGSection />
+
+                <div className="mt-10 text-center">
+                    <h2 className="text-4xl font-bold text-brand-red">Our Partners & Collaborators</h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-brand-light-text">We are grateful for the support of organizations who share our vision for a safer India.</p>
+                    <div className="mt-10">
+                        <LogoLoop
+                            logos={[...partners.map(p => ({ src: p.logoUrl, alt: p.name })), { src: '/assets/icon8.gif', alt: 'icon8' }]}
+                            speed={100}
+                            direction="left"
+                            logoHeight={64}
+                            gap={40}
+                            fadeOut
+                        />
                     </div>
                 </div>
 
