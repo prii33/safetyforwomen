@@ -1,5 +1,4 @@
 import React from 'react';
-import StaggeredText from './StaggeredText';
 
 interface HeroProps {
   title: string;
@@ -23,11 +22,11 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc }) =
       </video>
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-7xl font-extrabold text-white tracking-tight">
-          <span className="block font-semibold text-xl uppercase tracking-widest"><StaggeredText>{title}</StaggeredText></span>
-          <span className="block text-brand-red"><StaggeredText>{subtitle}</StaggeredText></span>
+          <span className="block font-semibold text-xl uppercase tracking-widest">{title}</span>
+          <span className="block text-brand-red">{subtitle}</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
-          <StaggeredText>{description}</StaggeredText>
+          {description}
         </p>
       </div>
     </section>
