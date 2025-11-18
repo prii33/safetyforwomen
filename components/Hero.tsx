@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
             muted
             playsInline
             className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
-            style={{ opacity: 0.5 }}
+            style={{ opacity: 0.7 }}
           >
             <source src={videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
@@ -78,7 +78,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
         muted
         playsInline
         className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
-        style={{ opacity: 0.5 }}
+        style={{ opacity: 0.7 }}
       >
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
