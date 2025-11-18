@@ -1,10 +1,9 @@
 
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import video from '@/assets/smoke2.mp4';
-import image from '@/assets/image3.png';
-import pledgebk from '@/assets/pledgebk.jpg';
+import Hero from '../components/Hero';
+import image3 from '@/assets/image3.png';
 import pledge from '@/assets/pledge.png';
 import AnimatedSection from '../components/AnimatedSection';
 import FloatingSocialIcons from '../components/FloatingSocialIcons';
@@ -18,6 +17,8 @@ import icon6 from '../assets/icon6.gif';
 import icon7 from '../assets/icon7.gif';
 import icon8 from '../assets/icon8.gif';
 import icon9 from '../assets/icon9.gif';
+import JoinSection from '../components/JoinSection';
+import '../components/JoinSection.css';
 
 
 const HomePage: React.FC = () => {
@@ -77,82 +78,54 @@ const HomePage: React.FC = () => {
             return {
                 transform: 'scale(0.95)',
                 top: `${top}rem`,
-                transformOrigin: 'top center'
+                transformOrigin: 'top center',
+                opacity: 0
             };
         }
 
-        const animationDistance = window.innerHeight * 0.75;
-        const animationStart = sectionTop + (index * animationDistance * 0.5);
+        const animationDistance = window.innerHeight * 0.4;
+        const animationStart = sectionTop - window.innerHeight / 2;
 
         const progress = Math.max(0, Math.min(1, (scrollY - animationStart) / animationDistance));
-        const scale = 0.95 + progress * 0.05;
+        let scale = 0.95 + progress * 0.05;
+        const opacity = progress;
+
+        const zoomOutStart = animationStart + animationDistance;
+        const zoomOutDistance = window.innerHeight * 0.5;
+        if (scrollY > zoomOutStart) {
+            const zoomOutProgress = Math.min(1, (scrollY - zoomOutStart) / zoomOutDistance);
+            scale = 1 - zoomOutProgress * 0.05;
+        }
 
         return {
             transform: `scale(${scale})`,
             top: `${top}rem`,
-            transformOrigin: 'top center'
+            transformOrigin: 'top center',
+            opacity: opacity
         };
     };
-    const { scrollYProgress } = useScroll({
-        target: heroRef,
-        offset: ['start start', 'end start'],
-    });
-
-    const xText = useTransform(scrollYProgress, [0, 1], ['0%', '-500%']);
-    const xButtons = useTransform(scrollYProgress, [0, 1], ['0%', '500%']);
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
-    const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
-
     return (
         <div className="bg-brand-dark">
             <FloatingSocialIcons />
-            {/* Hero Section */}
-            <section ref={heroRef} className="relative h-screen flex items-center justify-center text-center overflow-hidden">
-                <motion.div className="absolute inset-0 z-0" style={{ scale }}>
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        className="absolute z-0 w-auto min-w-full min-h-full max-w-none"
-                    >
-                        <source src={video} type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                    <div 
-                        className="absolute top-0 left-0 w-full h-full z-0"
-                        style={{ 
-                            backgroundImage: `url(${image})`, 
-                            backgroundAttachment: 'fixed',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'cover',
-                            opacity: 0.30 
-                        }}
-                    ></div>
-                </motion.div>
-                <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <motion.div style={{ x: xText, opacity }}>
-                        <h1 className="text-4xl md:text-7xl font-extrabold text-white tracking leading-loose">
-                            <span className="block">One Voice, One Mission</span>
-                            <span className="block text-brand-red">A Safer India for Women</span>
-                        </h1>
-                        <div className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">
-                            Join our diverse, pan-India collective dedicated to transforming distress into meaningful action and building a nation where every woman feels secure.
-                        </div>
-                    </motion.div>
-                    <motion.div style={{ x: xButtons }} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link to="/get-involved" className="w-full sm:w-auto text-white px-8 py-3 rounded-3xl text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]">
-                            Join the Movement
-                        </Link>
-                        <Link to="/impact" className="w-full sm:w-auto bg-transparent text-[#FF0440] border border-[#FF0440] px-8 py-3 rounded-3xl text-lg font-semibold hover:bg-[#FF0440] hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg">
-                            See Our Impact
-                        </Link>
-                    </motion.div>
+            <Hero
+                title="One Voice, One Mission"
+                subtitle="A Safer India for Women"
+                description="Join our diverse, pan-India collective dedicated to transforming distress into meaningful action and building a nation where every woman feels secure."
+                videoSrc={video}
+                scrollY={scrollY}
+                isAnimated={true}
+                imageSrc={image3}
+            >
+                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <Link to="/get-involved" className="w-full sm:w-auto text-white px-8 py-3 rounded-3xl text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]">
+                        Join the Movement
+                    </Link>
+                    <Link to="/impact" className="w-full sm:w-auto bg-transparent text-[#FF0440] border border-[#FF0440] px-8 py-3 rounded-3xl text-lg font-semibold hover:bg-[#FF0440] hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg">
+                        See Our Impact
+                    </Link>
                 </div>
-            </section>
+            </Hero>
             
-            <LogoCloud />
-
             {/* Our Mission Section */}
             <section ref={sectionRef} className="relative py-20 sm:py-28 px-4 md:px-8" style={{ backgroundColor: '#0a0a0a' }}>
                 <div className="container mx-auto">
@@ -160,8 +133,6 @@ const HomePage: React.FC = () => {
                         <div 
                             className="absolute inset-0"
                             style={{
-                                backdropFilter: 'blur(10px)',
-                                WebkitBackdropFilter: 'blur(10px)',
                                 backgroundColor: 'rgba(10, 10, 10, 0.8)',
                                 zIndex: -1,
                             }}
@@ -182,12 +153,14 @@ const HomePage: React.FC = () => {
                             style={getCardStyle(index)}
                         >
                             <div className="bg-[#000000] p-8 sm:p-12 s:p-20 rounded-[80px] border-2 border-[#724b4b54] flex flex-col md:flex-row items-center gap-8">
-                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <img src={value.icon} alt={value.title} className="w-16 h-16 text-white" />
+                                <div className="w-24 h-24 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <img src={value.icon} alt={value.title} className="w-24 h-24 text-white" />
                                 </div>
                                 <div className="md:ml-8 w-full">
-                                    <h3 className="font-semibold text-2xl md:text-4xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">{value.title}</h3>
-                                    <p className="mt-4 text-[#6f6f6f] text-base md:text-lg max-w-l">{value.description}</p>
+                                    <div className="flex items-baseline gap-x-4">
+                                      <h3 className="font-semibold text-2xl md:text-4xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">{value.title}</h3>
+                                      <p className="text-[#6f6f6f] text-base md:text-lg max-w-l">{value.description}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -195,6 +168,8 @@ const HomePage: React.FC = () => {
                 </div>
             </section>
 
+            <JoinSection />
+            <LogoCloud />
         </div>
     );
 };
