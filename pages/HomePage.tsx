@@ -153,8 +153,8 @@ const HomePage: React.FC = () => {
                             style={getCardStyle(index)}
                         >
                             <div className="bg-[#000000] p-8 sm:p-12 s:p-20 rounded-[80px] border-2 border-[#724b4b54] flex flex-col md:flex-row items-center gap-8">
-                                <div className="w-24 h-24 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <img src={value.icon} alt={value.title} className="w-24 h-24 text-white" />
+                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <img src={value.icon} alt={value.title} className="w-16 h-16 text-white" />
                                 </div>
                                 <div className="md:ml-8 w-full">
                                     <div className="flex items-baseline gap-x-4">
