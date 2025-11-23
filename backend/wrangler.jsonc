@@ -1,0 +1,12 @@
+{
+  "name": "safety-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-09-23",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pledge",
+      "database_id": "fa43f490-345b-4c00-b5ef-566494ecdc66"
+    }
+  ]
+}
