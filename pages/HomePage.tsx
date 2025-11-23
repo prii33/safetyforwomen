@@ -19,6 +19,7 @@ import icon8 from '../assets/icon8.gif';
 import icon9 from '../assets/icon9.gif';
 import JoinSection from '../components/JoinSection';
 import '../components/JoinSection.css';
+import UNSDGSection from '../components/UNSDGSection';
 
 
 const HomePage: React.FC = () => {
@@ -146,20 +147,21 @@ const HomePage: React.FC = () => {
                             </p>
                         </div>
                     </div>
+                    <div className="h-[15vh]"></div>
                     {values.map((value, index) => (
                         <div
                             key={index}
                             className="sticky"
                             style={getCardStyle(index)}
                         >
-                            <div className="bg-[#000000] p-8 sm:p-12 s:p-20 rounded-[80px] border-2 border-[#724b4b54] flex flex-col md:flex-row items-center gap-8">
+                            <div className="bg-[#000000] p-8 sm:p-12 s:p-20 rounded-[80px] border-2 border-[#724b4b54] hover:border-[#ff0440] transition-colors duration-300 flex flex-col md:flex-row items-center gap-8">
                                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0">
                                     <img src={value.icon} alt={value.title} className="w-16 h-16 text-white" />
                                 </div>
                                 <div className="md:ml-8 w-full">
                                     <div className="flex items-baseline gap-x-4">
                                       <h3 className="font-semibold text-2xl md:text-4xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">{value.title}</h3>
-                                      <p className="text-[#6f6f6f] text-base md:text-lg max-w-l">{value.description}</p>
+                                      <p className="text-[#e1d5d5] text-base md:text-lg max-w-l">{value.description}</p>
                                     </div>
                                 </div>
                             </div>
@@ -169,6 +171,7 @@ const HomePage: React.FC = () => {
             </section>
 
             <JoinSection />
+            <UNSDGSection />
             <LogoCloud />
         </div>
     );

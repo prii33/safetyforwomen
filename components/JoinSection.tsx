@@ -79,7 +79,7 @@ const JoinSection = () => {
 
   }, []);
 
-  const numRows = 10;
+  const numRows = 12;
   const numCols = 10;
   
   const getGridContainerStyle = (): React.CSSProperties => {
@@ -132,20 +132,20 @@ const JoinSection = () => {
           {Array.from({ length: numRows }).map((_, rowIndex) => (
             <div 
               key={rowIndex} 
-              className={`flex-1 flex items-center overflow-hidden py-4`}
+              className={`flex-1 flex items-center overflow-hidden`}
             >
               <div 
-                className={`flex w-full ${rowIndex % 2 === 0 ? 'animate-scroll-right' : 'animate-scroll-left'}`}
+                className={`flex w-fit ${rowIndex % 2 === 0 ? 'animate-scroll-right' : 'animate-scroll-left'}`}
               >
                 {/* Render twice for seamless loop */}
                 {Array.from({ length: numCols * 2 }).map((_, colIndex) => {
                   const itemIndex = rowIndex * numCols + (colIndex % numCols);
                   const isMissionText = itemIndex % 2 === 0;
-                  const textSizeClass = isMissionText ? 'text-3xl uppercase font-bold tracking-[0.3em]' : 'text-xl';
+                  const textSizeClass = isMissionText ? 'font-semibold text-2xl uppercase tracking-[0.5em]' : 'text-xl';
                   return (
                     <div
                       key={`${rowIndex}-${colIndex}`}
-                      className={`w-[25vw] h-full flex-shrink-0 rounded-2xl m-1 flex justify-center items-center text-black font-medium transition-all duration-500 ease-out px-2 text-center ${textSizeClass}`}
+                      className={`w-auto h-full flex-shrink-0 rounded-2xl mx-4 flex justify-center items-center text-black font-medium transition-all duration-500 ease-out px-4 text-center ${textSizeClass}`}
                       style={getGridItemStyle(itemIndex)}
                     >
                       {isMissionText ? "ONE VOICE, ONE MISSION" : "Take the Safety Pledge"}
@@ -160,11 +160,13 @@ const JoinSection = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-black"
           style={getFinalContentStyle()}
         >
-          <h1 className="text-4xl sm:text-6xl font-bold whitespace-nowrap">Let's Act for<br/>Women's Safety. Together.</h1>
-          <h1 className="text-2xl sm:text-2xl font-bold whitespace-nowrap">Take the Safety Pledge<br/>Women's Safety. Together.</h1>
-          <h1 className="text-2xl sm:text- font-bold whitespace-nowrap">Take the Safety Pledge<br/>Women's Safety. Together.</h1>
-          <button className="mt-6 py-2 px-8 rounded-full border border-black bg-black text-white text-lg">
-            Join
+          <h1 className="text-4xl sm:text-6xl font-bold whitespace-nowrap leading-tight">Let's Act for Women's <br></br>Safety. Together.</h1>
+          <p className="text-lg sm:text-xl mt-4" style={{ color: '#000000' }}>
+            Commit to being an active part of the solution. Your pledge is a promise to stand for safety, respect, and equality.
+          </p>
+        
+          <button className="mt-8 py-3 px-10 rounded-full border border-black bg-black text-white text-xl font-semibold transition-transform transform hover:scale-105">
+            Join the Movement
           </button>
         </div>
       </div>

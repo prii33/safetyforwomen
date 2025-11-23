@@ -4,7 +4,6 @@ import LogoLoop from '../components/LogoLoop';
 import Hero from '../components/Hero';
 import redmist from '@/assets/redmist2.mov';
 import storyBg from '../assets/story.png';
-import UNSDGSection from '../components/UNSDGSection';
 const AboutPage: React.FC = () => {
     return (
         <div 
@@ -58,15 +57,13 @@ const AboutPage: React.FC = () => {
                     </div>
                 </div>
 
-                <UNSDGSection />
-
                 <div className="mt-10 text-center">
                     <h2 className="text-4xl font-bold text-brand-red">Our Partners & Collaborators</h2>
                     <p className="mt-4 max-w-2xl mx-auto text-brand-light-text">We are grateful for the support of organizations who share our vision for a safer India.</p>
                     <div className="mt-10">
                         <LogoLoop
                             logos={[...partners.map(p => ({ src: p.logoUrl, alt: p.name })), { src: '/assets/icon8.gif', alt: 'icon8' }]}
-                            speed={100}
+                            speed={50}
                             direction="left"
                             logoHeight={64}
                             gap={40}

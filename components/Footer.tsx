@@ -13,21 +13,54 @@ const TwitterIcon = () => <svg className="w-6 h-6" fill="currentColor" viewBox="
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-brand-dark text-white">
-            <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-wrap justify-center items-center text-center gap-x-8 gap-y-2 mb-6">
-                    <Link to="/about" className="hover:text-brand-red text-sm">About Us</Link>
-                    <Link to="/impact" className="hover:text-brand-red text-sm">Our Impact</Link>
-                    <Link to="/get-involved" className="hover:text-brand-red text-sm">Get Involved</Link>
-                    <Link to="/resources" className="hover:text-brand-red text-sm">Resources</Link>
-                    <a href="#" className="hover:text-brand-red text-sm">Request a Program</a>
-                    <a href="#" className="hover:text-brand-red text-sm">Join as Volunteer</a>
-                    <a href="#" className="hover:text-brand-red text-sm">Partner with Us</a>
+        <footer className="bg-brand-dark text-white py-16 border-t border-gray-900">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                    {/* Column 1: Brand Info */}
+                    <div className="space-y-4">
+                        <h3 className="text-2xl font-bold text-white">
+                            Safety for Women <span className="text-brand-red">Movement</span>
+                        </h3>
+                        <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+                            Dedicated to transforming distress into meaningful action. Join our diverse, pan-India collective to build a nation where every woman feels secure.
+                        </p>
+                    </div>
+
+                    {/* Column 2: Quick Links */}
+                    <div className="space-y-4">
+                        <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                            <li><Link to="/about" className="hover:text-brand-red transition-colors">About Us</Link></li>
+                            <li><Link to="/impact" className="hover:text-brand-red transition-colors">Our Impact</Link></li>
+                            <li><Link to="/get-involved" className="hover:text-brand-red transition-colors">Get Involved</Link></li>
+                            <li><Link to="/resources" className="hover:text-brand-red transition-colors">Resources</Link></li>
+                            <li><a href="#" className="hover:text-brand-red transition-colors">Request a Program</a></li>
+                            <li><a href="#" className="hover:text-brand-red transition-colors">Join as Volunteer</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Column 3: Connect */}
+                    <div className="space-y-4">
+                        <h3 className="text-lg font-semibold text-white">Connect With Us</h3>
+                        <p className="text-gray-400 text-sm">
+                            Email: <a href="mailto:teamsafetyforwomen@gmail.com" className="hover:text-brand-red transition-colors">teamsafetyforwomen@gmail.com</a>
+                        </p>
+                        <div className="flex space-x-4 pt-2">
+                            <SocialIcon href="#"><FacebookIcon /></SocialIcon>
+                            <SocialIcon href="#"><InstagramIcon /></SocialIcon>
+                            <SocialIcon href="#"><TwitterIcon /></SocialIcon>
+                        </div>
+                        <div className="pt-4">
+                            <a href="#" className="text-xs text-gray-500 hover:text-gray-300 mr-4">Privacy Policy</a>
+                            <a href="#" className="text-xs text-gray-500 hover:text-gray-300">Terms of Service</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="text-center text-sm text-gray-500">
-                    <p className="mb-2">Email: <a href="mailto:teamsafetyforwomen@gmail.com" className="hover:text-brand-red">teamsafetyforwomen@gmail.com</a></p>
-                    <p>&copy; {new Date().getFullYear()} Safety for Women Movement. All rights reserved.</p>
+                <div className="border-t border-gray-800 pt-8 text-center">
+                    <p className="text-sm text-gray-500">
+                        &copy; {new Date().getFullYear()} Safety for Women Movement. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>

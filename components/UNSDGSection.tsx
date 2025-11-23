@@ -12,27 +12,24 @@ const UNSDGSection: React.FC = () => {
                 <div className="unsdg-content">
                     <div className="unsdg-text">
                         <h2 className="text-4xl font-bold">Aligned with UN SDGs</h2>
-                        <img src={ungoalslogo} alt="UN Sustainable Development Goals" className="mt-4" />
+                        <img src={ungoalslogo} alt="UN Sustainable Development Goals" className="mt-4 un-main-logo" />
                     </div>
                     <div className="unsdg-goals">
                         <div className="goal-card goal-5">
                             <div className="goal-card-content">
-                                <span className="goal-number">5</span>
-                                <span className="goal-title">GENDER EQUALITY</span>
+                               
                                 <img src={goal5logo} alt="Gender Equality" className="goal-icon" />
                             </div>
                         </div>
                         <div className="goal-card goal-11">
                             <div className="goal-card-content">
-                                <span className="goal-number">11</span>
-                                <span className="goal-title">SUSTAINABLE CITIES AND COMMUNITIES</span>
+                               
                                 <img src={goal11logo} alt="Sustainable Cities and Communities" className="goal-icon" />
                             </div>
                         </div>
                         <div className="goal-card goal-16">
                             <div className="goal-card-content">
-                                <span className="goal-number">16</span>
-                                <span className="goal-title">PEACE, JUSTICE AND STRONG INSTITUTIONS</span>
+                               
                                 <img src={goal16logo} alt="Peace, Justice and Strong Institutions" className="goal-icon" />
                             </div>
                         </div>
