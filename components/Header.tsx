@@ -34,8 +34,8 @@ const Header: React.FC = () => {
                         </div>
                     </div>
                     <div className="hidden md:flex items-center space-x-4">
-                        <a href="tel:112" className="group relative inline-flex items-center justify-center p-[3px] overflow-hidden rounded-full font-bold text-black transition-all duration-300 ease-in-out hover:scale-105 star-border">
-                            <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-gradient-to-br from-[#19e1b8] to-[#10b981] rounded-full group-hover:bg-opacity-90 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(25,225,184,0.3)]">
+                        <a href="tel:112" className="group relative inline-flex items-center justify-center p-[2px] overflow-hidden rounded-full font-bold text-black transition-all duration-300 ease-in-out hover:scale-105 star-border">
+                            <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-gradient-to-br from-[#19e1b8] to-[#10b981] rounded-full group-hover:bg-opacity-90 shadow-[inset_0_-4px_6px_rgba(0,0,0,0.3),0_8px_16px_rgba(25,225,184,0.4)]">
                                 Call 112
                             </span>
                         </a>

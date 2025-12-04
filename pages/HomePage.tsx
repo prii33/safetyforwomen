@@ -176,7 +176,9 @@ const HomePage: React.FC = () => {
 
             <JoinSection />
             <UNSDGSection />
-            <LogoCloud />
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+                <LogoCloud />
+            </div>
             <GoToTopButton />
         </div>
     );

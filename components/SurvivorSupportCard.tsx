@@ -5,63 +5,62 @@ import type { Resource } from '../types';
 const SurvivorSupportCard: React.FC<{ resource: Resource }> = ({ resource }) => {
     return (
         <motion.div 
-            className="relative h-80 overflow-hidden rounded-3xl bg-[#0d0202] border border-brand-maroon group cursor-pointer"
-            initial="closed"
-            whileHover="open"
+            className="group relative h-96 overflow-hidden rounded-3xl bg-neutral-900 border border-white/10 shadow-2xl cursor-pointer"
+            whileHover={{ y: -5 }}
+            transition={{ duration: 0.3 }}
         >
-            {/* Content Layer (Revealed on hover) */}
-            <div className="absolute inset-0 p-8 flex flex-col justify-center bg-[#0d0202]/90">
-                <h3 className="text-2xl font-bold text-[#DC2626] mb-3 leading-tight">{resource.title}</h3>
-                <p className="text-brand-dull-white text-sm mb-6 leading-relaxed">
-                    {resource.description}
-                </p>
-                <a 
-                    href={resource.link} 
-                    className="flex items-center text-white text-sm font-semibold group-hover:text-[#DC2626] transition-colors"
-                >
-                    Learn More 
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                </a>
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                {resource.image ? (
+                    <img 
+                        src={resource.image} 
+                        alt={resource.title} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-50"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-black" />
+                )}
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-95" />
             </div>
 
-            {/* Cover Layer (Slides right on hover) */}
-            <motion.div 
-                className="absolute inset-0 z-10"
-                variants={{
-                    closed: { x: 0 },
-                    open: { x: "85%" }
-                }}
-                transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }} // Cubic bezier for smooth sliding
-            >
-                <div className="relative w-full h-full bg-[#1a0505]">
-                     {/* Image with overlay */}
-                    {resource.image && (
-                        <div className="absolute inset-0">
-                            <img 
-                                src={resource.image} 
-                                alt={resource.title} 
-                                className="w-full h-full object-cover opacity-60 sepia group-hover:sepia-0 transition-all duration-500"
-                            />
-                            <div className="absolute inset-0 bg-black/40" />
+            {/* Content Container */}
+            <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
+                <div className="transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors duration-300">
+                        {resource.title}
+                    </h3>
+                    
+                    {/* Animated Accent Line */}
+                    <div className="h-1 w-12 bg-brand-red rounded-full mb-4 transition-all duration-500 ease-out group-hover:w-full" />
+                    
+                    {/* Description - Hidden initially, revealed on hover */}
+                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500">
+                        <div className="overflow-hidden">
+                             <p className="text-gray-300 text-sm mb-6 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                {resource.description}
+                            </p>
+                            
+                            <a 
+                                href={resource.link} 
+                                className="inline-flex items-center text-white text-sm font-semibold hover:text-brand-red transition-colors group/link"
+                            >
+                                Learn More 
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transform transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
                         </div>
-                    )}
-                    
-                    {/* Title on Cover (Visible initially) */}
-                    <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/90 to-transparent">
-                        <h3 className="text-2xl font-bold text-white mb-2">{resource.title}</h3>
-                        <div className="w-12 h-1 bg-[#DC2626] rounded-full mt-2" />
-                    </div>
-                    
-                    {/* Visual hint to slide/open */}
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 text-white/50 animate-pulse hidden group-hover:block">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
                     </div>
                 </div>
-            </motion.div>
+            </div>
+            
+            {/* Top Right Decorative Icon */}
+            <div className="absolute top-6 right-6 p-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+            </div>
         </motion.div>
     );
 };
