@@ -14,7 +14,7 @@ const EventsMediaPage: React.FC = () => {
                 videoSrc={redmist}
             />
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-14">
                 {/* Upcoming Events */}
                 <section className="mt-16">
                     <h2 className="text-3xl font-bold text-brand-red text-center mb-8">Upcoming Events</h2>
@@ -64,7 +64,7 @@ const EventsMediaPage: React.FC = () => {
                         </div>
                         <div className="p-8 rounded-lg">
                             <h2 className="text-2xl font-bold text-brand-red mb-4 text-center">Social Media Feed</h2>
-                            <div className="h-64 bg-gray-700 rounded-md flex items-center justify-center">
+                            <div className="h-64 bg-brand-maroon rounded-md flex items-center justify-center">
                                 <p className="text-brand-light-text font-semibold">Social media feed would be embedded here.</p>
                             </div>
                         </div>
@@ -78,7 +78,7 @@ const EventsMediaPage: React.FC = () => {
                         {pressCoverage.map(item => (
                             <a key={item.outlet} href={item.link} className="block p-4 rounded-lg hover:bg-brand-red/10 transition-colors">
                                 <p className="font-semibold text-brand-light">{item.title}</p>
-                                <p className="text-sm text-gray-500">{item.outlet} - {item.date}</p>
+                                <p className="text-sm text-brand-dull-white">{item.outlet} - {item.date}</p>
                             </a>
                         ))}
                     </div>

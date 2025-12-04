@@ -79,7 +79,7 @@ const JoinSection = () => {
 
   }, []);
 
-  const numRows = 12;
+  const numRows = 14;
   const numCols = 10;
   
   const getGridContainerStyle = (): React.CSSProperties => {
@@ -160,9 +160,9 @@ const JoinSection = () => {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-black"
           style={getFinalContentStyle()}
         >
-          <h1 className="text-4xl sm:text-6xl font-bold whitespace-nowrap leading-tight">Let's Act for Women's <br></br>Safety. Together.</h1>
+          <h1 className="text-4xl sm:text-6xl font-bold whitespace-nowrap leading-tight" style={{ color: '#000000' }}>Let's Act for Women's <br></br>Safety. Together.</h1>
           <p className="text-lg sm:text-xl mt-4" style={{ color: '#000000' }}>
-            Commit to being an active part of the solution. Your pledge is a promise to stand for safety, respect, and equality.
+            Commit to being an active part of the solution. <br></br>Your pledge is a promise to stand for safety, respect, and equality.
           </p>
         
           <button className="mt-8 py-3 px-10 rounded-full border border-black bg-black text-white text-xl font-semibold transition-transform transform hover:scale-105">

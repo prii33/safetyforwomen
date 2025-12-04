@@ -10,6 +10,9 @@ import icon6 from '/assets/icon6.gif';
 import icon7 from '/assets/icon7.gif';
 import icon8 from '/assets/icon8.gif';
 import icon9 from '/assets/icon9.gif';
+import bk1 from '@/assets/bk1.jpg';
+import bk2 from '@/assets/bk2.jpg';
+import pledge from '@/assets/pledge.png';
 
 // Icons for initiatives
 // Fix: Converted all icon components from JSX to React.createElement to be valid in a .ts file.
@@ -91,9 +94,9 @@ export const partners: Partner[] = [
 ];
 
 export const survivorSupport: Resource[] = [
-    { title: "National Commission for Women", description: "A statutory body for advising the government on all policy matters affecting women.", link: "#" },
-    { title: "Women's Helpline (181)", description: "A 24/7 toll-free helpline for women in distress.", link: "tel:181" },
-    { title: "Local NGO Directory", description: "Find verified local NGOs providing legal, medical, and counseling support.", link: "#" },
+    { title: "National Commission for Women", description: "A statutory body for advising the government on all policy matters affecting women.", link: "#", image: bk1 },
+    { title: "Women's Helpline (181)", description: "A 24/7 toll-free helpline for women in distress.", link: "tel:181", image: bk2 },
+    { title: "Local NGO Directory", description: "Find verified local NGOs providing legal, medical, and counseling support.", link: "#", image: pledge },
 ];
 
 export const pressCoverage = [

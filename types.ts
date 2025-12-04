@@ -32,6 +32,7 @@ export interface Resource {
     title: string;
     description: string;
     link: string;
+    image?: string;
 }
 
 export interface Partner {

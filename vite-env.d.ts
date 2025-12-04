@@ -22,3 +22,8 @@ declare module '*.mov' {
     const src: string;
     export default src;
 }
+
+declare module '*.webp' {
+    const value: any;
+    export default value;
+}

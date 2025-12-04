@@ -42,7 +42,7 @@ const StaggeredText: React.FC<StaggeredTextProps> = ({ text, className }) => {
 
   return (
     <motion.div
-      style={{ overflow: 'hidden', display: 'flex' }}
+      style={{ display: 'flex' }}
       variants={container}
       initial="hidden"
       animate="visible"

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import video from '@/assets/smoke2.mp4';
 import Hero from '../components/Hero';
 import image3 from '@/assets/image3.png';
+import slide1 from '@/assets/slide1.webp';
+import slide2 from '@/assets/slide2.webp';
+import slide3 from '@/assets/slide3.webp';
 import pledge from '@/assets/pledge.png';
 import AnimatedSection from '../components/AnimatedSection';
 import FloatingSocialIcons from '../components/FloatingSocialIcons';
@@ -20,6 +23,7 @@ import icon9 from '../assets/icon9.gif';
 import JoinSection from '../components/JoinSection';
 import '../components/JoinSection.css';
 import UNSDGSection from '../components/UNSDGSection';
+import GoToTopButton from '../components/GoToTopButton';
 
 
 const HomePage: React.FC = () => {
@@ -115,7 +119,7 @@ const HomePage: React.FC = () => {
                 videoSrc={video}
                 scrollY={scrollY}
                 isAnimated={true}
-                imageSrc={image3}
+                slideImages={[slide1, slide2, slide3]}
             >
                 <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Link to="/get-involved" className="w-full sm:w-auto text-white px-8 py-3 rounded-3xl text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]">
@@ -160,7 +164,7 @@ const HomePage: React.FC = () => {
                                 </div>
                                 <div className="md:ml-8 w-full">
                                     <div className="flex items-baseline gap-x-4">
-                                      <h3 className="font-semibold text-2xl md:text-4xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">{value.title}</h3>
+                                      <h3 className="font-semibold text-2xl md:text-3xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white">{value.title}</h3>
                                       <p className="text-[#e1d5d5] text-base md:text-lg max-w-l">{value.description}</p>
                                     </div>
                                 </div>
@@ -173,6 +177,7 @@ const HomePage: React.FC = () => {
             <JoinSection />
             <UNSDGSection />
             <LogoCloud />
+            <GoToTopButton />
         </div>
     );
 };

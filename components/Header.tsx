@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import logo from '/assets/logo1.png';
+import logo from '/assets/sfwlogo.png';
 import './Header.css';
 
 const NavLinks = () => (
     <>
-        <NavLink to="/" className={({ isActive }) => `px-4 py-2 rounded-md text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Home</NavLink>
-        <NavLink to="/about" className={({ isActive }) => `px-4 py-2 rounded-md text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>About Us</NavLink>
-        <NavLink to="/impact" className={({ isActive }) => `px-4 py-2 rounded-.md text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Our Impact</NavLink>
-        <NavLink to="/resources" className={({ isActive }) => `px-4 py-2 rounded-md text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Resources</NavLink>
-        <NavLink to="/events-media" className={({ isActive }) => `px-4 py-2 rounded-md text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Events & Media</NavLink>
-        <NavLink to="/get-involved" className={({ isActive }) => `px-4 py-2 rounded-md text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Get Involved</NavLink>
+        <NavLink to="/" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Home</NavLink>
+        <NavLink to="/about" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>About Us</NavLink>
+        <NavLink to="/impact" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Our Impact</NavLink>
+        <NavLink to="/resources" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Resources</NavLink>
+        <NavLink to="/events-media" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Events & Media</NavLink>
+        <NavLink to="/get-involved" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Get Involved</NavLink>
     </>
 );
 
@@ -34,12 +34,14 @@ const Header: React.FC = () => {
                         </div>
                     </div>
                     <div className="hidden md:flex items-center space-x-4">
-                        <a href="tel:112" className="text-white px-4 py-2 text-sm font-bold uppercase star-border transition-all duration-300 ease-in-out transform hover:scale-105">
-                            Call 112
+                        <a href="tel:112" className="group relative inline-flex items-center justify-center p-[3px] overflow-hidden rounded-full font-bold text-black transition-all duration-300 ease-in-out hover:scale-105 star-border">
+                            <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-gradient-to-br from-[#19e1b8] to-[#10b981] rounded-full group-hover:bg-opacity-90 shadow-[inset_0_-2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(25,225,184,0.3)]">
+                                Call 112
+                            </span>
                         </a>
                     </div>
                     <div className="-mr-2 flex md:hidden">
-                        <button onClick={() => setIsOpen(!isOpen)} type="button" className="bg-transparent inline-flex items-center justify-center p-2 rounded-md text-brand-light-text hover:text-gray-500 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-red" aria-controls="mobile-menu" aria-expanded="false">
+                        <button onClick={() => setIsOpen(!isOpen)} type="button" className="bg-transparent inline-flex items-center justify-center p-2 rounded-md text-brand-light-text hover:text-white hover:bg-brand-maroon focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-red" aria-controls="mobile-menu" aria-expanded="false">
                             <span className="sr-only">Open main menu</span>
                             {!isOpen ? (
                                 <svg className="block h-6 w-6" xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

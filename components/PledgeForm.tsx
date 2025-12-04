@@ -52,11 +52,11 @@ export const PledgeForm: React.FC = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-xl">
-            <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Take the Safety Pledge</h2>
+        <div className="max-w-md mx-auto p-6 bg-transparent rounded-lg shadow-xl">
+            <h2 className="text-2xl font-bold mb-6 text-center text-white">Take the Safety Pledge</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-red-100">Name</label>
                     <input
                         type="text"
                         id="name"
@@ -64,11 +64,11 @@ export const PledgeForm: React.FC = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 p-2 border"
+                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <div>
-                    <label htmlFor="mobileNumber" className="block text-sm font-medium text-gray-700">Mobile Number</label>
+                    <label htmlFor="mobileNumber" className="block text-sm font-medium text-red-100">Mobile Number</label>
                     <input
                         type="tel"
                         id="mobileNumber"
@@ -78,11 +78,11 @@ export const PledgeForm: React.FC = () => {
                         required
                         pattern="[0-9]{10}"
                         title="Please enter a valid 10-digit mobile number"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 p-2 border"
+                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <div>
-                    <label htmlFor="pinCode" className="block text-sm font-medium text-gray-700">Pin Code</label>
+                    <label htmlFor="pinCode" className="block text-sm font-medium text-red-100">Pin Code</label>
                     <input
                         type="text"
                         id="pinCode"
@@ -92,11 +92,11 @@ export const PledgeForm: React.FC = () => {
                         required
                         pattern="[0-9]{6}"
                         title="Please enter a valid 6-digit Pin Code"
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 p-2 border"
+                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <div>
-                    <label htmlFor="state" className="block text-sm font-medium text-gray-700">State</label>
+                    <label htmlFor="state" className="block text-sm font-medium text-red-100">State</label>
                     <input
                         type="text"
                         id="state"
@@ -104,7 +104,7 @@ export const PledgeForm: React.FC = () => {
                         value={formData.state}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 p-2 border"
+                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <button

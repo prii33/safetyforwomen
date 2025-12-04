@@ -1,11 +1,42 @@
 
-import React, { useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { impactStats, volunteers } from '../data/mockData';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView, useSpring, useMotionValue } from 'framer-motion';
+import { FaUsers, FaCity, FaCalendarCheck, FaHeart, FaHandPaper } from 'react-icons/fa';
+import { volunteers } from '../data/mockData';
 import type { Volunteer } from '../types';
 import Map from '../components/Map';
 import Hero from '../components/Hero';
+import IncidentReportSection from '../components/IncidentReportSection';
 import redmist from '@/assets/redmist2.mov';
+import volunteerIcon from '../assets/volunteer.gif';
+import citiesIcon from '../assets/cities.gif';
+import programsIcon from '../assets/programs.gif';
+import livesIcon from '../assets/lives.gif';
+import pledgeIcon from '../assets/pledge.gif';
+
+// Animated Counter Component
+const AnimatedCounter = ({ value }: { value: number }) => {
+    const ref = useRef<HTMLSpanElement>(null);
+    const motionValue = useMotionValue(0);
+    const springValue = useSpring(motionValue, { damping: 100, stiffness: 100 });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+    useEffect(() => {
+        if (isInView) {
+            motionValue.set(value);
+        }
+    }, [isInView, value, motionValue]);
+
+    useEffect(() => {
+        return springValue.on("change", (latest) => {
+            if (ref.current) {
+                ref.current.textContent = Math.floor(latest).toLocaleString();
+            }
+        });
+    }, [springValue]);
+
+    return <span ref={ref} />;
+};
 
 const ImpactPage: React.FC = () => {
     const [activeVolunteer, setActiveVolunteer] = useState<Volunteer | null>(null);
@@ -21,6 +52,14 @@ const ImpactPage: React.FC = () => {
         setIsSubmitted(true);
     };
 
+    const stats: { name: string; value: number; icon: React.ComponentType<any> | string; isImage?: boolean }[] = [
+        { name: 'Volunteers', value: 5000, icon: volunteerIcon, isImage: true },
+        { name: 'Cities Reached', value: 75, icon: citiesIcon, isImage: true },
+        { name: 'Programs Held', value: 26, icon: programsIcon, isImage: true },
+        { name: 'Lives Touched', value: 100000, icon: livesIcon, isImage: true },
+        { name: 'Pledges Taken', value: 25000, icon: pledgeIcon, isImage: true },
+    ];
+
     return (
         <div className="bg-brand-dark text-brand-light">
             <Hero
@@ -30,75 +69,116 @@ const ImpactPage: React.FC = () => {
                 videoSrc={redmist}
             />
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-12 pt-0">
                 {/* Statistics Section */}
-                <section className="mt-16 p-8 rounded-lg shadow-lg">
-                    <h2 className="text-2xl font-bold text-brand-red mb-6 text-center">Movement by the Numbers</h2>
-                    <div style={{ width: '100%', height: 400 }}>
-                        <ResponsiveContainer>
-                            <BarChart data={impactStats} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip wrapperClassName="!bg-gray-700 !border-gray-600 !rounded-md !shadow-lg" />
-                                <Legend />
-                                <Bar dataKey="value" fill="#DC2626" />
-                            </BarChart>
-                        </ResponsiveContainer>
+                <section className="mb-16 pt-12">
+                    <h2 className="text-2xl md:text-xl font-semibold bg-clip-text text-brand-red uppercase tracking-wider mb-12 text-center">Movement by the Numbers</h2>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        {stats.map((stat, index) => (
+                            <motion.div 
+                                key={stat.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                whileHover={{ scale: 1.15, translateY: -10 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                                className="relative group flex flex-col items-center justify-center text-center cursor-pointer transition-colors duration-300"
+                            >
+                                <motion.div 
+                                    className="mb-4 p-4 rounded-full group-hover:bg-[#7f1d1d] group-hover:text-white transition-colors duration-300 z-10"
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    {stat.isImage ? (
+                                        <img src={stat.icon as string} alt={stat.name} className="w-16 h-16 object-contain" />
+                                    ) : (
+                                        // @ts-ignore
+                                        <stat.icon className="w-16 h-16 text-[#8a3c3c] group-hover:text-brand-red transition-colors duration-300" />
+                                    )}
+                                </motion.div>
+                                <h3 className="text-5xl font-bold text-brand-light-text mb-2 z-10 relative">
+                                    <AnimatedCounter value={stat.value} />+
+                                </h3>
+                                <p className="text-white font-bold uppercase text-sm tracking-wide z-10 relative group-hover:text-red-200 transition-colors duration-300">{stat.name}</p>
+                            </motion.div>
+                        ))}
                     </div>
                 </section>
 
                 {/* Volunteer Map Section */}
-                <section className="mt-16 p-8 rounded-lg shadow-lg">
-                    <h2 className="text-2xl font-bold text-brand-red mb-2 text-center">Our Pan-India Volunteer Network</h2>
-                    <p className="text-center text-brand-light-text mb-6">Hover over the dots to see our presence across the nation.</p>
-                    <div className="relative">
+                <section className="mt-2 p-8 rounded-2xl shadow-2xl bg-[#000000] backdrop-blur-sm transform hover:scale-[1.01] transition-all duration-300 border border-brand-maroon/30">
+                    <h2 className="text-2xl md:text-xl font-semibold text-brand-red bg-clip-text mb-4 text-center uppercase tracking-wider">Our Pan-India Volunteer Network</h2>
+                    <p className="text-center text-brand-dull-white mb-8 text-lg opacity-80 max-w-2xl mx-auto">Hover over the locations to explore our growing presence across the nation.</p>
+                    <div className="relative overflow-hidden rounded-xl shadow-inner border border-brand-maroon">
                         <Map volunteers={volunteers} />
                     </div>
                 </section>
 
-                {/* Street Safety Audit & Heatmap */}
-                <section className="mt-16">
-                    <div className="grid lg:grid-cols-2 gap-12">
-                        <div className="p-8 rounded-lg shadow-lg">
-                            <h2 className="text-2xl font-bold text-brand-red mb-4">Audit Your Street's Safety</h2>
-                            <p className="text-brand-light-text mb-6">Your feedback helps us identify and address unsafe areas. Fill out this quick survey to contribute to our community safety heatmap.</p>
-                            {isSubmitted ? (
-                                <div className="text-center p-8 bg-green-900 text-green-100 rounded-lg">
-                                    <h3 className="text-xl font-bold">Thank you for your submission!</h3>
-                                    <p>Your audit data has been recorded and will contribute to our safety map.</p>
-                                </div>
-                            ) : (
-                                <form onSubmit={handleAuditSubmit}>
-                                    <div className="mb-4">
-                                        <label htmlFor="streetName" className="block text-sm font-medium text-gray-300">Street / Area Name</label>
-                                        <input type="text" name="streetName" id="streetName" value={auditData.streetName} onChange={handleAuditChange} className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red" required />
+                {/* Incident Report Section */}
+                <IncidentReportSection />
+
+                {/* Street Safety Audit */}
+                <section className="mt-8">
+                     <div className="p-8 rounded-2xl shadow-2xl bg-[#000000] border border-brand-maroon/50 backdrop-blur-sm max-w-4xl mx-auto">
+                        <h2 className="text-2xl font-semibold text-brand-red  bg-clip-text mb-6 uppercase">Audit Your Street's Safety</h2>
+                        <p className="text-brand-dull-white mb-8 text-lg">Your feedback helps us identify and address unsafe areas. Fill out this quick survey to contribute to our community safety heatmap.</p>
+                        {isSubmitted ? (
+                            <div className="text-center p-8 bg-green-900/20 border border-green-800 text-green-100 rounded-xl backdrop-blur-sm">
+                                <h3 className="text-2xl font-bold mb-2">Thank you for your submission!</h3>
+                                <p className="text-green-200">Your audit data has been recorded and will contribute to our safety map.</p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleAuditSubmit} className="space-y-6">
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="group">
+                                        <label htmlFor="streetName" className="block text-sm font-semibold text-brand-dull-white mb-2 group-focus-within:text-brand-red transition-colors">Street / Area Name</label>
+                                        <input 
+                                            type="text" 
+                                            name="streetName" 
+                                            id="streetName" 
+                                            value={auditData.streetName} 
+                                            onChange={handleAuditChange} 
+                                            className="block w-full px-4 py-3 bg-brand-brown/50 border border-brand-maroon text-white rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-brand-red/50 focus:border-brand-red transition-all duration-300 placeholder-brand-brown-light hover:border-brand-maroon" 
+                                            placeholder="Enter location..."
+                                            required 
+                                        />
                                     </div>
-                                    <div className="mb-4">
-                                        <label htmlFor="safetyRating" className="block text-sm font-medium text-gray-300">Safety Rating (1=Unsafe, 10=Very Safe)</label>
-                                        <select name="safetyRating" id="safetyRating" value={auditData.safetyRating} onChange={handleAuditChange} className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red">
-                                            {Array.from({ length: 10 }, (_, i) => i + 1).map(num => <option key={num} value={num}>{num}</option>)}
+                                    <div className="group">
+                                        <label htmlFor="safetyRating" className="block text-sm font-semibold text-brand-dull-white mb-2 group-focus-within:text-brand-red transition-colors">Safety Rating (1=Unsafe, 10=Very Safe)</label>
+                                        <select 
+                                            name="safetyRating" 
+                                            id="safetyRating" 
+                                            value={auditData.safetyRating} 
+                                            onChange={handleAuditChange} 
+                                            className="block w-full px-4 py-3 bg-brand-brown/50 border border-brand-maroon text-white rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-brand-red/50 focus:border-brand-red transition-all duration-300 hover:border-brand-maroon cursor-pointer"
+                                        >
+                                            {Array.from({ length: 10 }, (_, i) => i + 1).map(num => <option key={num} value={num} className="bg-brand-brown">{num} - {num === 1 ? 'Very Unsafe' : num === 10 ? 'Very Safe' : ''}</option>)}
                                         </select>
                                     </div>
-                                    <div className="mb-6">
-                                        <label htmlFor="comments" className="block text-sm font-medium text-gray-300">Comments (e.g., poor lighting, no police presence)</label>
-                                        <textarea name="comments" id="comments" rows={3} value={auditData.comments} onChange={handleAuditChange} className="mt-1 block w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red"></textarea>
-                                    </div>
-                                    <button type="submit" className="w-full bg-brand-red text-white py-2 px-4 rounded-md hover:bg-opacity-90 transition-colors font-semibold">Submit Audit</button>
-                                </form>
-                            )}
-                        </div>
-                        <div className="p-8 rounded-lg shadow-lg flex flex-col items-center justify-center">
-                            <h2 className="text-2xl font-bold text-brand-red mb-4 text-center">Community Safety Heatmap</h2>
-                            <p className="text-brand-light-text mb-6 text-center">This map highlights areas based on citizen safety audits. Red indicates areas needing attention.</p>
-                            <div className="w-full h-64 bg-gray-200 rounded-md flex items-center justify-center relative overflow-hidden">
-                                <img src="https://picsum.photos/seed/map/500/300" alt="Map of a city" className="w-full h-full object-cover" />
-                                <div className="absolute inset-0 bg-gradient-to-tr from-red-500/50 via-yellow-500/30 to-green-500/20 mix-blend-multiply"></div>
-                                <p className="absolute text-white font-bold text-lg bg-black/50 p-2 rounded">CONCEPTUAL HEATMAP</p>
-                            </div>
-                        </div>
+                                </div>
+                                <div className="group">
+                                    <label htmlFor="comments" className="block text-sm font-semibold text-brand-dull-white mb-2 group-focus-within:text-brand-red transition-colors">Comments</label>
+                                    <textarea 
+                                        name="comments" 
+                                        id="comments" 
+                                        rows={4} 
+                                        value={auditData.comments} 
+                                        onChange={handleAuditChange} 
+                                        className="block w-full px-4 py-3 bg-brand-brown/50 border border-brand-maroon text-white rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-brand-red/50 focus:border-brand-red transition-all duration-300 placeholder-brand-brown-light hover:border-brand-maroon"
+                                        placeholder="e.g., poor lighting, no police presence..."
+                                    ></textarea>
+                                </div>
+                                <button 
+                                    type="submit" 
+                                    className="w-full bg-gradient-to-r from-brand-red to-red-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-red-900/20 hover:shadow-red-900/40 hover:from-red-600 hover:to-red-700 transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                                >
+                                    Submit Audit
+                                </button>
+                            </form>
+                        )}
                     </div>
                 </section>
+
             </div>
         </div>
     );

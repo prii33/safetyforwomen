@@ -1,77 +1,247 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FaRocket, FaEye, FaHandHoldingHeart, FaGlobeAsia } from 'react-icons/fa';
 import { partners } from '../data/mockData';
 import LogoLoop from '../components/LogoLoop';
+import LogoCloud from '../components/LogoCloud';
 import Hero from '../components/Hero';
 import redmist from '@/assets/redmist2.mov';
 import storyBg from '../assets/story.png';
+import goalIcon from '../assets/goal.gif';
+import visionIcon from '../assets/vision.gif';
+import valuesIcon from '../assets/values.gif';
+import impactIcon from '../assets/impact.gif';
+
 const AboutPage: React.FC = () => {
     return (
         <div 
-            className="bg-brand-dark text-brand-light"
+            className="bg-brand-dark text-brand-light min-h-screen"
             style={{
                 backgroundImage: `url(${storyBg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundSize: 'contain',
+                backgroundPosition: 'left',
                 backgroundAttachment: 'fixed',
+                backgroundRepeat: 'no-repeat',
             }}
         >
-            <Hero
-                title="About the Movement"
-                subtitle="Our Story, Mission, and Vision"
-                description="A diverse, non-partisan, non-political, and pan-India collective dedicated to creating a safer nation for women."
-                videoSrc={redmist}
-            />
+            <div className="relative z-10">
+                <div className="relative">
+                    <div 
+                        className="absolute inset-0 -z-10"
+                        style={{
+                            background: 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 75%, transparent 100%)'
+                        }}
+                    />
+                    <Hero
+                        title="About the Movement"
+                        subtitle="Our Story, Mission, and Vision"
+                        
+                        videoSrc={redmist}
+                    />
 
-            <div className="bg-black bg-opacity-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="p-6 rounded-lg text-left">
-                        <h2 className="text-4xl font-bold text-brand-red tracking-wide">Our Story</h2>
-                        <p className="mt-4 text-brand-light-text">
-                            Born from the urgent need for change following tragic gender-based violence incidents, the Safety for Women Movement transforms distress and outrage into meaningful action. Uniting members from all backgrounds, we focus on practical solutions, community collaboration, and sustainable impact.
-                        </p>
-                        <p className="mt-4 text-brand-light-text">
-                            Our strength is in our unity. We believe that by working together—citizens, communities, law enforcement, and policymakers—we can build a future where every woman in India is safe, respected, and empowered.
-                        </p>
-                    </div>
-                </div>
-            </div>
+                    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                        {/* Our Story - Layout inspired by user image */}
+                        <div className="py-12 mx-auto relative">
+                            {/* Top Left Section */}
+                            <motion.div 
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8 }}
+                                className="flex flex-col items-start "
+                            >
+                                <div className="border-l-2 border-[#5a2301]/60 pl-6 py-2  text-left">
+                                    <p className="text-brand-light-text text-lg leading-relaxed">
+                                       Born from the urgent need for change following tragic gender-based violence incidents, the Safety for Women Movement transforms distress into meaningful action. Uniting members from all backgrounds - including citizens, communities, law enforcement, and policymakers. We focus on practical solutions, collaboration, and sustainable impact.
+                                    </p>
+                                </div>
+                            </motion.div>
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
-                <div className="mt-10">
-                    <div className="grid gap-8 md:grid-cols-3">
-                        <div className="p-6 rounded-lg text-left">
-                            <p className="text-sm font-semibold text-brand-red tracking-widest">WHAT WE DO</p>
-                            <h3 className=" text-4xl font-bold ">Our Mission</h3>
-                            <p className="mt-4 text-brand-light-text">Our goal is to convert emotional distress into concrete actions that ensure real and lasting change for women’s safety. We seek to channel our grief, anger, and frustration into productive efforts. While recognizing the ideals of what ‘can be,’ ‘should be,’ and ‘must be,’ we are dedicated to the practical question: ‘how can it be changed?’</p>
-                        </div>
-                        <div className="p-6 rounded-lg text-left">
-                            <p className="text-sm font-semibold text-brand-red tracking-widest">WHAT WE ASPIRE TO BE</p>
-                            <h3 className="mt-2 text-4xl font-bold">Our Vision</h3>
-                            <p className="mt-4 text-brand-light-text">Identify the steps to drive change by engaging key stakeholders. Research and gather data to understand the current state and identify gaps. Develop strategies and implement solutions to address these gaps. Explore methods for lasting change. Focusing on the “how” turns our vision into concrete actions and creates meaningful impact.</p>
-                        </div>
-                        <div className="p-6 rounded-lg text-left">
-                            <p className="text-sm font-semibold text-brand-red tracking-widest">WHAT GUIDES US</p>
-                            <h3 className="mt-2 text-4xl font-bold ">Our Values</h3>
-                            <p className="mt-4 text-brand-light-text">We are non-political, non-religious, non-partisan, and do not engage in monetary transactions or accept donations. Our belief is in driving change through direct action.</p>
-                        </div>
-                    </div>
-                </div>
+                            {/* Main Title - Removed to merge with Pillars section */}
+                           
 
-                <div className="mt-10 text-center">
-                    <h2 className="text-4xl font-bold text-brand-red">Our Partners & Collaborators</h2>
-                    <p className="mt-4 max-w-2xl mx-auto text-brand-light-text">We are grateful for the support of organizations who share our vision for a safer India.</p>
-                    <div className="mt-10">
-                        <LogoLoop
-                            logos={[...partners.map(p => ({ src: p.logoUrl, alt: p.name })), { src: '/assets/icon8.gif', alt: 'icon8' }]}
-                            speed={50}
-                            direction="left"
-                            logoHeight={64}
-                            gap={40}
-                            fadeOut
-                        />
+                            {/* Bottom Right Section */}
+                            <motion.div 
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                                className="flex flex-col items-end"
+                            >
+                               
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
 
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+                    {/* Quadrant Analysis Layout */}
+                    <div className="flex flex-col xl:flex-row gap-16 py-6 items-start">
+                        {/* Left Title Block */}
+                        <div className="xl:w-1/3 xl:sticky xl:top-48">
+               
+                            <h2 className="text-5xl md:text-4xl font-bold text-white leading-tight mb-8"><p className="text-brand-light-text text-lg leading-relaxed">
+                                      We focus on practical solutions, collaboration, and sustainable impact.
+                                    </p>
+                                Our strength lies <span className="text-brand-red"><br></br>in our unity</span><br/>
+                                
+                            </h2>
+
+
+
+
+                           
+                        </div>
+
+                        {/* Right Staggered Grid */}
+                        <div className="xl:w-2/3">
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {/* Column 1 (Mission, Values) */}
+                                <div className="space-y-8">
+                                    {/* Mission */}
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, ease: "easeOut" }}
+                                        className="relative bg-gradient-to-br from-[#2a100e] to-black p-6 rounded-3xl transition-all duration-500 group overflow-hidden hover:bg-[#3d1a15]/30"
+                                    >
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
+                                        
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-6 mb-6">
+                                                <div className="w-20 h-20 p-2 bg-brand-red/10 rounded-full group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                                                    <img src={goalIcon} alt="Mission" className="w-full h-full object-contain" />
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-brand-red uppercase tracking-[0.2em]">Mission</h3>
+                                            </div>
+                                            
+                                            <ul className="space-y-2">
+                                                {[
+                                                    "Turn emotional distress into action that creates real change",
+                                                    "Channel grief and frustration into productive solutions",
+                                                    "Focus on the key question: “How can it be changed?”",
+                                                    "Ensure lasting change"
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
+                                                        <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
+                                                        <span className="leading-relaxed">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Values */}
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                                        className="relative bg-gradient-to-br from-[#2a100e] to-black p-6 rounded-3xl transition-all duration-500 group overflow-hidden hover:bg-[#3d1a15]/30"
+                                    >
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
+                                        
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-6 mb-6">
+                                                <div className="w-20 h-20 p-2 bg-brand-red/10 rounded-full group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                                                    <img src={valuesIcon} alt="Values" className="w-full h-full object-contain" />
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-brand-red uppercase tracking-[0.2em]">Values</h3>
+                                            </div>
+                                            
+                                            <ul className="space-y-2">
+                                                {[
+                                                    "Non-political, non-religious, non-partisan",
+                                                    "No donations or monetary involvement",
+                                                    "Change driven through direct action and community effort"
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
+                                                        <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
+                                                        <span className="leading-relaxed">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </motion.div>
+                                </div>
+
+                                {/* Column 2 (Vision, Plan) - Staggered */}
+                                <div className="space-y-8 md:mt-16">
+                                    {/* Vision */}
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                                        className="relative bg-gradient-to-br from-[#2a100e] to-black p-6 rounded-3xl transition-all duration-500 group overflow-hidden hover:bg-[#3d1a15]/30"
+                                    >
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
+                                        
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-6 mb-6">
+                                                <div className="w-20 h-20 p-2 bg-brand-red/10 rounded-full group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                                                    <img src={visionIcon} alt="Vision" className="w-full h-full object-contain" />
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-brand-red uppercase tracking-[0.2em]">Vision</h3>
+                                            </div>
+                                            
+                                            <ul className="space-y-2">
+                                                {[
+                                                    "Identify steps needed to drive change",
+                                                    "Engage the right stakeholders",
+                                                    "Research the current situation and gaps",
+                                                    "Develop and implement practical solutions",
+                                                    "Create lasting, measurable impact"
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
+                                                        <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
+                                                        <span className="leading-relaxed">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* The Plan */}
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                                        className="relative bg-gradient-to-br from-[#2a100e] to-black p-6 rounded-3xl transition-all duration-500 group overflow-hidden hover:bg-[#3d1a15]/30"
+                                    >
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
+                                        
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-6 mb-6">
+                                                <div className="w-20 h-20 p-2 bg-brand-red/10 rounded-full group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                                                    <img src={impactIcon} alt="The Plan" className="w-full h-full object-contain" />
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-brand-red uppercase tracking-[0.2em]">The Plan</h3>
+                                            </div>
+                                            
+                                            <ul className="space-y-2">
+                                                {[
+                                                    "Identify essential steps",
+                                                    "Map key stakeholders",
+                                                    "Conduct research and gather data",
+                                                    "Develop strategies to close gaps",
+                                                    "Implement solutions that create sustainable change"
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
+                                                        <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
+                                                        <span className="leading-relaxed">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <LogoCloud />
+                </div>
             </div>
         </div>
     );

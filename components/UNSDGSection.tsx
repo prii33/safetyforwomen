@@ -12,7 +12,7 @@ const UNSDGSection: React.FC = () => {
                 <div className="unsdg-content">
                     <div className="unsdg-text">
                         <h2 className="text-4xl font-bold">Aligned with UN SDGs</h2>
-                        <img src={ungoalslogo} alt="UN Sustainable Development Goals" className="mt-4 un-main-logo" />
+                        <img src={ungoalslogo} alt="UN Sustainable Development Goals" className="un-main-logo" />
                     </div>
                     <div className="unsdg-goals">
                         <div className="goal-card goal-5">
