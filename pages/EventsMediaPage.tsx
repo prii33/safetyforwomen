@@ -17,7 +17,7 @@ const EventsMediaPage: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-14">
                 {/* Upcoming Events */}
                 <section className="mt-16">
-                    <h2 className="text-3xl font-bold text-brand-red text-center mb-8">Upcoming Events</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-brand-red text-center mb-8">Upcoming Events</h2>
                     <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
                         <div className="p-6 rounded-lg border-l-4 border-brand-red">
                             <p className="text-sm font-semibold text-brand-red">DEC 15, 2024</p>
@@ -34,7 +34,7 @@ const EventsMediaPage: React.FC = () => {
 
                 {/* Past Awareness Programs */}
                 <section className="mt-16">
-                    <h2 className="text-3xl font-bold text-brand-red text-center mb-8">26 Awareness Programs Held To Date</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-brand-red text-center mb-8">26 Awareness Programs Held To Date</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {pastPrograms.slice(0, 6).map(program => ( // Show first 6 for brevity
                             <div key={program.id} className="rounded-lg shadow-md overflow-hidden group">
@@ -73,7 +73,7 @@ const EventsMediaPage: React.FC = () => {
 
                 {/* Press Coverage */}
                 <section className="mt-16">
-                    <h2 className="text-3xl font-bold text-brand-red text-center mb-8">In The Press</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-brand-red text-center mb-8">In The Press</h2>
                     <div className="max-w-3xl mx-auto space-y-4">
                         {pressCoverage.map(item => (
                             <a key={item.outlet} href={item.link} className="block p-4 rounded-lg hover:bg-brand-red/10 transition-colors">

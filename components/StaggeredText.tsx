@@ -7,7 +7,7 @@ interface StaggeredTextProps {
 }
 
 const StaggeredText: React.FC<StaggeredTextProps> = ({ text, className }) => {
-  const letters = Array.from(text);
+  const words = text.split(" ");
 
   const container = {
     hidden: { opacity: 0 },
@@ -42,16 +42,20 @@ const StaggeredText: React.FC<StaggeredTextProps> = ({ text, className }) => {
 
   return (
     <motion.div
-      style={{ display: 'flex' }}
+      style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
       variants={container}
       initial="hidden"
       animate="visible"
       className={className}
     >
-      {letters.map((letter, index) => (
-        <motion.span variants={child} key={index}>
-          {letter === ' ' ? '\u00A0' : letter}
-        </motion.span>
+      {words.map((word, index) => (
+        <div key={index} style={{ display: 'flex', whiteSpace: 'nowrap', marginRight: '0.25em' }}>
+          {Array.from(word).map((letter, letterIndex) => (
+            <motion.span variants={child} key={letterIndex}>
+              {letter}
+            </motion.span>
+          ))}
+        </div>
       ))}
     </motion.div>
   );

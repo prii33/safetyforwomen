@@ -72,7 +72,7 @@ const ImpactPage: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-12 pt-0">
                 {/* Statistics Section */}
                 <section className="mb-16 pt-12">
-                    <h2 className="text-2xl md:text-xl font-semibold bg-clip-text text-brand-red uppercase tracking-wider mb-12 text-center">Movement by the Numbers</h2>
+                    <h2 className="text-2xl md:text-3xl font-semibold bg-clip-text text-brand-red uppercase tracking-wider mb-12 text-center">Movement by the Numbers</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                         {stats.map((stat, index) => (
@@ -106,9 +106,9 @@ const ImpactPage: React.FC = () => {
                 </section>
 
                 {/* Volunteer Map Section */}
-                <section className="mt-2 p-8 rounded-2xl shadow-2xl bg-[#000000] backdrop-blur-sm transform hover:scale-[1.01] transition-all duration-300 border border-brand-maroon/30">
-                    <h2 className="text-2xl md:text-xl font-semibold text-brand-red bg-clip-text mb-4 text-center uppercase tracking-wider">Our Pan-India Volunteer Network</h2>
-                    <p className="text-center text-brand-dull-white mb-8 text-lg opacity-80 max-w-2xl mx-auto">Hover over the locations to explore our growing presence across the nation.</p>
+                <section className="mt-2 p-4 md:p-8 rounded-2xl shadow-2xl bg-[#000000] backdrop-blur-sm transform hover:scale-[1.01] transition-all duration-300 border border-brand-maroon/30">
+                    <h2 className="text-2xl md:text-3xl font-semibold text-brand-red bg-clip-text mb-4 text-center uppercase tracking-wider">Our Pan-India Volunteer Network</h2>
+                    <p className="text-center text-brand-dull-white mb-8 text-base md:text-lg opacity-80 max-w-2xl mx-auto">Hover over the locations to explore our growing presence across the nation.</p>
                     <div className="relative overflow-hidden rounded-xl shadow-inner border border-brand-maroon">
                         <Map volunteers={volunteers} />
                     </div>
@@ -119,9 +119,9 @@ const ImpactPage: React.FC = () => {
 
                 {/* Street Safety Audit */}
                 <section className="mt-8">
-                     <div className="p-8 rounded-2xl shadow-2xl bg-[#000000] border border-brand-maroon/50 backdrop-blur-sm max-w-4xl mx-auto">
+                     <div className="p-4 md:p-8 rounded-2xl shadow-2xl bg-[#000000] border border-brand-maroon/50 backdrop-blur-sm max-w-4xl mx-auto">
                         <h2 className="text-2xl font-semibold text-brand-red  bg-clip-text mb-6 uppercase">Audit Your Street's Safety</h2>
-                        <p className="text-brand-dull-white mb-8 text-lg">Your feedback helps us identify and address unsafe areas. Fill out this quick survey to contribute to our community safety heatmap.</p>
+                        <p className="text-brand-dull-white mb-8 text-base md:text-lg">Your feedback helps us identify and address unsafe areas. Fill out this quick survey to contribute to our community safety heatmap.</p>
                         {isSubmitted ? (
                             <div className="text-center p-8 bg-green-900/20 border border-green-800 text-green-100 rounded-xl backdrop-blur-sm">
                                 <h3 className="text-2xl font-bold mb-2">Thank you for your submission!</h3>

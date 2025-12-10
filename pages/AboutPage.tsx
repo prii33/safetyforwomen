@@ -78,7 +78,7 @@ const AboutPage: React.FC = () => {
                         {/* Left Title Block */}
                         <div className="xl:w-1/3 xl:sticky xl:top-48">
                
-                            <h2 className="text-5xl md:text-4xl font-bold text-white leading-tight mb-8"><p className="text-brand-light-text text-lg leading-relaxed">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8"><p className="text-brand-light-text text-lg leading-relaxed">
                                       We focus on practical solutions, collaboration, and sustainable impact.
                                     </p>
                                 Our strength lies <span className="text-brand-red"><br></br>in our unity</span><br/>

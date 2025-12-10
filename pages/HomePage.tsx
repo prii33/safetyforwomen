@@ -42,6 +42,16 @@ const HomePage: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [sectionTop, setSectionTop] = React.useState(0);
     const [scrollY, setScrollY] = React.useState(0);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -76,8 +86,9 @@ const HomePage: React.FC = () => {
     }, []);
 
     const getCardStyle = (index: number): React.CSSProperties => {
-        const baseTop = 10; // rem
-        const top = baseTop + index * 2;
+        const baseTop = isMobile ? 5 : 10; // rem
+        const step = isMobile ? 1.5 : 2;
+        const top = baseTop + index * step;
 
         if (!sectionTop) {
             return {
@@ -121,14 +132,14 @@ const HomePage: React.FC = () => {
                 isAnimated={true}
                 slideImages={[slide1, slide2, slide3]}
             >
-                <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <Link to="/get-involved" className="w-full sm:w-auto text-white px-8 py-3 rounded-3xl text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]">
-                        Join the Movement
-                    </Link>
-                    <Link to="/impact" className="w-full sm:w-auto bg-transparent text-[#FF0440] border border-[#FF0440] px-8 py-3 rounded-3xl text-lg font-semibold hover:bg-[#FF0440] hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg">
-                        See Our Impact
-                    </Link>
-                </div>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link to="/get-involved" className="w-3/4 sm:w-auto text-white px-6 py-2 md:px-8 md:py-3 rounded-3xl text-base md:text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]">
+                    Join the Movement
+                </Link>
+                <Link to="/impact" className="w-3/4 sm:w-auto bg-transparent text-[#FF0440] border border-[#FF0440] px-6 py-2 md:px-8 md:py-3 rounded-3xl text-base md:text-lg font-semibold hover:bg-[#FF0440] hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg">
+                    See Our Impact
+                </Link>
+            </div>
             </Hero>
             
             {/* Our Mission Section */}
@@ -142,11 +153,11 @@ const HomePage: React.FC = () => {
                                 zIndex: -1,
                             }}
                         ></div>
-                        <h2 className="text-5xl font-bold text-center">
+                        <h2 className="text-3xl md:text-5xl font-bold text-center">
                             <span style={{ color: '#e1d5d5' }}>Our 9</span> <span style={{ color: '#ff0440' }}>Core Objectives</span>
                         </h2>
                         <div className="pb-8">
-                            <p className="mt-4 max-w-3xl mx-auto text-xl text-brand-light-text text-center">
+                            <p className="mt-4 max-w-3xl mx-auto text-base md:text-xl text-brand-light-text text-center">
                                 To empower communities, engage key stakeholders, and drive actionable change to create a safer environment for women across India.
                             </p>
                         </div>
@@ -158,14 +169,14 @@ const HomePage: React.FC = () => {
                             className="sticky"
                             style={getCardStyle(index)}
                         >
-                            <div className="bg-[#000000] p-8 sm:p-12 s:p-20 rounded-[80px] border-2 border-[#724b4b54] hover:border-[#ff0440] transition-colors duration-300 flex flex-col md:flex-row items-center gap-8">
-                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                    <img src={value.icon} alt={value.title} className="w-16 h-16 text-white" />
+                            <div className="bg-[#000000] p-6 md:p-12 rounded-[40px] md:rounded-[80px] border-2 border-[#724b4b54] hover:border-[#ff0440] transition-colors duration-300 flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center flex-shrink-0">
+                                    <img src={value.icon} alt={value.title} className="w-12 h-12 md:w-16 md:h-16 text-white" />
                                 </div>
-                                <div className="md:ml-8 w-full">
-                                    <div className="flex items-baseline gap-x-4">
-                                      <h3 className="font-semibold text-2xl md:text-3xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white">{value.title}</h3>
-                                      <p className="text-[#e1d5d5] text-base md:text-lg max-w-l">{value.description}</p>
+                                <div className="md:ml-8 w-full text-center md:text-left">
+                                    <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-x-4">
+                                      <h3 className="font-semibold text-xl md:text-3xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white">{value.title}</h3>
+                                      <p className="text-[#e1d5d5] text-sm md:text-lg max-w-l">{value.description}</p>
                                     </div>
                                 </div>
                             </div>

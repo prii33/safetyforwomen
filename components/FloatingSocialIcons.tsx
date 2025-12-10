@@ -3,7 +3,7 @@ import './FloatingSocialIcons.css';
 
 const FloatingSocialIcons: React.FC = () => {
     return (
-        <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50">
+        <div className="hidden lg:block fixed right-4 top-1/2 -translate-y-1/2 z-50">
             <ul className="social-icons">
                 <li><a href="https://www.facebook.com/share/g/1D7AX3WHDm/" target="_blank" rel="noopener noreferrer" data-label="Facebook"><i className="fa fa-facebook"></i></a></li>
                 <li><a href="https://x.com/safetyforwomenn" target="_blank" rel="noopener noreferrer" data-label="Twitter">

@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
                 style={{
                   backgroundImage: `url(${img})`,
                   backgroundAttachment: 'fixed',
-                  backgroundPosition: 'bottom',
+                  backgroundPosition: 'top',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'contain',
                   opacity: index === currentSlide ? 0.7 : 0,
@@ -55,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
               style={{
                 backgroundImage: `url(${imageSrc})`,
                 backgroundAttachment: 'fixed',
-                backgroundPosition: 'bottom',
+                backgroundPosition: 'top',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 opacity:0.6,
@@ -74,11 +74,11 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
             Your browser does not support the video tag.
           </video>
           <div style={{ transform: `scale(${scale})`, opacity }} className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-7xl font-extrabold text-white">
-              <StaggeredText text={title} className="block font-semibold text-3xl uppercase tracking-[0.5em] pt-24" />
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white">
+              <StaggeredText text={title} className="block font-semibold text-xl md:text-3xl uppercase tracking-[0.2em] md:tracking-[0.5em] pt-32 md:pt-24" />
               <StaggeredText text={subtitle} className="block text-brand-red" />
             </h1>
-            <FadeInUp className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-brand-dull-white">
+            <FadeInUp className="mt-6 max-w-2xl mx-auto text-base md:text-xl text-brand-dull-white">
               {description}
             </FadeInUp>
             {children}
@@ -98,7 +98,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
                 style={{
                   backgroundImage: `url(${img})`,
                   backgroundAttachment: 'fixed',
-                  backgroundPosition: 'bottom',
+                  backgroundPosition: 'top',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'contain',
                   opacity: index === currentSlide ? 0.60 : 0,
@@ -111,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
           style={{
             backgroundImage: `url(${imageSrc})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'bottom',
+            backgroundPosition: 'top',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain',
           }}
@@ -129,11 +129,11 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
         Your browser does not support the video tag.
       </video>
       <div className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl font-extrabold text-white tracking-tight">
-          <StaggeredText text={title} className="block font-semibold text-xl uppercase tracking-[0.5em] " />
+        <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <StaggeredText text={title} className="block font-semibold text-sm md:text-xl uppercase tracking-[0.2em] md:tracking-[0.5em] " />
           <StaggeredText text={subtitle} className="block text-brand-red" />
         </h1>
-        <FadeInUp className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-brand-dull-white">
+        <FadeInUp className="mt-6 max-w-2xl mx-auto text-base md:text-xl text-brand-dull-white">
           {description}
         </FadeInUp>
         {children}

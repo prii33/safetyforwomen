@@ -1,17 +1,32 @@
-.social-icons {
+.social-icons, .social-icons-horizontal {
     padding: 0;
     list-style: none;
+}
+
+.social-icons {
     margin: 1em;
 }
 
-.social-icons li {
+.social-icons-horizontal {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 0;
+}
+
+.social-icons li, .social-icons-horizontal li {
     display: block;
     margin: 0.2em 0;
     position: relative;
     font-size: 1.6em;
 }
 
-.social-icons i {
+.social-icons-horizontal li {
+    margin: 0;
+}
+
+.social-icons i, .social-icons-horizontal i {
     color: #19e1b8;
     position: absolute;
     top: 9px;
@@ -19,7 +34,7 @@
     transition: all 265ms ease-out;
 }
 
-.social-icons a {
+.social-icons a, .social-icons-horizontal a {
     display: inline-block;
     position: relative;
 }
@@ -38,7 +53,21 @@
     font-size: 0.6em;
 }
 
-.social-icons a:before {
+.social-icons-horizontal a:hover::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    color: #e1d5d5;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.6em;
+}
+
+.social-icons a:before, .social-icons-horizontal a:before {
     transform: scale(1);
     -ms-transform: scale(1);
     -webkit-transform: scale(1);
@@ -53,12 +82,12 @@
     box-sizing: border-box;
 }
 
-.social-icons a:hover:before {
+.social-icons a:hover:before, .social-icons-horizontal a:hover:before {
     transform: scale(0);
     transition: all 265ms ease-in;
 }
 
-.social-icons a:hover i {
+.social-icons a:hover i, .social-icons-horizontal a:hover i {
     transform: scale(1.8);
     -ms-transform: scale(1.8);
     -webkit-transform: scale(1.8);
