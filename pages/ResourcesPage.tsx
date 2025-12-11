@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { survivorSupport } from '../data/mockData';
@@ -20,6 +19,14 @@ const ResourcesPage: React.FC = () => {
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+                {/* Survivor Support System */}
+                <section className="mb-16">
+                    <h2 className="text-xl font-semibold uppercase text-brand-red text-center mb-6 tracking-wider">Survivor Support Network</h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {survivorSupport.map(resource => <SurvivorSupportCard key={resource.title} resource={resource} />)}
+                    </div>
+                </section>
+
                 {/* Safety Tips Section */}
                 <SafetyTipsSection />
                 
@@ -27,14 +34,6 @@ const ResourcesPage: React.FC = () => {
                 <section className="mt-2">
                     <h2 className="text-xl font-semibold uppercase text-brand-red text-center mb-8 tracking-wider">Self-Defense Demos</h2>
                     <SelfDefenseCards />
-                </section>
-
-                {/* Survivor Support System */}
-                <section className="mt-16">
-                    <h2 className="text-xl font-semibold uppercase text-brand-red text-center mb-8 tracking-wider">Survivor Support Network</h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {survivorSupport.map(resource => <SurvivorSupportCard key={resource.title} resource={resource} />)}
-                    </div>
                 </section>
 
                  {/* Safety Apps & Devices */}

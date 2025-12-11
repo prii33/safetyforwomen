@@ -13,6 +13,8 @@ import citiesIcon from '../assets/cities.gif';
 import programsIcon from '../assets/programs.gif';
 import livesIcon from '../assets/lives.gif';
 import pledgeIcon from '../assets/pledge.gif';
+import networkIcon from '../assets/network.gif';
+import downloadIcon from '../assets/download.gif';
 
 // Animated Counter Component
 const AnimatedCounter = ({ value }: { value: number }) => {
@@ -53,11 +55,12 @@ const ImpactPage: React.FC = () => {
     };
 
     const stats: { name: string; value: number; icon: React.ComponentType<any> | string; isImage?: boolean }[] = [
-        { name: 'Volunteers', value: 5000, icon: volunteerIcon, isImage: true },
-        { name: 'Cities Reached', value: 75, icon: citiesIcon, isImage: true },
+        { name: 'Community Members', value: 1375, icon: networkIcon, isImage: true },
+        { name: 'Volunteers', value: 139, icon: volunteerIcon, isImage: true },
         { name: 'Programs Held', value: 26, icon: programsIcon, isImage: true },
-        { name: 'Lives Touched', value: 100000, icon: livesIcon, isImage: true },
-        { name: 'Pledges Taken', value: 25000, icon: pledgeIcon, isImage: true },
+        { name: 'Lives Touched', value: 4000, icon: livesIcon, isImage: true },
+        { name: 'Pledges Taken', value: 4500, icon: pledgeIcon, isImage: true },
+        { name: 'KSP App Downloads', value: 2240, icon: downloadIcon, isImage: true },
     ];
 
     return (
@@ -71,21 +74,21 @@ const ImpactPage: React.FC = () => {
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-12 pt-0">
                 {/* Statistics Section */}
-                <section className="mb-16 pt-12">
-                    <h2 className="text-2xl md:text-3xl font-semibold bg-clip-text text-brand-red uppercase tracking-wider mb-12 text-center">Movement by the Numbers</h2>
+                <section className="mb-8 pt-8">
+                    <h2 className="text-2xl md:text-2xl font-semibold bg-clip-text text-brand-red uppercase tracking-wider mb-8 text-center">Movement by the Numbers</h2>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {stats.map((stat, index) => (
                             <motion.div 
                                 key={stat.name}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                whileHover={{ scale: 1.15, translateY: -10 }}
+                                whileHover={{ scale: 1.02 }}
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                                className="relative group flex flex-col items-center justify-center text-center cursor-pointer transition-colors duration-300"
+                                className="relative group flex flex-col items-center justify-center text-center cursor-pointer p-6 rounded-2xl bg-brand-brown/10 border border-brand-maroon/20 hover:bg-brand-brown/30 hover:border-brand-maroon/50 transition-all duration-300"
                             >
                                 <motion.div 
-                                    className="mb-4 p-4 rounded-full group-hover:bg-[#7f1d1d] group-hover:text-white transition-colors duration-300 z-10"
+                                    className="mb-4 p-3 rounded-full bg-brand-brown/20 group-hover:bg-[#7f1d1d] group-hover:text-white transition-colors duration-300 z-10"
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ duration: 0.5 }}
                                 >
@@ -96,10 +99,10 @@ const ImpactPage: React.FC = () => {
                                         <stat.icon className="w-16 h-16 text-[#8a3c3c] group-hover:text-brand-red transition-colors duration-300" />
                                     )}
                                 </motion.div>
-                                <h3 className="text-5xl font-bold text-brand-light-text mb-2 z-10 relative">
+                                <h3 className="text-4xl lg:text-5xl font-bold text-brand-light-text mb-2 z-10 relative">
                                     <AnimatedCounter value={stat.value} />+
                                 </h3>
-                                <p className="text-white font-bold uppercase text-sm tracking-wide z-10 relative group-hover:text-red-200 transition-colors duration-300">{stat.name}</p>
+                                <p className="text-brand-dull-white font-bold uppercase text-sm tracking-wide z-10 relative group-hover:text-red-200 transition-colors duration-300">{stat.name}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -107,7 +110,7 @@ const ImpactPage: React.FC = () => {
 
                 {/* Volunteer Map Section */}
                 <section className="mt-2 p-4 md:p-8 rounded-2xl shadow-2xl bg-[#000000] backdrop-blur-sm transform hover:scale-[1.01] transition-all duration-300 border border-brand-maroon/30">
-                    <h2 className="text-2xl md:text-3xl font-semibold text-brand-red bg-clip-text mb-4 text-center uppercase tracking-wider">Our Pan-India Volunteer Network</h2>
+                    <h2 className="text-2xl md:text-2xl font-semibold text-brand-red bg-clip-text mb-4 text-center uppercase tracking-wider">Our Pan-India Volunteer Network</h2>
                     <p className="text-center text-brand-dull-white mb-8 text-base md:text-lg opacity-80 max-w-2xl mx-auto">Hover over the locations to explore our growing presence across the nation.</p>
                     <div className="relative overflow-hidden rounded-xl shadow-inner border border-brand-maroon">
                         <Map volunteers={volunteers} />

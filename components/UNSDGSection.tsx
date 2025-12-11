@@ -6,17 +6,17 @@ import goal16logo from '../assets/16logo.png';
 
 const UNSDGSection: React.FC = () => {
     return (
-        <div className="relative py-16 overflow-hidden">
+        <div className="relative py-8 lg:py-16 overflow-hidden">
             {/* Background with gradient and subtle texture overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a0505] via-[#2a1212] to-black z-0"></div>
             <div className="absolute inset-0 bg-[url('/assets/noise.png')] opacity-5 z-0"></div>
             
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
                     
                     {/* Title & Main Logo */}
                     <div className="flex flex-col items-center">
-                        <h2 className="text-3xl md:text-3xl font-bold tracking-wide text-center">
+                        <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-center">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">ALIGNED WITH </span>
                             <span className="text-white">UN SDGs</span>
                         </h2>
@@ -24,7 +24,7 @@ const UNSDGSection: React.FC = () => {
                         <img 
                             src={ungoalslogo} 
                             alt="UN Sustainable Development Goals" 
-                            className="w-80 h-auto filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300" 
+                            className="w-64 sm:w-80 h-auto filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300" 
                         />
                     </div>
 
@@ -32,7 +32,7 @@ const UNSDGSection: React.FC = () => {
                     <div className="hidden lg:block w-px h-32 bg-gradient-to-b from-transparent via-brand-red/30 to-transparent"></div>
 
                     {/* Right Side: Goal Cards */}
-                    <div className="flex flex-wrap justify-center gap-6">
+                    <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
                         {[
                             { 
                                 img: goal5logo, 
@@ -58,7 +58,7 @@ const UNSDGSection: React.FC = () => {
                                 href={goal.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`relative group w-28 h-28 md:w-32 md:h-32 rounded-xl overflow-hidden shadow-lg ${goal.color} hover:shadow-2xl hover:scale-110 transition-all duration-500 cursor-pointer bg-black/20 block`}
+                                className={`relative group w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-xl overflow-hidden shadow-lg ${goal.color} hover:shadow-2xl hover:scale-110 transition-all duration-500 cursor-pointer bg-black/20 block`}
                             >
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                                 <img 

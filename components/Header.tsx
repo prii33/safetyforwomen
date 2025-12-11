@@ -11,6 +11,8 @@ const DesktopNavLinks = () => (
         <NavLink to="/resources" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Resources</NavLink>
         <NavLink to="/events-media" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Events & Media</NavLink>
         <NavLink to="/get-involved" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Get Involved</NavLink>
+        <NavLink to="/blog" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Blog</NavLink>
+        <NavLink to="/faq" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>FAQ</NavLink>
     </>
 );
 
@@ -30,6 +32,8 @@ const MobileNavLinks = ({ closeMenu }: { closeMenu: () => void }) => {
             <NavLink to="/resources" className={linkClass} onClick={closeMenu}>Resources</NavLink>
             <NavLink to="/events-media" className={linkClass} onClick={closeMenu}>Events & Media</NavLink>
             <NavLink to="/get-involved" className={linkClass} onClick={closeMenu}>Get Involved</NavLink>
+            <NavLink to="/blog" className={linkClass} onClick={closeMenu}>Blog</NavLink>
+            <NavLink to="/faq" className={linkClass} onClick={closeMenu}>FAQ</NavLink>
         </>
     );
 };

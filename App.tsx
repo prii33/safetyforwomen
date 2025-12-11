@@ -8,6 +8,8 @@ import ImpactPage from './pages/ImpactPage';
 import ResourcesPage from './pages/ResourcesPage';
 import EventsMediaPage from './pages/EventsMediaPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
+import FAQPage from './pages/FAQPage';
+import BlogPage from './pages/BlogPage';
 import FluidCursor from './components/FluidCursor';
 import FloatingSocialIcons from './components/FloatingSocialIcons';
 
@@ -26,6 +28,8 @@ const App: React.FC = () => {
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/events-media" element={<EventsMediaPage />} />
             <Route path="/get-involved" element={<GetInvolvedPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/faq" element={<FAQPage />} />
           </Routes>
         </main>
         <Footer />

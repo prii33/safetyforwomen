@@ -17,6 +17,13 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scrollY, isAnimated, imageSrc, slideImages, children }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   React.useEffect(() => {
     if (slideImages && slideImages.length > 1) {
@@ -42,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
                 style={{
                   backgroundImage: `url(${img})`,
                   backgroundAttachment: 'fixed',
-                  backgroundPosition: 'top',
+                  backgroundPosition: isMobile ? 'center 80px' : 'center top',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'contain',
                   opacity: index === currentSlide ? 0.7 : 0,
@@ -55,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
               style={{
                 backgroundImage: `url(${imageSrc})`,
                 backgroundAttachment: 'fixed',
-                backgroundPosition: 'top',
+                backgroundPosition: isMobile ? 'center 80px' : 'center top',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 opacity:0.6,
@@ -98,7 +105,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
                 style={{
                   backgroundImage: `url(${img})`,
                   backgroundAttachment: 'fixed',
-                  backgroundPosition: 'top',
+                  backgroundPosition: isMobile ? 'center 80px' : 'center top',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: 'contain',
                   opacity: index === currentSlide ? 0.60 : 0,
@@ -111,7 +118,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
           style={{
             backgroundImage: `url(${imageSrc})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'top',
+            backgroundPosition: isMobile ? 'center 80px' : 'center top',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain',
           }}

@@ -5,7 +5,7 @@ import type { Resource } from '../types';
 const SurvivorSupportCard: React.FC<{ resource: Resource }> = ({ resource }) => {
     return (
         <motion.div 
-            className="group relative h-96 overflow-hidden rounded-3xl bg-neutral-900 border border-white/10 shadow-2xl cursor-pointer"
+            className="group relative h-64 overflow-hidden rounded-3xl bg-neutral-900 border border-[#5a2301] shadow-2xl cursor-pointer"
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
         >
@@ -25,9 +25,9 @@ const SurvivorSupportCard: React.FC<{ resource: Resource }> = ({ resource }) => 
             </div>
 
             {/* Content Container */}
-            <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
+            <div className="absolute inset-0 z-10 p-6 flex flex-col justify-end">
                 <div className="transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors duration-300">
                         {resource.title}
                     </h3>
                     
@@ -56,7 +56,7 @@ const SurvivorSupportCard: React.FC<{ resource: Resource }> = ({ resource }) => 
             </div>
             
             {/* Top Right Decorative Icon */}
-            <div className="absolute top-6 right-6 p-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+            <div className="absolute top-6 right-6 p-2 rounded-full bg-white/5 backdrop-blur-sm border border-[#5a2301] opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>

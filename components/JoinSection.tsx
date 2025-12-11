@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import pledgebk from '@/assets/pledgebk.jpg';
+import mpledgebk from '@/assets/mpledgebk.png';
 
 const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className, delay = 0 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -47,6 +48,16 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
 const JoinSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -124,7 +135,7 @@ const JoinSection = () => {
 
   return (
     <section ref={sectionRef} className="relative h-[500vh] w-full bg-black">
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-cover bg-center transition-opacity duration-1000 ease-in" style={{ backgroundImage: `url(${pledgebk})`, opacity: progress > 0 ? 1 : 0 }}>
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in" style={{ backgroundImage: `url(${isMobile ? mpledgebk : pledgebk})`, backgroundPosition: 'center', opacity: progress > 0 ? 1 : 0 }}>
         <div 
           className="absolute inset-0 flex flex-col w-full h-full"
           style={getGridContainerStyle()}
@@ -157,15 +168,15 @@ const JoinSection = () => {
           ))}
         </div>
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-black"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-black w-full px-4 sm:w-auto"
           style={getFinalContentStyle()}
         >
-          <h1 className="text-4xl sm:text-6xl font-bold whitespace-nowrap leading-tight" style={{ color: '#000000' }}>Let's Act for Women's <br></br>Safety. Together.</h1>
-          <p className="text-lg sm:text-xl mt-4" style={{ color: '#000000' }}>
-            Commit to being an active part of the solution. <br></br>Your pledge is a promise to stand for safety, respect, and equality.
+          <h1 className="text-4xl sm:text-6xl font-bold sm:whitespace-nowrap leading-tight" style={{ color: '#000000' }}>Let's Act for Women's <br className="hidden sm:block" />Safety. Together.</h1>
+          <p className="text-lg sm:text-xl mt-4 max-w-lg mx-auto sm:max-w-none" style={{ color: '#000000' }}>
+            Commit to being an active part of the solution. <br className="hidden sm:block" />Your pledge is a promise to stand for safety, respect, and equality.
           </p>
         
-          <button className="mt-8 py-3 px-10 rounded-full border border-black bg-black text-white text-xl font-semibold transition-transform transform hover:scale-105">
+          <button className="mt-8 py-3 px-10 rounded-full border border-black/60 sm:border-black bg-black/60 sm:bg-black text-white text-xl font-semibold transition-transform transform hover:scale-105">
             Join the Movement
           </button>
         </div>

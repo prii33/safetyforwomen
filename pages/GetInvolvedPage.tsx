@@ -48,7 +48,16 @@ const GetInvolvedPage: React.FC = () => {
             content: (
                 <div className="text-center">
                     <p className="mb-6 text-brand-light-text text-lg">Join our on-ground safety squadrons, contribute your skills, and be a last-mile responder in your community.</p>
-                    <button className="bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">Sign Up Now</button>
+                    <button 
+                        onClick={() => window.open(
+                            'https://docs.google.com/forms/d/e/1FAIpQLSdqzAMP1VKX1S0NbQK24R9EaO7jqOdSbq1DWz_p78ugd_8yKw/viewform',
+                            'googleFormPopup',
+                            'width=800,height=800,scrollbars=yes,resizable=yes,status=no,location=no,toolbar=no,menubar=no'
+                        )}
+                        className="bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity"
+                    >
+                        Sign Up Now
+                    </button>
                 </div>
             )
         },
@@ -74,7 +83,7 @@ const GetInvolvedPage: React.FC = () => {
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 pt-0">
-                <Accordion items={accordionItems} />
+                <Accordion items={accordionItems} layout="grid" />
             </div>
         </div>
     );

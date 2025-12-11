@@ -14,9 +14,9 @@ const FloatingSocialIcons: React.FC = () => {
                     </i>
                 </a></li>
                 <li><a href="https://www.linkedin.com/company/safetyforwomen/" target="_blank" rel="noopener noreferrer" data-label="LinkedIn"><i className="fa fa-linkedin"></i></a></li>
-                <li><a href="https://www.youtube.com/@SafetyForWomen" target="_blank" rel="noopener noreferrer" data-label="YouTube"><i className="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.youtube.com/@SafetyForWomen" target="_blank" rel="noopener noreferrer" data-label="YouTube"><i className="fa fa-youtube-play"></i></a></li>
                 <li><a href="https://www.instagram.com/teamsafetyforwomen/?hl=en" target="_blank" rel="noopener noreferrer" data-label="Instagram"><i className="fa fa-instagram"></i></a></li>
-                <li><a href="#" data-label="WhatsApp"><i className="fa fa-whatsapp"></i></a></li>
+                <li><a href="https://chat.whatsapp.com/BVmXh5pO3DuD2LPCwxsncr" target="_blank" rel="noopener noreferrer" data-label="WhatsApp"><i className="fa fa-whatsapp"></i></a></li>
                 <li><a href="mailto:teamsafetyforwomen@gmail.com" data-label="Email"><i className="fa fa-envelope"></i></a></li>
             </ul>
         </div>

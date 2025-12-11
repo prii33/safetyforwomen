@@ -78,15 +78,15 @@ const LogoCloud: React.FC = () => {
 
   return (
     <div className="relative w-full overflow-hidden py-12 bg-black">
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+      <div className="hidden md:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+      <div className="hidden md:block absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
       
       <div className="relative z-20 flex flex-col items-center mb-8 px-4">
         <h2 className="text-2xl font-semibold text-brand-red uppercase tracking-wide mb-2 text-center">Our Partners & Collaborators</h2>
         <p className="text-lg text-brand-dull-white text-center mb-6">We are grateful for the support of organizations who share our vision for a safer India.</p>
         
-        {/* Controls */}
-        <div className="flex items-center gap-4">
+        {/* Controls (Hidden on mobile) */}
+        <div className="hidden md:flex items-center gap-4">
           <button 
             onClick={() => handleManualScroll('left')}
             className="p-3 rounded-full transition-all duration-300 border border-brand-red/30 bg-black/50 text-brand-dull-white hover:bg-brand-red/20 hover:text-white hover:scale-110 active:scale-95"
@@ -105,8 +105,9 @@ const LogoCloud: React.FC = () => {
         </div>
       </div>
 
+      {/* Desktop View: Infinite Scroll Carousel */}
       <motion.div 
-        className="flex w-fit"
+        className="hidden md:flex w-fit"
         style={{ x }}
         ref={containerRef}
         onHoverStart={() => setSpeed(0)} // Stop on hover
@@ -119,6 +120,15 @@ const LogoCloud: React.FC = () => {
           </div>
         ))}
       </motion.div>
+
+      {/* Mobile View: Clear Grid */}
+      <div className="grid grid-cols-2 gap-4 px-4 md:hidden">
+        {logos.map((logo, index) => (
+          <div key={index} className="h-24 flex items-center justify-center p-3 bg-gradient-to-br from-[#2a100e] to-black rounded-lg shadow-lg border border-[#5a2301]/30">
+            <img src={logo} alt={`Partner ${index}`} className="max-h-full max-w-full object-contain filter grayscale invert" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
