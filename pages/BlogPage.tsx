@@ -1,107 +1,108 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Hero from '../components/Hero';
-import redmist from '@/assets/redmist2.mov';
+import OrbsBackground from '../components/OrbsBackground';
+import ShareStorySection from '../components/ShareStorySection';
+import { getAllPostsMeta, BlogFrontmatter } from '../utils/blog';
 
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  date: string;
-  author: string;
-  image: string;
-  url: string;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "Safe Streets, Safe Workplaces, Safe India: Protecting Women in a Changing World",
-    excerpt: "Ensuring women's safety in India is a pressing concern that demands immediate and sustained attention. Despite legislative reforms and public awareness campaigns, incidents of violence against women continue to surface, underscoring deep-seated societal challenges....",
-    date: "11 Mar 2025",
-    author: "Safety For Women",
-    image: "https://safetyforwomen.org/wp-content/uploads/2025/03/blog-2-400x250.jpg",
-    url: "https://safetyforwomen.org/safe-streets-safe-workplaces-safe-india-protecting-women-in-a-changing-world/"
-  },
-  {
-    id: 2,
-    title: "Finding My Voice: From Silent Survivor to Empowered Advocate",
-    excerpt: "I remember the day with crystal clarity. I was wearing a lemon-yellow salwar kameez, just months shy of my 18th birthday. As usual, I had walked the kilometer to catch the State transport bus to college. In my mind, I was confident and beautiful. Fortune smiled as I...",
-    date: "11 Mar 2025",
-    author: "Safety For Women",
-    image: "https://safetyforwomen.org/wp-content/uploads/2025/03/123.jpeg",
-    url: "https://safetyforwomen.org/finding-my-voice-from-silent-survivor-to-empowered-advocate/"
-  }
-];
+const blogPosts: BlogFrontmatter[] = getAllPostsMeta();
 
 const BlogPage: React.FC = () => {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="relative min-h-screen text-brand-light">
+      <OrbsBackground />
       <Hero
-        title="Stories & Insight"
-        subtitle="Blog"
+        title="Stories & Insights"
+        subtitle="Our Blog"
         description="Updates and insights on women's safety and empowerment."
-        videoSrc={redmist}
+        videoSrc=""
         scrollY={0}
+        transparent={true}
+        className="!pb-8"
       />
 
-      {/* Blog Grid */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="space-y-8 max-w-7xl mx-auto">
           {blogPosts.map((post, index) => (
-            <motion.article 
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-[#2a100e] to-black rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 border border-[#3d1a15] hover:border-brand-red/50 shadow-lg hover:shadow-brand-red/20 group"
+            <motion.div
+              key={post.slug}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-gradient-to-br from-[#2a100e] to-black rounded-xl overflow-hidden shadow-xl hover:shadow-brand-red/10 hover:border-brand-red/40 transition-all duration-300"
             >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
-                <div className="flex items-center text-sm text-gray-400 mb-4 space-x-4">
-                  <div className="flex items-center">
-                    <i className="fa fa-calendar w-4 h-4 mr-2 text-brand-red" aria-hidden="true"></i>
-                    {post.date}
+              <div className="grid md:grid-cols-2 gap-6 p-6 items-center">
+                {/* Content Side */}
+                <div className={`space-y-4 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
+                  <div className="flex items-center gap-3">
+                    <div className="inline-block px-3 py-1 bg-brand-red/20 border border-brand-red/40 rounded-full">
+                       <span className="text-brand-red font-bold tracking-wider uppercase text-[10px]">
+                         Article
+                       </span>
+                    </div>
+                    <span className="text-brand-light-text text-sm flex items-center gap-1">
+                      <i className="fa fa-clock-o text-brand-red/70"></i> {post.readTime}
+                    </span>
                   </div>
-                  <div className="flex items-center">
-                    <i className="fa fa-user w-4 h-4 mr-2 text-brand-red" aria-hidden="true"></i>
-                    {post.author}
+
+                  <h2 className="text-2xl font-bold text-white group-hover:text-brand-red transition-colors">
+                    {post.title}
+                  </h2>
+
+                  <div className="flex items-center gap-4 text-sm text-brand-light-text/80 border-b border-brand-red/10 pb-3">
+                    <span className="flex items-center gap-2">
+                       <i className="fa fa-calendar text-brand-red"></i>
+                       {post.date}
+                    </span>
+                    <span className="flex items-center gap-2">
+                       <i className="fa fa-user text-brand-red"></i>
+                       {post.author}
+                    </span>
+                  </div>
+
+                  <p className="text-brand-light-text/80 text-sm leading-relaxed line-clamp-3">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="pt-2">
+                    {post.externalUrl ? (
+                      <a 
+                        href={post.externalUrl}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-brand-red font-bold uppercase text-xs tracking-widest hover:text-white transition-colors"
+                      >
+                        Read Full Story <i className="fa fa-long-arrow-right"></i>
+                      </a>
+                    ) : (
+                      <Link 
+                        to={`/blog/${post.slug}`}
+                        className="inline-flex items-center gap-2 text-brand-red font-bold uppercase text-xs tracking-widest hover:text-white transition-colors"
+                      >
+                        Read Full Story <i className="fa fa-long-arrow-right"></i>
+                      </Link>
+                    )}
                   </div>
                 </div>
 
-                <h2 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">
-                  {post.title}
-                </h2>
-                
-                <p className="text-gray-400 mb-6 line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                <a 
-                  href={post.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-brand-red font-semibold hover:text-white transition-colors"
-                >
-                  Read More
-                  <i className="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
-                </a>
+                {/* Image Side */}
+                <div className={`relative h-[250px] rounded-xl overflow-hidden ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
+                   <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>
+      
+      <ShareStorySection />
     </div>
   );
 };

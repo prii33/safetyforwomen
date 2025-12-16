@@ -5,17 +5,19 @@ import FadeInUp from './FadeInUp';
 
 interface HeroProps {
   title: string;
-  subtitle: string;
-  description: string;
+  subtitle: string | string[];
+  description: string | React.ReactNode;
   videoSrc: string;
   scrollY: number;
   isAnimated?: boolean;
   imageSrc?: string;
   slideImages?: string[];
   children?: React.ReactNode;
+  transparent?: boolean;
+  className?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scrollY, isAnimated, imageSrc, slideImages, children }) => {
+const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scrollY, isAnimated, imageSrc, slideImages, children, transparent, className }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
 
@@ -81,11 +83,17 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
             Your browser does not support the video tag.
           </video>
           <div style={{ transform: `scale(${scale})`, opacity }} className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white">
-              <StaggeredText text={title} className="block font-semibold text-xl md:text-3xl uppercase tracking-[0.2em] md:tracking-[0.5em] pt-32 md:pt-24" />
-              <StaggeredText text={subtitle} className="block text-brand-red" />
+            <h1 className="text-5xl md:text-8xl font-extrabold text-white leading-none">
+              <StaggeredText text={title} className="block font-semibold text-xl md:text-2xl uppercase tracking-[0.1em] md:tracking-[0.5em] pt-52 md:pt-48" />
+              {Array.isArray(subtitle) ? (
+                subtitle.map((line, index) => (
+                  <StaggeredText key={index} text={line} className="block text-brand-red" />
+                ))
+              ) : (
+                <StaggeredText text={subtitle} className="block text-brand-red" />
+              )}
             </h1>
-            <FadeInUp className="mt-6 max-w-2xl mx-auto text-base md:text-xl text-brand-dull-white">
+            <FadeInUp className="mt-3 max-w-4xl mx-auto text-base md:text-xl text-brand-dull-white">
               {description}
             </FadeInUp>
             {children}
@@ -96,8 +104,8 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
   }
 
   return (
-    <section className="relative bg-brand-dark py-14 flex items-center justify-center text-center overflow-hidden">
-       {slideImages && slideImages.length > 0 ? (
+    <section className={`relative ${transparent ? 'bg-transparent' : 'bg-brand-dark'} py-14 flex items-center justify-center text-center overflow-hidden ${className || ''}`}>
+       {!transparent && slideImages && slideImages.length > 0 ? (
             slideImages.map((img, index) => (
               <div
                 key={index}
@@ -124,6 +132,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
           }}
         ></div>
       )}
+      {!transparent && videoSrc && (
       <video
         autoPlay
         loop
@@ -135,10 +144,17 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      )}
       <div className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          <StaggeredText text={title} className="block font-semibold text-sm md:text-xl uppercase tracking-[0.2em] md:tracking-[0.5em] " />
-          <StaggeredText text={subtitle} className="block text-brand-red" />
+          <StaggeredText text={title} className="block font-semibold text-sm md:text-xl uppercase tracking-[0.1em] md:tracking-[0.5em] " />
+          {Array.isArray(subtitle) ? (
+            subtitle.map((line, index) => (
+              <StaggeredText key={index} text={line} className="block text-brand-red" />
+            ))
+          ) : (
+            <StaggeredText text={subtitle} className="block text-brand-red" />
+          )}
         </h1>
         <FadeInUp className="mt-6 max-w-2xl mx-auto text-base md:text-xl text-brand-dull-white">
           {description}

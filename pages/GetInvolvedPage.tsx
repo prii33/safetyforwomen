@@ -70,6 +70,25 @@ const GetInvolvedPage: React.FC = () => {
                     <button className="bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">Connect With Us</button>
                 </div>
             )
+        },
+        {
+            number: "5",
+            title: "Audit Your Street's Safety",
+            content: (
+                <div className="text-center">
+                    <p className="mb-6 text-brand-light-text text-lg">Identify and report safety concerns in your neighborhood. Help us identify areas that need improvement.</p>
+                    <button 
+                        onClick={() => window.open(
+                            'https://docs.google.com/forms/d/e/1FAIpQLScx666YVpXuUUZUUJGqDEfClxmHn9fM48Fmdmbkd_sqD8e_IA/viewform',
+                            'googleFormPopup',
+                            'width=800,height=800,scrollbars=yes,resizable=yes,status=no,location=no,toolbar=no,menubar=no'
+                        )}
+                        className="bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity"
+                    >
+                        Start Audit
+                    </button>
+                </div>
+            )
         }
     ];
 

@@ -11,6 +11,7 @@ import goalIcon from '../assets/goal.gif';
 import visionIcon from '../assets/vision.gif';
 import valuesIcon from '../assets/values.gif';
 import impactIcon from '../assets/impact.gif';
+import yourRoleIcon from '../assets/yourrole.gif';
 
 const AboutPage: React.FC = () => {
     return (
@@ -78,7 +79,7 @@ const AboutPage: React.FC = () => {
                         {/* Left Title Block */}
                         <div className="xl:w-1/3 xl:sticky xl:top-48">
                
-                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8"><p className="text-brand-light-text text-lg leading-relaxed">
+                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8"><p className="text-brand-light-text text-lg leading-relaxed mt-10">
                                       We focus on practical solutions, collaboration, and sustainable impact.
                                     </p>
                                 Our strength lies <span className="text-brand-red"><br></br>in our unity</span><br/>
@@ -116,10 +117,9 @@ const AboutPage: React.FC = () => {
                                             
                                             <ul className="space-y-2">
                                                 {[
-                                                    "Turn emotional distress into action that creates real change",
-                                                    "Channel grief and frustration into productive solutions",
-                                                    "Focus on the key question: “How can it be changed?”",
-                                                    "Ensure lasting change"
+                                                    "Turn fear, anger, and frustration into concrete action.",
+                                                    "Focus on the question: “What can we change today?”",
+                                                    "Work on simple, local solutions that can be repeated across India."
                                                 ].map((item, i) => (
                                                     <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
                                                         <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
@@ -150,9 +150,40 @@ const AboutPage: React.FC = () => {
                                             
                                             <ul className="space-y-2">
                                                 {[
-                                                    "Non-political, non-religious, non-partisan",
-                                                    "No donations or monetary involvement",
-                                                    "Change driven through direct action and community effort"
+                                                    "Non-political, non-religious, non-partisan.",
+                                                    "Real change comes from direct action, collaboration, and community ownership."
+                                                ].map((item, i) => (
+                                                    <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
+                                                        <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
+                                                        <span className="leading-relaxed">{item}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Your Role */}
+                                    <motion.div 
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                                        className="relative bg-gradient-to-br from-[#2a100e] to-black p-6 rounded-3xl transition-all duration-500 group overflow-hidden hover:bg-[#3d1a15]/30"
+                                    >
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
+                                        
+                                        <div className="relative z-10">
+                                            <div className="flex items-center gap-6 mb-6">
+                                                <div className="w-20 h-20 p-2 bg-brand-red/10 rounded-full group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
+                                                    <img src={yourRoleIcon} alt="Your Role" className="w-full h-full object-contain" />
+                                                </div>
+                                                <h3 className="text-2xl font-bold text-brand-red uppercase tracking-[0.2em]">Your Role</h3>
+                                            </div>
+                                            
+                                            <ul className="space-y-2">
+                                                {[
+                                                    "Everyone has something to offer – an hour a week, a skill, a contact, or a lived experience.",
+                                                    "Join a team, lead a small action in your city, and help rewrite the story of India from unsafe and helpless to aware, prepared, and united for safety."
                                                 ].map((item, i) => (
                                                     <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
                                                         <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
@@ -184,20 +215,9 @@ const AboutPage: React.FC = () => {
                                                 <h3 className="text-2xl font-bold text-brand-red uppercase tracking-[0.2em]">Vision</h3>
                                             </div>
                                             
-                                            <ul className="space-y-2">
-                                                {[
-                                                    "Identify steps needed to drive change",
-                                                    "Engage the right stakeholders",
-                                                    "Research the current situation and gaps",
-                                                    "Develop and implement practical solutions",
-                                                    "Create lasting, measurable impact"
-                                                ].map((item, i) => (
-                                                    <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
-                                                        <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>
-                                                        <span className="leading-relaxed">{item}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                            <p className="text-brand-light-text text-lg leading-relaxed group-hover:text-white transition-colors duration-300">
+                                                Change the narrative that “India is unsafe for women” by taking everyday, practical steps that make our streets, homes, workplaces, and public spaces safer.
+                                            </p>
                                         </div>
                                     </motion.div>
 
@@ -221,11 +241,9 @@ const AboutPage: React.FC = () => {
                                             
                                             <ul className="space-y-2">
                                                 {[
-                                                    "Identify essential steps",
-                                                    "Map key stakeholders",
-                                                    "Conduct research and gather data",
-                                                    "Develop strategies to close gaps",
-                                                    "Implement solutions that create sustainable change"
+                                                    "Build Safety for Women teams in every state and union territory.",
+                                                    "Bring together “doers” – citizens, experts, volunteers, and authorities – who are ready to act, not just complain.",
+                                                    "Connect people who can give time, skills, networks, or resources and channel them into clear initiatives."
                                                 ].map((item, i) => (
                                                     <li key={i} className="flex items-start gap-3 text-brand-light-text group-hover:text-white transition-colors duration-300">
                                                         <span className="w-1.5 h-1.5 mt-2 bg-brand-red rounded-full flex-shrink-0"></span>

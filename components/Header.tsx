@@ -1,20 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logo from '/assets/sfwlogo.png';
+import IFFLogo from '/assets/IFF.png';
+import { FloatingDock } from './FloatingDock';
 import './Header.css';
-
-const DesktopNavLinks = () => (
-    <>
-        <NavLink to="/" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Home</NavLink>
-        <NavLink to="/about" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>About Us</NavLink>
-        <NavLink to="/impact" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Our Impact</NavLink>
-        <NavLink to="/resources" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Resources</NavLink>
-        <NavLink to="/events-media" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Events & Media</NavLink>
-        <NavLink to="/get-involved" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Get Involved</NavLink>
-        <NavLink to="/blog" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>Blog</NavLink>
-        <NavLink to="/faq" className={({ isActive }) => `px-4 py-2 rounded-3xl text-sm font-medium uppercase ${isActive ? 'bg-brand-red text-white' : 'text-brand-light hover:bg-brand-red/10'}`}>FAQ</NavLink>
-    </>
-);
 
 const MobileNavLinks = ({ closeMenu }: { closeMenu: () => void }) => {
     const linkClass = ({ isActive }: { isActive: boolean }) => 
@@ -47,14 +36,17 @@ const Header: React.FC = () => {
         <header className={`${isHomePage ? 'absolute w-full' : 'sticky'} top-0 z-40 ${isHomePage ? 'bg-transparent' : 'bg-black'}`}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
-                    <div className="flex items-center self-start">
+                    <div className="flex flex-col items-center self-start">
                         <Link to="/" className="flex-shrink-0">
                             <img className="h-32 md:h-[150px]" src={logo} alt="Safety For Women" />
                         </Link>
+                        <div className="mt-1" title="Internet Freedom Foundation">
+                            <img src={IFFLogo} alt="IFF Partner" className="h-10 md:h-12 w-auto object-contain" />
+                        </div>
                     </div>
                     <div className="hidden md:block">
-                        <div className="ml-10 flex items-baseline space-x-4">
-                            <DesktopNavLinks />
+                        <div className="ml-10">
+                            <FloatingDock />
                         </div>
                     </div>
                     <div className="flex items-center space-x-4">

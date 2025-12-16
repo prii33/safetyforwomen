@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import certificateUrl from '../assets/certificate.pdf';
 
 export const PledgeForm: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -15,6 +17,41 @@ export const PledgeForm: React.FC = () => {
             ...formData,
             [e.target.name]: e.target.value
         });
+    };
+
+    const generateCertificate = async (name: string) => {
+        try {
+            const existingPdfBytes = await fetch(certificateUrl).then(res => res.arrayBuffer());
+            const pdfDoc = await PDFDocument.load(existingPdfBytes);
+            const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+            const pages = pdfDoc.getPages();
+            const firstPage = pages[0];
+            const { width, height } = firstPage.getSize();
+            
+            // Place the participant's name on the horizontal white rule
+            const fontSize = 30;
+            const textWidth = helveticaFont.widthOfTextAtSize(name, fontSize);
+            const yPosition = (height * 0.445) - (fontSize / 2); // nudge closer to the white line
+            
+            firstPage.drawText(name, {
+                x: (width - textWidth) / 2,
+                y: yPosition,
+                size: fontSize,
+                font: helveticaFont,
+                color: rgb(1, 1, 1),
+            });
+
+            const pdfBytes = await pdfDoc.save();
+            // pdf-lib returns a Uint8Array; use its buffer to satisfy BlobPart typing
+            const blob = new Blob([pdfBytes.buffer as ArrayBuffer], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Safety_Pledge_Certificate.pdf';
+            link.click();
+        } catch (error) {
+            console.error('Error generating certificate:', error);
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -38,6 +75,7 @@ export const PledgeForm: React.FC = () => {
 
             if (response.ok) {
                 setMessage('Thank you for taking the pledge!');
+                await generateCertificate(formData.name);
                 setFormData({ name: '', mobileNumber: '', pinCode: '', state: '' });
             } else {
                 const errorData = await response.json();

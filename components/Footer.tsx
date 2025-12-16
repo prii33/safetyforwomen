@@ -28,7 +28,6 @@ const Footer: React.FC = () => {
                         <div className="flex space-x-6 order-1 md:order-2">
                             <a href="#" className="hover:text-brand-red transition-colors">Privacy Policy</a>
                             <a href="#" className="hover:text-brand-red transition-colors">Terms of Service</a>
-                            <a href="#/faq" className="hover:text-brand-red transition-colors">FAQ</a>
                         </div>
                     </div>
                 </div>

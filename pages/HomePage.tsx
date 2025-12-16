@@ -22,11 +22,16 @@ import JoinSection from '../components/JoinSection';
 import '../components/JoinSection.css';
 import UNSDGSection from '../components/UNSDGSection';
 import GoToTopButton from '../components/GoToTopButton';
+import { ExpandableCard } from '../components/ExpandableCard';
 
 
 const HomePage: React.FC = () => {
     const values = [
-        { icon: icon1, title: "Awareness Programs", description: (
+        { 
+            icon: icon1, 
+            title: "Awareness Programs", 
+            summary: "Educating and empowering communities through actionable knowledge and safety workshops.",
+            description: (
             <div className="space-y-2 mt-2 text-sm md:text-base leading-snug">
                 <div>
                     <span className="text-[#8a4a3b] font-semibold uppercase">Objective: </span>
@@ -60,7 +65,11 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
         ) },
-        { icon: icon2, title: "Tech Solutions for Safety", description: (
+        { 
+            icon: icon2, 
+            title: "Tech Solutions for Safety", 
+            summary: "Leveraging technology for safety, including community maps, hackathons, and safety products.",
+            description: (
             <div className="space-y-2 mt-2 text-sm md:text-base leading-snug">
                 <div>
                     <span className="text-[#8a4a3b] font-semibold uppercase">Objective: </span>
@@ -88,7 +97,11 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
         ) },
-        { icon: icon3, title: "Network of Street-wise Safety Squadrons", description: (
+        { 
+            icon: icon3, 
+            title: "Network of Street-wise Safety Squadrons", 
+            summary: "Building a network of volunteers who act as the eyes, ears, and helping hands of the community.",
+            description: (
             <div className="space-y-2 mt-2 text-sm md:text-base leading-snug">
                 <div>
                     <span className="text-[#8a4a3b] font-semibold uppercase">Become the Last-Mile Connectivity for Safety</span>
@@ -117,7 +130,11 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
         ) },
-        { icon: icon4, title: "Safe & Well-Lit Communities", description: (
+        { 
+            icon: icon4, 
+            title: "Safe & Well-Lit Communities", 
+            summary: "Improving public infrastructure to ensure all common spaces are safe, visible, and well-illuminated.",
+            description: (
             <div className="space-y-2 mt-2 text-sm md:text-base leading-snug">
                 <div>
                     <span className="text-[#8a4a3b] font-semibold uppercase">Objective: </span>
@@ -156,9 +173,13 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
         ) },
-        { icon: icon5, title: "Citizen Police Alliance Team", description: (
+        { 
+            icon: icon5, 
+            title: "Citizen Police Alliance Team", 
+            summary: "Transforming passive reporting into active partnership between citizens and police.",
+            description: (
             <div className="space-y-2 mt-2 text-sm md:text-base leading-snug">
-                <div>
+                <div>https://chat.whatsapp.com/BVmXh5pO3DuD2LPCwxsncr
                     <span className="text-[#8a4a3b] font-semibold uppercase">Your Police, Your Safety: </span>
                     <span className="text-[#e1d5d5]">Our mission is to transform passive reporting into active partnership. The Citizen-Police Alliance Team initiative fosters collaborative engagement, training everyday citizens to become proactive advocates for community safety.</span>
                 </div>
@@ -180,7 +201,11 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
         ) },
-        { icon: icon6, title: "Survivor Support System (SSS) – India", description: (
+        { 
+            icon: icon6, 
+            title: "Survivor Support System (SSS) – India", 
+            summary: "Providing comprehensive, coordinated support to survivors of crime and violence.",
+            description: (
             <div className="space-y-2 mt-2 text-sm md:text-base leading-snug">
                 <div>
                     <span className="text-[#8a4a3b] font-semibold uppercase">Objective: </span>
@@ -233,9 +258,24 @@ const HomePage: React.FC = () => {
                 </div>
             </div>
         ) },
-        { icon: icon7, title: "Safety Education in Schools", description: "Integrating safety, consent, and respect into curricula and equipping teachers to promote safe practices." },
-        { icon: icon8, title: "Annual Safety Recognition Awards", description: "National awards to honor contributions and best practices in women’s safety, spotlighting changemakers." },
-        { icon: icon9, title: "Women Empowerment & Livelihood", description: "Supporting skill training, employment, and entrepreneurship to empower women with independence." }
+        { 
+            icon: icon7, 
+            title: "Safety Education in Schools", 
+            summary: "Integrating safety, consent, and respect into curricula.",
+            description: "Integrating safety, consent, and respect into curricula and equipping teachers to promote safe practices." 
+        },
+        { 
+            icon: icon8, 
+            title: "Annual Safety Recognition Awards", 
+            summary: "Honoring contributions and best practices in women’s safety.",
+            description: "National awards to honor contributions and best practices in women’s safety, spotlighting changemakers." 
+        },
+        { 
+            icon: icon9, 
+            title: "Women Empowerment & Livelihood", 
+            summary: "Supporting skill training, employment, and entrepreneurship.",
+            description: "Supporting skill training, employment, and entrepreneurship to empower women with independence." 
+        }
     ];
     const heroRef = useRef<HTMLDivElement>(null);
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -334,14 +374,32 @@ const HomePage: React.FC = () => {
         <div className="bg-brand-dark">
             <Hero
                 title="One Voice, One Mission"
-                subtitle="A Safer India for Women"
-                description="Join our diverse, pan-India collective dedicated to transforming distress into meaningful action and building a nation where every woman feels secure."
+                subtitle={["A Safer India", "for Women"]}
+                description={
+                    <div className="flex flex-col gap-2 text-center max-w-4xl mx-auto">
+                        
+                        
+                        <p className="text-xl md:text-2xl font-semibold text-brand-dull-white tracking-[0.1em] ">
+                            Don’t just hope for change, <span className="text-brand-dull-white">be the change.</span>
+                        </p>
+                         <p className="text-base md:text-lg text-brand-dull-white/90 leading-tight font-light">
+                            We are a pan-India collaborative movement with one mission: a nation where every woman is safe. <br></br>Together, we are building a strong, unified community so no woman is ever left without help. Join us to create real, practical solutions that turn distress into safety and ensure support is always within reach.
+                        </p>
+                        
+                        
+                       
+
+                        
+
+                        
+                    </div>
+                }
                 videoSrc={video}
                 scrollY={scrollY}
                 isAnimated={true}
                 slideImages={[slide1, slide2, slide3]}
             >
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link to="/get-involved" className="w-3/4 sm:w-auto text-white px-6 py-2 md:px-8 md:py-3 rounded-3xl text-base md:text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338]">
                     Join the Movement
                 </Link>
@@ -380,17 +438,15 @@ const HomePage: React.FC = () => {
                             className="sticky"
                             style={getCardStyle(index)}
                         >
-                            <div className={`bg-[#000000] p-5 md:p-10 rounded-[40px] md:rounded-[80px] border-2 border-[#724b4b54] hover:border-[#ff0440] hover:shadow-[0_0_20px_rgba(255,4,64,0.4)] transition-all duration-300 flex flex-col md:flex-row ${index >= values.length - 3 ? 'md:items-center' : 'items-start'} gap-5 md:gap-10`}>
-                                <div className="flex flex-col items-start gap-4 shrink-0 md:w-[14rem]">
-                                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center flex-shrink-0">
-                                        <img src={value.icon} alt={value.title} className="w-12 h-12 md:w-16 md:h-16 text-white" />
-                                    </div>
-                                    <h3 className="font-semibold text-xl md:text-3xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white">{value.title}</h3>
-                                </div>
-                                <div className="text-[#e1d5d5] text-sm md:text-lg w-full">
-                                    {value.description}
-                                </div>
-                            </div>
+                            <ExpandableCard
+                                title={value.title}
+                                summary={value.summary}
+                                icon={value.icon}
+                                index={index}
+                                totalCards={values.length}
+                            >
+                                {value.description}
+                            </ExpandableCard>
                         </div>
                     ))}
                 </div>

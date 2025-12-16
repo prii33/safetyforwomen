@@ -17,7 +17,7 @@ const AccordionHeader: React.FC<AccordionHeaderProps> = ({ number, title, isOpen
     isOpen ? 'bg-[#271111]' : 'bg-[#0d0202] hover:bg-[#271111]'
   } ${isGrid ? 'h-full' : ''}`; // Grid needs h-full
 
-  const buttonClasses = `w-full flex justify-between items-center text-left focus:outline-none group ${isGrid ? 'h-full py-6 px-6 gap-4' : 'py-4 px-4 gap-3'}`;
+  const buttonClasses = `w-full flex justify-between items-center text-left focus:outline-none group ${isGrid ? 'h-full py-3 px-4 gap-4' : 'py-4 px-4 gap-3'}`;
 
   return (
     <div className={containerClasses}>
@@ -73,16 +73,17 @@ const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false, lay
     return (
       <div className="w-full mx-auto">
         {/* Buttons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {items.map((item, index) => (
-            <AccordionHeader
-              key={index}
-              number={item.number}
-              title={item.title}
-              isOpen={openIndex === index}
-              onClick={() => handleClick(index)}
-              variant="grid"
-            />
+            <div key={index} className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc((100%-2rem)/3)]">
+              <AccordionHeader
+                number={item.number}
+                title={item.title}
+                isOpen={openIndex === index}
+                onClick={() => handleClick(index)}
+                variant="grid"
+              />
+            </div>
           ))}
         </div>
 

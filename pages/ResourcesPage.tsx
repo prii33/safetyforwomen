@@ -7,6 +7,8 @@ import SafetyTipsSection from '../components/SafetyTipsSection';
 import SelfDefenseCards from '../components/SelfDefenseCards';
 import SurvivorSupportCard from '../components/SurvivorSupportCard';
 import redmist from '@/assets/redmist2.mov';
+import safetyIcon from '../assets/safety.gif';
+import deviceIcon from '../assets/device.gif';
 
 const ResourcesPage: React.FC = () => {
     return (
@@ -45,14 +47,12 @@ const ResourcesPage: React.FC = () => {
                             whileHover={{ y: -5 }}
                             className="relative bg-gradient-to-br from-[#2a100e] to-black p-1 rounded-3xl transition-all duration-500 group overflow-hidden hover:bg-[#3d1a15]/30"
                          >
-                             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
+                             <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
                              
                              <div className="relative p-8 sm:p-10 z-10">
                                  <div className="flex items-center mb-6">
-                                     <div className="p-3 bg-brand-red/10 rounded-xl mr-4 text-brand-red group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                        </svg>
+                                     <div className="w-16 h-16 p-2 bg-brand-red/10 rounded-full mr-4 group-hover:scale-150 transition-transform duration-500 flex-shrink-0 flex items-center justify-center">
+                                         <img src={safetyIcon} alt="Safety Apps" className="w-full h-full object-contain" />
                                      </div>
                                      <h3 className="text-2xl font-bold text-white group-hover:text-brand-red transition-colors duration-300">Authorized Safety Apps</h3>
                                  </div>
@@ -88,14 +88,12 @@ const ResourcesPage: React.FC = () => {
                             whileHover={{ y: -5 }}
                             className="relative bg-gradient-to-br from-[#2a100e] to-black p-1 rounded-3xl transition-all duration-500 group overflow-hidden hover:bg-[#3d1a15]/30"
                          >
-                             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
+                             <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-red/5 rounded-full blur-3xl group-hover:bg-brand-red/10 transition-all duration-500"></div>
                              
                              <div className="relative p-8 sm:p-10 z-10">
                                  <div className="flex items-center mb-6">
-                                     <div className="p-3 bg-brand-red/10 rounded-xl mr-4 text-brand-red group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
+                                     <div className="w-16 h-16 p-2 bg-brand-red/10 rounded-full mr-4 group-hover:scale-150 transition-transform duration-500 flex-shrink-0 flex items-center justify-center">
+                                         <img src={deviceIcon} alt="Safety Devices" className="w-full h-full object-contain" />
                                      </div>
                                      <h3 className="text-2xl font-bold text-white group-hover:text-brand-red transition-colors duration-300">Modern Safety Devices</h3>
                                  </div>

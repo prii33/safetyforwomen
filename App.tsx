@@ -10,12 +10,15 @@ import EventsMediaPage from './pages/EventsMediaPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
 import FAQPage from './pages/FAQPage';
 import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import FluidCursor from './components/FluidCursor';
 import FloatingSocialIcons from './components/FloatingSocialIcons';
+import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
   return (
     <HashRouter>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen font-sans">
         <FluidCursor />
         <FloatingSocialIcons />
@@ -29,6 +32,7 @@ const App: React.FC = () => {
             <Route path="/events-media" element={<EventsMediaPage />} />
             <Route path="/get-involved" element={<GetInvolvedPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/faq" element={<FAQPage />} />
           </Routes>
         </main>
