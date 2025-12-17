@@ -17,6 +17,7 @@ tags:
   - EmpowerWomen
   - BreakTheSilence
   - GenderEquality
+authorBio: "About the Author: Abdul Shakeeb | Logistics & Supply chain Veteran | Ex DHL"
 ---
 
 Ensuring women’s safety in India is a pressing concern that demands immediate and sustained attention. Despite legislative reforms and public awareness campaigns, incidents of violence against women continue to surface, underscoring deep-seated societal challenges.
@@ -51,5 +52,3 @@ Addressing this multifaceted issue requires collective action from individuals, 
 ### Conclusion
 
 The safety of women in India is not just a women’s issue; it is a societal imperative. By adopting a holistic approach that encompasses legal reforms, societal change, and individual responsibility, we can aspire to create an environment where women feel safe, respected, and empowered. Collective action is the cornerstone of this endeavour, and every effort counts towards building a safer nation for all.
-
-About the Author: Abdul Shakeeb | Logistics & Supply chain Veteran | Ex DHL

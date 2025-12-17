@@ -33,7 +33,7 @@ export const FloatingDock = () => {
                     whileHover={{ scale: 1.15 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    className="relative mx-0.5"
+                    className="relative mx-1.5"
                 >
                     <NavLink
                         to={link.href}

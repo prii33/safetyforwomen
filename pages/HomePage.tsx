@@ -421,7 +421,7 @@ const HomePage: React.FC = () => {
                     ></div>
                     <div className="container mx-auto px-4 md:px-8 pt-12">
                         <h2 className="text-3xl md:text-5xl font-bold text-center">
-                            <span style={{ color: '#e1d5d5' }}>Our 9</span> <span style={{ color: '#ff0440' }}>Core Objectives</span>
+                            <span style={{ color: '#e1d5d5' }}></span> <span style={{ color: '#ff0440' }}>Our Initiatives</span>
                         </h2>
                         <div className="pb-8">
                             <p className="mt-4 max-w-3xl mx-auto text-base md:text-xl text-brand-light-text text-center">

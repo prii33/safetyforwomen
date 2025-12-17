@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import pledgebk from '@/assets/pledgebk.jpg';
 import mpledgebk from '@/assets/mpledgebk.png';
 
@@ -175,10 +176,13 @@ const JoinSection = () => {
           <p className="text-lg sm:text-xl mt-4 max-w-lg mx-auto sm:max-w-none" style={{ color: '#000000' }}>
             Commit to being an active part of the solution. <br className="hidden sm:block" />Your pledge is a promise to stand for safety, respect, and equality.
           </p>
-        
-          <button className="mt-8 py-3 px-10 rounded-full border border-black/60 sm:border-black bg-black/60 sm:bg-black text-white text-xl font-semibold transition-transform transform hover:scale-105">
+
+          <Link
+            to="/get-involved"
+            className="inline-block mt-8 py-3 px-10 rounded-full border border-black/60 sm:border-black bg-black/60 sm:bg-black text-white text-xl font-semibold transition-transform transform hover:scale-105"
+          >
             Join the Movement
-          </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -3,13 +3,14 @@ slug: finding-my-voice
 title: "Finding My Voice: From Silent Survivor to Empowered Advocate"
 excerpt: "I remember the day with crystal clarity. I was wearing a lemon-yellow salwar kameez, just months shy of my 18th birthday. As usual, I had walked the kilometer to catch the State transport bus to college."
 date: "2025-03-11"
-author: "Safety For Women"
+author: "Dr. Varsha Pillai"
 readTime: "4 min read"
 image: "https://safetyforwomen.org/wp-content/uploads/2025/03/123.jpeg"
 tags:
   - SurvivorStories
   - Empowerment
   - WomensSafety
+authorBio: "About the Author: Dr. Varsha Pillai, a Gender Advocacy and Communications Specialist, leads Women in Manufacturing at Tata Electronics and is a volunteer with Safety for Women"
 ---
 
 ### A moment that changed everything
@@ -39,5 +40,3 @@ Today’s young people deserve better preparation. They need to know that their 
 - Mentorship, advocacy, and storytelling so no one feels alone or unsure about speaking up.
 
 The seventeen-year-old in the yellow salwar kameez deserved better. Today’s seventeen-year-olds deserve better. By breaking the silence around these experiences, by transforming personal pain into collective empowerment, together we can move closer to a world where everyone can travel, study, work and simply exist in public spaces without fear. My voice is now my power. May all those still searching for theirs find it before they need it most.
-
-Dr. Varsha Pillai, a Gender Advocacy and Communications Specialist, leads Women in Manufacturing at Tata Electronics and is a volunteer with Safety for Women

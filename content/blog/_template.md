@@ -9,6 +9,8 @@ image: "https://example.com/hero.jpg"
 tags:
   - WomensSafety
   - Empowerment
+# draft posts are excluded from the blog listing
+draft: true
 # externalUrl: "https://external-site.com/your-post" # Optional: use for offsite stories
 ---
 

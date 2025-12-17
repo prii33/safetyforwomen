@@ -75,45 +75,10 @@ const BlogPostPage: React.FC = () => {
     <div className="bg-brand-dark min-h-screen text-brand-light font-sans relative overflow-hidden">
       <OrbsBackground />
 
-      <div className="container mx-auto px-4 pt-20 md:pt-28 pb-8 relative z-20">
-        <div className="relative flex flex-col md:flex-row items-center justify-center">
-          <div className="md:absolute md:left-0 mb-6 md:mb-0">
-            <Link
-              to="/blog"
-              className="inline-flex items-center px-4 py-2 border border-brand-red/30 rounded-full text-brand-light hover:border-brand-red hover:text-brand-red transition-all duration-300 text-sm group"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 mr-2 transform group-hover:-translate-x-1 transition-transform"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Back to Blog
-            </Link>
-          </div>
-
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-              <span className="block font-semibold text-sm md:text-xl uppercase tracking-[0.2em] md:tracking-[0.5em] mb-2">
-                Stories & Insight
-              </span>
-              <span className="block text-brand-red">Blog</span>
-            </h1>
-          </div>
-        </div>
-      </div>
+      <div className="container mx-auto px-4 pt-12 md:pt-16 pb-4 relative z-20" />
 
       <div className="relative pb-4 px-4 container mx-auto text-center z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto">
-          <span className="text-brand-red font-bold tracking-wider uppercase text-sm mb-4 block">
-            {post.author || 'Safety For Women'}
-          </span>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">{post.title}</h1>
 
           <div className="flex flex-col items-center justify-center mb-6">
@@ -220,7 +185,8 @@ const BlogPostPage: React.FC = () => {
           ) : null}
 
           <div className="mt-8 text-sm text-gray-500 italic">
-            {post.author ? `About the Author: ${post.author}` : 'Safety For Women'}
+            {post.authorBio ||
+              (post.author ? `About the Author: ${post.author}` : 'Safety For Women')}
           </div>
 
           <div className="mt-12 pt-8 border-t border-brand-red/20 flex justify-between items-center">

@@ -11,6 +11,8 @@ export type BlogFrontmatter = {
   image: string;
   tags?: string[];
   externalUrl?: string;
+  authorBio?: string;
+  draft?: boolean;
 };
 
 export type BlogPost = BlogFrontmatter & {
@@ -42,7 +44,12 @@ const parsedPosts: BlogPost[] = Object.entries(markdownFiles)
         ?.replace(/\.md$/, '') ||
       '';
 
-    if (!inferredSlug || !frontmatter.title || !frontmatter.excerpt) {
+    if (
+      !inferredSlug ||
+      !frontmatter.title ||
+      !frontmatter.excerpt ||
+      frontmatter.draft
+    ) {
       // Skip invalid entries quietly; keeps the UI resilient if a file is incomplete.
       return null;
     }
@@ -57,6 +64,7 @@ const parsedPosts: BlogPost[] = Object.entries(markdownFiles)
       image: frontmatter.image || '',
       tags: frontmatter.tags || [],
       externalUrl: frontmatter.externalUrl,
+      authorBio: frontmatter.authorBio || '',
       content,
     };
   })
