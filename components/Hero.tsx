@@ -83,7 +83,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
             Your browser does not support the video tag.
           </video>
           <div style={{ transform: `scale(${scale})`, opacity }} className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-5xl md:text-8xl font-extrabold text-white leading-none">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-none">
               <StaggeredText text={title} className="block font-semibold text-xl md:text-2xl uppercase tracking-[0.1em] md:tracking-[0.5em] pt-52 md:pt-48" />
               {Array.isArray(subtitle) ? (
                 subtitle.map((line, index) => (

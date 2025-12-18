@@ -91,7 +91,7 @@ export const PledgeForm: React.FC = () => {
 
     return (
         <div className="max-w-md mx-auto p-6 bg-transparent rounded-lg shadow-xl">
-            <h2 className="text-2xl font-bold mb-6 text-center text-white">Take the Safety Pledge</h2>
+            <h2 className="text-xl font-semibold mb-6 text-center text-brand-light">Take the Safety PledgeTake the pledge. Receive your Certificate of Commitment.</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-red-100">Name</label>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface LinkData {
@@ -10,6 +10,7 @@ interface LinkData {
 const links: LinkData[] = [
     { title: "Home", href: "/" },
     { title: "About Us", href: "/about" },
+    { title: "Our Initiatives", href: "/#initiatives" },
     { title: "Our Impact", href: "/impact" },
     { title: "Resources", href: "/resources" },
     { title: "Events & Media", href: "/events-media" },
@@ -20,6 +21,31 @@ const links: LinkData[] = [
 
 export const FloatingDock = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [activeSection, setActiveSection] = useState<string>('home');
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        if (pathname !== '/') return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { rootMargin: '-50% 0px -50% 0px' }
+        );
+
+        const sections = ['home', 'initiatives'];
+        sections.forEach((id) => {
+            const element = document.getElementById(id);
+            if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, [pathname]);
 
     return (
         <div 
@@ -39,20 +65,30 @@ export const FloatingDock = () => {
                         to={link.href}
                         className="relative block px-3 py-1.5 rounded-3xl text-sm font-medium uppercase transition-colors duration-200"
                     >
-                        {({ isActive }) => (
-                            <>
-                                <span className={`relative z-20 ${isActive ? 'text-white' : 'text-brand-light hover:text-white'}`}>
-                                    {link.title}
-                                </span>
-                                
-                                {/* Static Active Background */}
-                                {isActive && (
-                                    <span className="absolute inset-0 bg-brand-red rounded-3xl z-10" />
-                                )}
+                        {({ isActive }) => {
+                            let isLinkActive = isActive;
+                            if (pathname === '/') {
+                                if (link.href === '/') {
+                                    isLinkActive = activeSection === 'home';
+                                } else if (link.href === '/#initiatives') {
+                                    isLinkActive = activeSection === 'initiatives';
+                                }
+                            }
 
-                                {/* Moving Hover Background */}
-                                {hoveredIndex === idx && !isActive && (
-                                    <motion.span
+                            return (
+                                <>
+                                    <span className={`relative z-20 ${isLinkActive ? 'text-white' : 'text-brand-light hover:text-white'}`}>
+                                        {link.title}
+                                    </span>
+                                    
+                                    {/* Static Active Background */}
+                                    {isLinkActive && (
+                                        <span className="absolute inset-0 bg-brand-red rounded-3xl z-10" />
+                                    )}
+
+                                    {/* Moving Hover Background */}
+                                    {hoveredIndex === idx && !isLinkActive && (
+                                        <motion.span
                                         className="absolute inset-0 bg-[#8a4a3b] rounded-3xl z-10"
                                         layoutId="hoverBackground"
                                         initial={{ opacity: 0 }}
@@ -61,7 +97,7 @@ export const FloatingDock = () => {
                                     />
                                 )}
                             </>
-                        )}
+                        )}}
                     </NavLink>
                 </motion.div>
             ))}

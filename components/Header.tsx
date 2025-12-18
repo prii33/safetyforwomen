@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logo from '/assets/sfwlogo.png';
 import IFFLogo from '/assets/IFF.png';
@@ -17,6 +17,7 @@ const MobileNavLinks = ({ closeMenu }: { closeMenu: () => void }) => {
         <>
             <NavLink to="/" className={linkClass} onClick={closeMenu}>Home</NavLink>
             <NavLink to="/about" className={linkClass} onClick={closeMenu}>About Us</NavLink>
+            <NavLink to="/#initiatives" className={linkClass} onClick={closeMenu}>Our Initiatives</NavLink>
             <NavLink to="/impact" className={linkClass} onClick={closeMenu}>Our Impact</NavLink>
             <NavLink to="/resources" className={linkClass} onClick={closeMenu}>Resources</NavLink>
             <NavLink to="/events-media" className={linkClass} onClick={closeMenu}>Events & Media</NavLink>
@@ -29,11 +30,20 @@ const MobileNavLinks = ({ closeMenu }: { closeMenu: () => void }) => {
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
     const isHomePage = location.pathname === '/';
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <header className={`${isHomePage ? 'absolute w-full' : 'sticky'} top-0 z-40 ${isHomePage ? 'bg-transparent' : 'bg-black'}`}>
+        <header className={`${isHomePage ? 'fixed w-full' : 'sticky'} top-0 z-40 transition-colors duration-300 ${isHomePage && !isScrolled ? 'bg-transparent' : 'bg-black/90 backdrop-blur-md'}`}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <div className="flex flex-col items-center self-start">
@@ -44,18 +54,13 @@ const Header: React.FC = () => {
                             <img src={IFFLogo} alt="IFF Partner" className="h-10 md:h-12 w-auto object-contain" />
                         </div>
                     </div>
-                    <div className="hidden md:block">
+                    <div className="hidden xl:block">
                         <div className="ml-10">
                             <FloatingDock />
                         </div>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <a href="tel:112" className="group relative inline-flex items-center justify-center p-[2px] overflow-hidden rounded-full font-bold text-black transition-all duration-300 ease-in-out hover:scale-105 star-border">
-                            <span className="relative px-4 py-2 transition-all ease-in duration-75 bg-gradient-to-br from-[#19e1b8] to-[#10b981] rounded-full group-hover:bg-opacity-90 shadow-[inset_0_-4px_6px_rgba(0,0,0,0.3),0_8px_16px_rgba(25,225,184,0.4)]">
-                                Call 112
-                            </span>
-                        </a>
-                        <div className="-mr-2 flex md:hidden">
+                        <div className="-mr-2 flex xl:hidden">
                             <button onClick={() => setIsOpen(!isOpen)} type="button" className="bg-transparent inline-flex items-center justify-center p-2 rounded-md text-brand-light-text hover:text-white hover:bg-brand-maroon focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-red" aria-controls="mobile-menu" aria-expanded="false">
                                 <span className="sr-only">Open main menu</span>
                                 {!isOpen ? (
@@ -73,7 +78,7 @@ const Header: React.FC = () => {
                 </div>
             </div>
             {isOpen && (
-                <div className="md:hidden bg-black/40 backdrop-blur-xl absolute top-20 left-0 w-full h-screen border-t border-white/10" id="mobile-menu">
+                <div className="xl:hidden bg-black/40 backdrop-blur-xl absolute top-20 left-0 w-full h-screen border-t border-white/10" id="mobile-menu">
                     <div className="px-8 py-8 space-y-6 flex flex-col items-start">
                         <MobileNavLinks closeMenu={() => setIsOpen(false)} />
                     </div>

@@ -69,11 +69,10 @@ const JoinSection = () => {
       const sectionHeight = section.offsetHeight;
       const viewportHeight = window.innerHeight;
       
-      const animationDuration = sectionHeight - viewportHeight;
       const scrolledInSection = -rect.top + viewportHeight;
 
       if (scrolledInSection >= 0 && scrolledInSection <= sectionHeight) {
-        const p = scrolledInSection / animationDuration;
+        const p = scrolledInSection / sectionHeight;
         setProgress(p);
       } else if (scrolledInSection < 0) {
         setProgress(0);
@@ -135,7 +134,7 @@ const JoinSection = () => {
   }
 
   return (
-    <section ref={sectionRef} className="relative h-[500vh] w-full bg-black">
+    <section ref={sectionRef} className="relative h-[150vh] w-full bg-black">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in" style={{ backgroundImage: `url(${isMobile ? mpledgebk : pledgebk})`, backgroundPosition: 'center', opacity: progress > 0 ? 1 : 0 }}>
         <div 
           className="absolute inset-0 flex flex-col w-full h-full"

@@ -12,11 +12,7 @@ const GetInvolvedPage: React.FC = () => {
             title: "Take The Safety Pledge",
             content: (
                 <>
-                    <div className="text-center mb-8">
-                        <p className="max-w-2xl mx-auto text-brand-light-text">
-                            A personal commitment to fostering a safer environment for women in your community.
-                        </p>
-                    </div>
+                    
                     <PledgeForm />
                 </>
             )
@@ -67,7 +63,16 @@ const GetInvolvedPage: React.FC = () => {
             content: (
                 <div className="text-center">
                     <p className="mb-6 text-brand-light-text text-lg">Unite with other organizations and doers. Collaborate with us to amplify our impact and create systemic change.</p>
-                    <button className="bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity">Connect With Us</button>
+                    <button 
+                        onClick={() => window.open(
+                            'https://docs.google.com/forms/d/e/1FAIpQLSeH9SZu6loQT4irZowzBIHJZl_SFc10JGsD6fFClXJ6cWQXcQ/viewform',
+                            'googleFormPopup',
+                            'width=800,height=800,scrollbars=yes,resizable=yes,status=no,location=no,toolbar=no,menubar=no'
+                        )}
+                        className="bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity"
+                    >
+                        Connect With Us
+                    </button>
                 </div>
             )
         },
@@ -99,6 +104,7 @@ const GetInvolvedPage: React.FC = () => {
                 subtitle="Be the Change"
                 description="Your voice, time, and commitment can create a ripple effect of change. Here’s how you can contribute."
                 videoSrc={redmist}
+                scrollY={0}
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20 pt-0">

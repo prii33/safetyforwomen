@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { pressCoverage } from '../data/mockData';
 import { collaborationEvents, timelineEvents, upcomingEvent } from '../data/eventsData';
@@ -155,6 +156,19 @@ const StatDisplay: React.FC<{ text: string }> = ({ text }) => {
 const EventsMediaPage: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'awareness' | 'safe'>('awareness');
     const [activeGallery, setActiveGallery] = useState<GalleryState | null>(null);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash === '#safe-well-lit') {
+            setActiveTab('safe');
+            setTimeout(() => {
+                const element = document.getElementById('safe-well-lit');
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, [location]);
 
     const filteredEvents = timelineEvents.filter(event => {
         if (activeTab === 'safe') return event.isPanel;
@@ -164,8 +178,8 @@ const EventsMediaPage: React.FC = () => {
     return (
         <div className="bg-brand-dark text-brand-light min-h-screen">
             <Hero
-                title="Events & Media"
-                subtitle="Our Journey & Impact"
+                title="Our Journey"
+                subtitle="Events & Media"
                 description="Explore our awareness programs, collaborations, and community initiatives making a difference."
                 videoSrc={redmist}
                 scrollY={0}
@@ -236,7 +250,7 @@ const EventsMediaPage: React.FC = () => {
                 )}
 
                 {/* Tab Navigation */}
-                <div className="flex flex-col md:flex-row items-center justify-center gap-2 mb-4 md:mb-6">
+                <div id="safe-well-lit" className="flex flex-col md:flex-row items-center justify-center gap-2 mb-4 md:mb-6">
                     <button 
                         onClick={() => setActiveTab('awareness')}
                         className={`px-6 py-2 rounded-md font-semibold text-base transition-all duration-300 border ${
@@ -388,92 +402,6 @@ const EventsMediaPage: React.FC = () => {
                     </AnimatePresence>
                 </section>
 
-                {/* “Be the Light” Panel – Safe & Well-Lit Communities */}
-                {activeTab === 'safe' && (
-                    <section className="mb-20">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="bg-gradient-to-br from-[#2a100e] via-black to-black rounded-2xl border border-brand-red/30 shadow-2xl overflow-hidden"
-                        >
-                            <div className="grid md:grid-cols-2 gap-0">
-                                <div className="p-6 md:p-8 space-y-4">
-                                    <div className="inline-flex items-center gap-2 rounded-full border border-brand-red/50 bg-brand-red/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-red">
-                                        <span>Safe & Well-Lit Communities</span>
-                                    </div>
-                                    <h3 className="text-2xl md:text-3xl font-semibold text-brand-light">
-                                        “Be the Light” – Panel Discussion
-                                    </h3>
-                                    <p className="text-sm md:text-base text-brand-light-text/85">
-                                        Held on <span className="font-semibold text-brand-light">23 March 2025</span>,
-                                        this flagship conversation brought together city leaders, utilities and
-                                        citizens to reimagine safer, better lit communities for women and girls.
-                                    </p>
-
-                                    <div className="grid grid-cols-1 gap-3 text-xs md:text-sm text-brand-light-text/90">
-                                        <div>
-                                            <p className="font-semibold text-brand-light uppercase tracking-[0.16em] text-[11px] mb-1">
-                                                Panelists
-                                            </p>
-                                            <ul className="list-disc list-inside space-y-1">
-                                                <li>Arun Pai – Founder, Bangalore Walks</li>
-                                                <li>Baishaki – Executive VP, Axis Bank</li>
-                                                <li>Vikram Rai – President, Bangalore Apartment Federation</li>
-                                                <li>Priyanka Upendra – Cine Actor</li>
-                                                <li>Snehal – Joint Commissioner, BBMP East</li>
-                                                <li>Pushpa S – Chief GM (Corporate Affairs), BESCOM</li>
-                                                <li>Poornima Shetty – Founder, Safety for Women Foundation</li>
-                                            </ul>
-                                        </div>
-                                        <div>
-                                            <p className="font-semibold text-brand-light uppercase tracking-[0.16em] text-[11px] mb-1">
-                                                Moderator
-                                            </p>
-                                            <p>Nithya Mandhyam – Times of India</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="pt-2">
-                                        <button
-                                            type="button"
-                                            onClick={() =>
-                                                setActiveGallery({
-                                                    title: '“Be the Light” – Panel Discussion Gallery',
-                                                    images:
-                                                        timelineEvents.find((e) => e.isPanel && e.galleryImages)
-                                                            ?.galleryImages ?? [],
-                                                })
-                                            }
-                                            className="inline-flex items-center gap-2 rounded-full bg-brand-red px-5 py-2 text-xs md:text-sm font-semibold uppercase tracking-[0.18em] text-white hover:bg-red-700 transition-colors"
-                                        >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-4 w-4"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                            >
-                                                <path d="M4 3a2 2 0 00-2 2v9a2 2 0 002 2h11a2 2 0 002-2V7.414A2 2 0 0016.414 6L13 2.586A2 2 0 0011.586 2H4zm7 1.414L15.586 9H11a1 1 0 01-1-1V4.414z" />
-                                            </svg>
-                                            <span>View Photo Gallery</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div className="relative h-64 md:h-full bg-black/60">
-                                    <img
-                                        src={
-                                            timelineEvents.find((e) => e.isPanel)?.image ??
-                                            'https://picsum.photos/seed/panel/800/600'
-                                        }
-                                        alt="“Be the Light” panel"
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-                                </div>
-                            </div>
-                        </motion.div>
-                    </section>
-                )}
 
                 {/* Collaborations & Photo Galleries */}
                 <section className="mt-10 mb-12">

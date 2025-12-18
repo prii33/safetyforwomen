@@ -1,21 +1,24 @@
 import React from 'react';
 import ungoalslogo from '../assets/ungoalslogo.png';
+import goal3logo from '../assets/3logo.png';
+import goal4logo from '../assets/4logo.png';
 import goal5logo from '../assets/5logo.png';
 import goal11logo from '../assets/11logo.png';
 import goal16logo from '../assets/16logo.png';
+import goal17logo from '../assets/17logo.png';
 
 const UNSDGSection: React.FC = () => {
     return (
-        <div className="relative py-8 lg:py-16 overflow-hidden">
+        <div className="relative py-4 lg:py-6 overflow-hidden">
             {/* Background with gradient and subtle texture overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a0505] via-[#2a1212] to-black z-0"></div>
             <div className="absolute inset-0 bg-[url('/assets/noise.png')] opacity-5 z-0"></div>
             
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12">
+                <div className="flex flex-col items-center justify-center gap-2">
                     
                     {/* Title & Main Logo */}
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center gap-0">
                         <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-center">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">ALIGNED WITH </span>
                             <span className="text-white">UN SDGs</span>
@@ -24,33 +27,51 @@ const UNSDGSection: React.FC = () => {
                         <img 
                             src={ungoalslogo} 
                             alt="UN Sustainable Development Goals" 
-                            className="w-64 sm:w-80 h-auto filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300" 
+                            className="w-56 sm:w-72 h-auto filter brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300" 
                         />
                     </div>
 
-                    {/* Divider (Hidden on mobile) */}
-                    <div className="hidden lg:block w-px h-32 bg-gradient-to-b from-transparent via-brand-red/30 to-transparent"></div>
+                    {/* Brown Dotted Line */}
+                    <div className="w-full max-w-3xl border-t-2 border-dotted border-[#8B4513]/40 my-1"></div>
 
-                    {/* Right Side: Goal Cards */}
+                    {/* Goal Cards */}
                     <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
                         {[
                             { 
+                                img: goal3logo, 
+                                color: "shadow-[#4C9F38]/40", 
+                                delay: "0",
+                                link: "https://www.un.org/en/exhibits/page/sdgs-17-goals-transform-world#sdg3"
+                            },
+                            { 
+                                img: goal4logo, 
+                                color: "shadow-[#C5192D]/40", 
+                                delay: "100",
+                                link: "https://www.un.org/en/exhibits/page/sdgs-17-goals-transform-world#sdg4"
+                            },
+                            { 
                                 img: goal5logo, 
                                 color: "shadow-[#e5243b]/40", 
-                                delay: "0",
+                                delay: "200",
                                 link: "https://www.un.org/en/exhibits/page/sdgs-17-goals-transform-world#sdg5"
                             },
                             { 
                                 img: goal11logo, 
                                 color: "shadow-[#f99d26]/40", 
-                                delay: "100",
+                                delay: "300",
                                 link: "https://www.un.org/en/exhibits/page/sdgs-17-goals-transform-world#sdg11"
                             },
                             { 
                                 img: goal16logo, 
                                 color: "shadow-[#26bde2]/40", 
-                                delay: "200",
+                                delay: "400",
                                 link: "https://www.un.org/en/exhibits/page/sdgs-17-goals-transform-world#sdg16"
+                            },
+                            { 
+                                img: goal17logo, 
+                                color: "shadow-[#19486A]/40", 
+                                delay: "500",
+                                link: "https://www.un.org/en/exhibits/page/sdgs-17-goals-transform-world#sdg17"
                             }
                         ].map((goal, index) => (
                             <a 

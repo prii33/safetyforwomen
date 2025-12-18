@@ -27,7 +27,8 @@ if (typeof globalThis !== 'undefined' && (globalThis as any).Buffer === undefine
 }
 
 const markdownFiles = import.meta.glob<RawModule>('../content/blog/*.md', {
-  as: 'raw',
+  query: '?raw',
+  import: 'default',
   eager: true,
 });
 
@@ -81,4 +82,3 @@ export const getAllPostsMeta = (): BlogFrontmatter[] =>
 
 export const getPostBySlug = (slug?: string): BlogPost | undefined =>
   parsedPosts.find((post) => post.slug === slug);
-

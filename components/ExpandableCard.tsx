@@ -10,9 +10,11 @@ interface ExpandableCardProps {
   icon: string;
   index: number;
   totalCards: number;
+  hideHeader?: boolean;
+  tag?: string;
 }
 
-export const ExpandableCard = ({ title, summary, children, icon, index, totalCards }: ExpandableCardProps) => {
+export const ExpandableCard = ({ title, summary, children, icon, index, totalCards, hideHeader = false, tag }: ExpandableCardProps) => {
   const [active, setActive] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   const collapsedRef = useRef<HTMLDivElement>(null);
@@ -41,6 +43,13 @@ export const ExpandableCard = ({ title, summary, children, icon, index, totalCar
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
+
+  // Safety cleanup: ensure scroll is restored if component unmounts (e.g. navigation)
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
   useOutsideClick(ref, () => setActive(false));
 
@@ -84,37 +93,51 @@ export const ExpandableCard = ({ title, summary, children, icon, index, totalCar
                       >
                       <CloseIcon />
                       </motion.button>
-                      <div className="overflow-y-auto p-6 md:p-10 scrollbar-hide">
-                          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start mb-6">
-                              <motion.div 
-                                  layoutId={`image-${title}-${id}`} 
-                                  className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center flex-shrink-0 bg-neutral-900/50"
-                              >
-                                  <img src={icon} alt={title} className="w-16 h-16 md:w-20 md:h-20 text-white" />
-                              </motion.div>
-                              <div className="flex-1">
-                                  <motion.h3
-                                      initial={{ opacity: 0, x: -10 }}
-                                      animate={{ opacity: 1, x: 0 }}
-                                      exit={{ opacity: 0, x: -10, transition: { duration: 0.05 } }}
-                                      transition={{ duration: 0.25, delay: 0.1, ease: "easeOut" }}
-                                      className="font-semibold text-2xl md:text-3xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white mb-2"
-                                  >
-                                      {title}
-                                  </motion.h3>
-                                  {summary && (
-                                      <motion.p
-                                          initial={{ opacity: 0, x: -10 }}
-                                          animate={{ opacity: 1, x: 0 }}
-                                          exit={{ opacity: 0, x: -10, transition: { duration: 0.05 } }}
-                                          transition={{ duration: 0.25, delay: 0.15, ease: "easeOut" }}
-                                          className="text-brand-dull-white/60 text-base"
+                      <div className={`overflow-y-auto ${hideHeader ? 'p-4 md:p-6' : 'p-6 md:p-10'} scrollbar-hide`}>
+                          {!hideHeader && (
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start mb-6">
+                                <div className="w-16 h-16 md:w-20 md:h-20 bg-[#ff0440] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,4,64,0.4)] shrink-0">
+                                    <span className="text-white font-black text-2xl md:text-4xl">{index + 1}</span>
+                                </div>
+                                <motion.div 
+                                    layoutId={`image-${title}-${id}`} 
+                                    className="w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center flex-shrink-0 bg-neutral-900/50"
+                                >
+                                    <img src={icon} alt={title} className="w-16 h-16 md:w-20 md:h-20 text-white" />
+                                </motion.div>
+                                <div className="flex-1">
+                                    {tag && (
+                                      <motion.span 
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="inline-block mb-2 px-3 py-1 rounded-full bg-[#8a4a3b]/20 text-[#8a4a3b] text-xs font-bold uppercase tracking-wider border border-[#8a4a3b]/30"
                                       >
-                                          {summary}
-                                      </motion.p>
-                                  )}
-                              </div>
-                          </div>
+                                        {tag}
+                                      </motion.span>
+                                    )}
+                                    <motion.h3
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -10, transition: { duration: 0.05 } }}
+                                        transition={{ duration: 0.25, delay: 0.1, ease: "easeOut" }}
+                                        className="font-semibold text-2xl md:text-3xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white mb-2"
+                                    >
+                                        {title}
+                                    </motion.h3>
+                                    {summary && (
+                                        <motion.p
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: -10, transition: { duration: 0.05 } }}
+                                            transition={{ duration: 0.25, delay: 0.15, ease: "easeOut" }}
+                                            className="text-brand-dull-white/60 text-base"
+                                        >
+                                            {summary}
+                                        </motion.p>
+                                    )}
+                                </div>
+                            </div>
+                          )}
                           
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -162,16 +185,24 @@ export const ExpandableCard = ({ title, summary, children, icon, index, totalCar
 
             {/* Content Wrapper */}
             <div className="relative z-10 flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-8 w-full">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center border-2 bg-transparent border-[#5a2301] text-[#8a4a3b] group-hover:bg-[#ff0440] group-hover:border-[#ff0440] group-hover:text-white group-hover:shadow-[0_0_20px_rgba(255,4,64,0.4)] transition-all duration-300 shrink-0">
+                    <span className="font-black text-xl md:text-3xl">{index + 1}</span>
+                </div>
                 <motion.div 
                     layoutId={`image-${title}-${id}`} 
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                 >
-                    <img src={icon} alt={title} className="w-12 h-12 md:w-16 md:h-16 text-white group-hover:scale-110 transition-transform duration-300" />
+                    <img src={icon} alt={title} className="w-12 h-12 md:w-14 md:h-14 text-white group-hover:scale-110 transition-transform duration-300" />
                 </motion.div>
                 
                 <div className="flex flex-col items-center md:items-start flex-1">
+                    {tag && (
+                        <span className="mb-2 px-3 py-1 rounded-full bg-[#8a4a3b]/20 text-[#8a4a3b] text-xs font-bold uppercase tracking-wider border border-[#8a4a3b]/30">
+                            {tag}
+                        </span>
+                    )}
                     <motion.h3 
-                        className="font-semibold text-xl md:text-3xl tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white text-center md:text-left"
+                        className="font-semibold text-xl md:text-3xl  bg-clip-text text-transparent bg-gradient-to-b from-white to-brand-dull-white text-center uppercase md:text-left"
                     >
                         {title}
                     </motion.h3>
