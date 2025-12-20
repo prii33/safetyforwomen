@@ -526,7 +526,7 @@ const FAQPage: React.FC = () => {
                         }}
                     >
                         <div className="absolute inset-0 bg-black/60" />
-                        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+                        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-24 relative z-10">
                             <div className="max-w-7xl mx-auto">
                                 <Accordion items={faqItems} />
                                 <div className="mt-16 text-center">

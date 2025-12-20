@@ -31,7 +31,7 @@ const GoToTopButton: React.FC = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none  focus:ring-offset-2 focus:ring-[#FF0440]"
+          className="fixed bottom-4 right-4 z-50 p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none  focus:ring-offset-2 focus:ring-[#FF0440]"
           style={{
             background: 'linear-gradient(to right, #dc2626, #FF0440)',
             color: 'white',
@@ -41,7 +41,7 @@ const GoToTopButton: React.FC = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
+            className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

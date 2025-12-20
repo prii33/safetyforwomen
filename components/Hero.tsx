@@ -84,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
           </video>
           <div style={{ transform: `scale(${scale})`, opacity }} className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-none">
-              <StaggeredText text={title} className="block font-semibold text-xl md:text-2xl uppercase tracking-[0.1em] md:tracking-[0.5em] pt-52 md:pt-48" />
+              <StaggeredText text={title} className="block font-semibold text-xl md:text-2xl uppercase tracking-[0.1em] md:tracking-[0.5em] pt-32 md:pt-48" />
               {Array.isArray(subtitle) ? (
                 subtitle.map((line, index) => (
                   <StaggeredText key={index} text={line} className="block text-brand-red" />
@@ -104,7 +104,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
   }
 
   return (
-    <section className={`relative ${transparent ? 'bg-transparent' : 'bg-brand-dark'} py-14 flex items-center justify-center text-center overflow-hidden ${className || ''}`}>
+    <section className={`relative ${transparent ? 'bg-transparent' : 'bg-brand-dark'} py-8 md:py-14 flex items-center justify-center text-center overflow-hidden ${className || ''}`}>
        {!transparent && slideImages && slideImages.length > 0 ? (
             slideImages.map((img, index) => (
               <div

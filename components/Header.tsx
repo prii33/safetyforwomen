@@ -48,7 +48,7 @@ const Header: React.FC = () => {
                 <div className="flex items-center justify-between h-20">
                     <div className="flex flex-row md:flex-col items-center self-start">
                         <Link to="/" className="flex-shrink-0">
-                            <img className="h-32 md:h-[150px]" src={logo} alt="Safety For Women" />
+                            <img className="h-28 md:h-[150px]" src={logo} alt="Safety For Women" />
                         </Link>
                         <div className="ml-2 -mt-6 md:ml-0 md:mt-1" title="Internet Freedom Foundation">
                             <img src={IFFLogo} alt="IFF Partner" className="h-10 md:h-12 w-auto object-contain" />

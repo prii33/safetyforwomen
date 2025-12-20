@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
         <footer className="bg-brand-dark text-white py-12 border-t-[4px] border-dotted border-[#2a1212]">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center justify-center space-y-6">
-                    <ul className="social-icons-horizontal lg:!hidden">
+                    <ul className="social-icons-horizontal lg:!hidden !grid grid-cols-5 gap-4 justify-items-center">
                         <li><a href="https://www.facebook.com/share/g/1D7AX3WHDm/" target="_blank" rel="noopener noreferrer" data-label="Facebook"><i className="fa fa-facebook"></i></a></li>
                         <li><a href="https://x.com/safetyforwomenn" target="_blank" rel="noopener noreferrer" data-label="Twitter">
                             <i>
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
                         <li><a href="https://www.linkedin.com/company/safetyforwomen/" target="_blank" rel="noopener noreferrer" data-label="LinkedIn"><i className="fa fa-linkedin"></i></a></li>
                         <li><a href="https://www.youtube.com/@SafetyForWomen" target="_blank" rel="noopener noreferrer" data-label="YouTube"><i className="fa fa-youtube"></i></a></li>
                         <li><a href="https://www.instagram.com/teamsafetyforwomen/?hl=en" target="_blank" rel="noopener noreferrer" data-label="Instagram"><i className="fa fa-instagram"></i></a></li>
-                        <li><a href="#" data-label="WhatsApp"><i className="fa fa-whatsapp"></i></a></li>
+                        <li className="col-start-2"><a href="#" data-label="WhatsApp"><i className="fa fa-whatsapp"></i></a></li>
                         <li><a href="http://t.me/safetyforwomenIndia" target="_blank" rel="noopener noreferrer" data-label="Telegram">
                             <i>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" style={{ width: '1em', height: '1em' }}>
