@@ -593,8 +593,8 @@ policing? Schedule a tour for your group or community.</p>
             </div>
             
             {/* Our Mission Section */}
-            <section id="initiatives" ref={sectionRef} className="relative pb-20 sm:pb-28 scroll-mt-24" style={{ backgroundColor: '#0a0a0a' }}>
-                <div className="sticky top-16 z-10 w-full">
+            <section id="initiatives" ref={sectionRef} className="relative pb-20 sm:pb-28 scroll-mt-20" style={{ backgroundColor: '#0a0a0a' }}>
+                <div className="sticky top-20 z-10 w-full">
                     <div 
                         className="absolute inset-0"
                         style={{
@@ -602,7 +602,7 @@ policing? Schedule a tour for your group or community.</p>
                             zIndex: -1,
                         }}
                     ></div>
-                    <div className="container mx-auto px-4 md:px-8 pt-12">
+                    <div className="container mx-auto px-4 md:px-8 pt-6">
                         <h2 className="text-3xl md:text-5xl font-bold text-center">
                             <span style={{ color: '#e1d5d5' }}></span> <span style={{ color: '#ff0440' }}>Our Initiatives</span>
                         </h2>

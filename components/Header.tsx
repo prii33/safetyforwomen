@@ -46,11 +46,11 @@ const Header: React.FC = () => {
         <header className={`${isHomePage ? 'fixed w-full' : 'sticky'} top-0 z-40 transition-colors duration-300 ${isHomePage && !isScrolled ? 'bg-transparent' : 'bg-black/90 backdrop-blur-md'}`}>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
-                    <div className="flex flex-col items-center self-start">
+                    <div className="flex flex-row md:flex-col items-center self-start">
                         <Link to="/" className="flex-shrink-0">
                             <img className="h-32 md:h-[150px]" src={logo} alt="Safety For Women" />
                         </Link>
-                        <div className="mt-1" title="Internet Freedom Foundation">
+                        <div className="ml-2 -mt-6 md:ml-0 md:mt-1" title="Internet Freedom Foundation">
                             <img src={IFFLogo} alt="IFF Partner" className="h-10 md:h-12 w-auto object-contain" />
                         </div>
                     </div>
@@ -60,6 +60,13 @@ const Header: React.FC = () => {
                         </div>
                     </div>
                     <div className="flex items-center space-x-4">
+                        <div className="md:hidden">
+                            <a href="tel:112" className="group relative inline-flex items-center justify-center w-14 h-14 p-[2px] overflow-hidden rounded-full font-bold text-black transition-all duration-300 ease-in-out hover:scale-110 star-border z-50">
+                                <span className="relative w-full h-full flex items-center justify-center transition-all ease-in duration-75 bg-gradient-to-br from-[#19e1b8] to-[#10b981] rounded-full group-hover:bg-opacity-90 shadow-[inset_0_-4px_6px_rgba(0,0,0,0.3),0_8px_16px_rgba(25,225,184,0.4)]">
+                                    <span className="text-black font-black text-xs text-center leading-tight">Call<br/>112</span>
+                                </span>
+                            </a>
+                        </div>
                         <div className="-mr-2 flex xl:hidden">
                             <button onClick={() => setIsOpen(!isOpen)} type="button" className="bg-transparent inline-flex items-center justify-center p-2 rounded-md text-brand-light-text hover:text-white hover:bg-brand-maroon focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-red" aria-controls="mobile-menu" aria-expanded="false">
                                 <span className="sr-only">Open main menu</span>
@@ -78,7 +85,7 @@ const Header: React.FC = () => {
                 </div>
             </div>
             {isOpen && (
-                <div className="xl:hidden bg-black/40 backdrop-blur-xl absolute top-20 left-0 w-full h-screen border-t border-white/10" id="mobile-menu">
+                <div className="xl:hidden bg-black/90 backdrop-blur-xl absolute top-20 left-0 w-full h-screen border-t border-white/10" id="mobile-menu">
                     <div className="px-8 py-8 space-y-6 flex flex-col items-start">
                         <MobileNavLinks closeMenu={() => setIsOpen(false)} />
                     </div>

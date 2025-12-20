@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronDown } from 'react-icons/fa';
 
@@ -64,12 +64,25 @@ interface AccordionProps {
 
 const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false, layout = 'stack' }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleClick = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  if (layout === 'grid') {
+  // On mobile, always use stack layout to ensure content opens below the clicked item
+  const effectiveLayout = isMobile ? 'stack' : layout;
+
+  if (effectiveLayout === 'grid') {
     return (
       <div className="w-full mx-auto">
         {/* Buttons Grid */}
@@ -153,7 +166,7 @@ const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false, lay
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden"
                             >
-                                <div className="p-4 pt-0 pl-[4.25rem]">
+                                <div className={`p-4 pt-0 ${isMobile ? '' : 'pl-[4.25rem]'}`}>
                                     {item.content}
                                 </div>
                             </motion.div>

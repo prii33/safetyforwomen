@@ -46,7 +46,7 @@ export const GlowingCard = ({ children, className = "", innerClassName = "", ...
             />
 
             {/* Content Wrapper */}
-            <div className="relative z-10 w-full h-full p-6 flex flex-col items-center justify-center text-center">
+            <div className="relative z-10 w-full h-full p-3 md:p-6 flex flex-col items-center justify-center text-center">
                 {children}
             </div>
         </div>

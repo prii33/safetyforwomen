@@ -91,7 +91,7 @@ export const PledgeForm: React.FC = () => {
 
     return (
         <div className="max-w-md mx-auto p-6 bg-transparent rounded-lg shadow-xl">
-            <h2 className="text-xl font-semibold mb-6 text-center text-brand-light">Take the Safety PledgeTake the pledge. Receive your Certificate of Commitment.</h2>
+            <h2 className="text-l  mb-6 text-center text-brand-light">Take the Safety Pledge. Receive your Certificate of Commitment.</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-red-100">Name</label>
@@ -102,7 +102,7 @@ export const PledgeForm: React.FC = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
+                        className="mt-1 block w-full px-3 py-2 bg-[#3f1212] border border-[#5c1c1c] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <div>
@@ -116,7 +116,7 @@ export const PledgeForm: React.FC = () => {
                         required
                         pattern="[0-9]{10}"
                         title="Please enter a valid 10-digit mobile number"
-                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
+                        className="mt-1 block w-full px-3 py-2 bg-[#3f1212] border border-[#5c1c1c] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <div>
@@ -130,7 +130,7 @@ export const PledgeForm: React.FC = () => {
                         required
                         pattern="[0-9]{6}"
                         title="Please enter a valid 6-digit Pin Code"
-                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
+                        className="mt-1 block w-full px-3 py-2 bg-[#3f1212] border border-[#5c1c1c] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <div>
@@ -142,13 +142,13 @@ export const PledgeForm: React.FC = () => {
                         value={formData.state}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full px-3 py-2 bg-[#2a0a0a] border border-[#4a0a0a] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
+                        className="mt-1 block w-full px-3 py-2 bg-[#3f1212] border border-[#5c1c1c] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
                     />
                 </div>
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-red-600 to-[#FF0440] hover:from-red-700 hover:to-[#d90338] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50"
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#FF0440] hover:bg-[#d90338] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50"
                 >
                     {loading ? 'Submitting...' : 'Pledge'}
                 </button>

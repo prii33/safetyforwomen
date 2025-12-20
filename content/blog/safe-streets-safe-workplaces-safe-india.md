@@ -5,7 +5,7 @@ excerpt: "Ensuring women's safety in India is a pressing concern that demands im
 date: "2025-03-11"
 author: "Abdul Shakeeb"
 readTime: "5 min read"
-image: "https://safetyforwomen.org/wp-content/uploads/2025/03/blog-2.jpg"
+image: "/assets/blog1.png"
 tags:
   - WomensSafety
   - SafeIndiaForWomen

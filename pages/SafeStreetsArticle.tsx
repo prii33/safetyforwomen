@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaLink } from 'react-icons/fa';
 import OrbsBackground from '../components/OrbsBackground';
+import blog1 from '../assets/blog1.png';
 
 const SafeStreetsArticle: React.FC = () => {
     const handleShare = () => {
@@ -104,10 +105,10 @@ const SafeStreetsArticle: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-brand-red/20 h-[300px] md:h-[450px]"
+                    className="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-brand-red/20 h-[200px] md:h-[350px]"
                 >
                     <img 
-                        src="https://safetyforwomen.org/wp-content/uploads/2025/03/blog-2.jpg" 
+                        src={blog1} 
                         alt="Safe Streets" 
                         className="w-full h-full object-cover"
                     />

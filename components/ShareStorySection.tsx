@@ -23,7 +23,7 @@ const ShareStorySection: React.FC = () => {
                 href="mailto:teamsafetyforwomen@gmail.com" 
                 className="group inline-flex items-center px-8 py-4 bg-brand-red text-white font-semibold rounded-full hover:bg-red-700 transition-all duration-300 shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:shadow-[0_0_30px_rgba(220,38,38,0.5)] transform hover:-translate-y-1"
             >
-                <span className="mr-2 text-xl group-hover:scale-110 transition-transform duration-300">👉</span>
+               
                 Write for Our Blog
             </a>
         </div>

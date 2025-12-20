@@ -43,7 +43,7 @@ const GetInvolvedPage: React.FC = () => {
             title: "Become a Volunteer",
             content: (
                 <div className="text-center">
-                    <p className="mb-6 text-brand-light-text text-lg">Join our on-ground safety squadrons, contribute your skills, and be a last-mile responder in your community.</p>
+                    <p className="mb-6 text-brand-light-text text-l">Join our on-ground safety squadrons, contribute your skills, and be a last-mile responder in your community.</p>
                     <button 
                         onClick={() => window.open(
                             'https://docs.google.com/forms/d/e/1FAIpQLSdqzAMP1VKX1S0NbQK24R9EaO7jqOdSbq1DWz_p78ugd_8yKw/viewform',
@@ -62,7 +62,7 @@ const GetInvolvedPage: React.FC = () => {
             title: "Partner With Us",
             content: (
                 <div className="text-center">
-                    <p className="mb-6 text-brand-light-text text-lg">Unite with other organizations and doers. Collaborate with us to amplify our impact and create systemic change.</p>
+                    <p className="mb-6 text-brand-light-text text-l">Unite with other organizations and doers. Collaborate with us to amplify our impact and create systemic change.</p>
                     <button 
                         onClick={() => window.open(
                             'https://docs.google.com/forms/d/e/1FAIpQLSeH9SZu6loQT4irZowzBIHJZl_SFc10JGsD6fFClXJ6cWQXcQ/viewform',
@@ -81,7 +81,7 @@ const GetInvolvedPage: React.FC = () => {
             title: "Audit Your Street's Safety",
             content: (
                 <div className="text-center">
-                    <p className="mb-6 text-brand-light-text text-lg">Identify and report safety concerns in your neighborhood. Help us identify areas that need improvement.</p>
+                    <p className="mb-6 text-brand-light-text text-l">Identify and report safety concerns in your neighborhood. Help us identify areas that need improvement.</p>
                     <button 
                         onClick={() => window.open(
                             'https://docs.google.com/forms/d/e/1FAIpQLScx666YVpXuUUZUUJGqDEfClxmHn9fM48Fmdmbkd_sqD8e_IA/viewform',

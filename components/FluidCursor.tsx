@@ -5,11 +5,14 @@ import useFluidCursor from '../hooks/use-fluidCursor';
 
 const FluidCursor = () => {
   useEffect(() => {
-    useFluidCursor();
+    // Only initialize the fluid cursor on desktop devices to save resources on mobile
+    if (window.innerWidth >= 768) {
+      useFluidCursor();
+    }
   }, []);
 
   return (
-    <div className='fixed top-0 left-0 z-50 pointer-events-none'>
+    <div className='hidden md:block fixed top-0 left-0 z-50 pointer-events-none'>
       <canvas id='fluid' className='w-screen h-screen' />
     </div>
   );

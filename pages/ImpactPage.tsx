@@ -53,6 +53,7 @@ const ImpactPage: React.FC = () => {
                 subtitle="Visualizing Our Journey"
                 description="Visualizing our journey towards a safer India, one step at a time."
                 videoSrc={redmist}
+                scrollY={0}
             />
 
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-12 pt-0">
@@ -60,7 +61,7 @@ const ImpactPage: React.FC = () => {
                 <section className="mb-8 pt-8">
                     <h2 className="text-2xl md:text-2xl font-semibold bg-clip-text text-brand-red uppercase tracking-wider mb-8 text-center">Movement by the Numbers</h2>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                         {stats.map((stat, index) => (
                             <GlowingCard 
                                 key={stat.name}

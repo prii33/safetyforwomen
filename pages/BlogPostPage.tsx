@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+ import React, { useEffect, useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaLink } from 'react-icons/fa';
@@ -75,75 +75,71 @@ const BlogPostPage: React.FC = () => {
     <div className="bg-brand-dark min-h-screen text-brand-light font-sans relative overflow-hidden">
       <OrbsBackground />
 
-      <div className="container mx-auto px-4 pt-12 md:pt-16 pb-4 relative z-20" />
-
-      <div className="relative pb-4 px-4 container mx-auto text-center z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-5xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">{post.title}</h1>
-
-          <div className="flex flex-col items-center justify-center mb-6">
-            <div className="flex items-center justify-center flex-wrap gap-2 md:gap-3 text-sm text-gray-300 mb-3">
-              {post.author ? (
-                <div className="flex items-center gap-2">
-                  <span className="w-8 h-8 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-semibold uppercase">
-                    {post.author
-                      .split(' ')
-                      .map((chunk) => chunk[0])
-                      .join('')
-                      .slice(0, 2)}
-                  </span>
-                  <span className="font-medium text-white">{post.author}</span>
-                </div>
-              ) : null}
-              <span className="text-gray-600">|</span>
-              <span>{post.date}</span>
-              <span className="text-gray-600">|</span>
-              <span>{post.readTime}</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handleShare}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs font-medium hover:bg-white/10 transition-colors text-white group"
-              >
-                <span className="group-hover:text-blue-400 transition-colors">
-                  <FaFacebook />
-                </span>
-                Share
-              </button>
-              <button
-                onClick={handleTweet}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs font-medium hover:bg-white/10 transition-colors text-white group"
-              >
-                <span className="group-hover:text-sky-400 transition-colors">
-                  <FaTwitter />
-                </span>
-                Tweet
-              </button>
-              <button
-                onClick={handleCopy}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-xs font-medium hover:bg-white/10 transition-colors text-white group"
-              >
-                <span className="group-hover:text-brand-red transition-colors">
-                  <FaLink />
-                </span>
-                Copy
-              </button>
-            </div>
+      <div className={`relative w-full ${post.image ? 'mb-4 flex items-start -mt-32' : 'pt-24 pb-8'}`}>
+        {post.image && (
+          <div className="absolute inset-0 z-0">
+            <img src={post.image} alt={post.title} className="w-full h-full object-contain object-top" />
+            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent" />
           </div>
-        </motion.div>
-      </div>
+        )}
 
-      <div className="container mx-auto px-4 mb-8 relative z-10">
-        {post.image ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-brand-red/20 h-[300px] md:h-[450px]"
-          >
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+        <div className={`container mx-auto px-4 relative z-10 ${post.image ? 'pb-4' : ''}`} style={post.image ? { paddingTop: '450px' } : undefined}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-left max-w-4xl mx-auto w-full">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-lg">{post.title}</h1>
+
+            <div className="flex flex-col items-start gap-4">
+              <div className="flex items-center flex-wrap gap-2 md:gap-3 text-sm text-gray-200">
+                {post.author ? (
+                  <div className="flex items-center gap-2">
+                    <span className="w-8 h-8 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 text-xs font-semibold uppercase backdrop-blur-sm">
+                      {post.author
+                        .split(' ')
+                        .map((chunk) => chunk[0])
+                        .join('')
+                        .slice(0, 2)}
+                    </span>
+                    <span className="font-medium text-white drop-shadow-md">{post.author}</span>
+                  </div>
+                ) : null}
+                <span className="text-gray-400">|</span>
+                <span className="drop-shadow-md">{post.date}</span>
+                <span className="text-gray-400">|</span>
+                <span className="drop-shadow-md">{post.readTime}</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleShare}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-black/30 border border-white/20 rounded-md text-xs font-medium hover:bg-black/50 transition-colors text-white group backdrop-blur-sm"
+                >
+                  <span className="group-hover:text-blue-400 transition-colors">
+                    <FaFacebook />
+                  </span>
+                  Share
+                </button>
+                <button
+                  onClick={handleTweet}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-black/30 border border-white/20 rounded-md text-xs font-medium hover:bg-black/50 transition-colors text-white group backdrop-blur-sm"
+                >
+                  <span className="group-hover:text-sky-400 transition-colors">
+                    <FaTwitter />
+                  </span>
+                  Tweet
+                </button>
+                <button
+                  onClick={handleCopy}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-black/30 border border-white/20 rounded-md text-xs font-medium hover:bg-black/50 transition-colors text-white group backdrop-blur-sm"
+                >
+                  <span className="group-hover:text-brand-red transition-colors">
+                    <FaLink />
+                  </span>
+                  Copy
+                </button>
+              </div>
+            </div>
           </motion.div>
-        ) : null}
+        </div>
       </div>
 
       <div className="container mx-auto px-4 pb-16 relative z-10">
@@ -219,4 +215,3 @@ const BlogPostPage: React.FC = () => {
 };
 
 export default BlogPostPage;
-

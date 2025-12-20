@@ -2,10 +2,10 @@
 slug: finding-my-voice
 title: "Finding My Voice: From Silent Survivor to Empowered Advocate"
 excerpt: "I remember the day with crystal clarity. I was wearing a lemon-yellow salwar kameez, just months shy of my 18th birthday. As usual, I had walked the kilometer to catch the State transport bus to college."
-date: "2025-03-11"
+date: "2025-03-10"
 author: "Dr. Varsha Pillai"
 readTime: "4 min read"
-image: "https://safetyforwomen.org/wp-content/uploads/2025/03/123.jpeg"
+image: "/assets/blog2.png"
 tags:
   - SurvivorStories
   - Empowerment
