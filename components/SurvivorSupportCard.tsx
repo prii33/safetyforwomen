@@ -4,8 +4,11 @@ import type { Resource } from '../types';
 
 const SurvivorSupportCard: React.FC<{ resource: Resource }> = ({ resource }) => {
     return (
-        <motion.div 
-            className="group relative h-64 overflow-hidden rounded-3xl bg-neutral-900 border border-[#5a2301] shadow-2xl cursor-pointer"
+        <motion.a 
+            href={resource.link}
+            target={resource.link.startsWith('http') ? "_blank" : undefined}
+            rel={resource.link.startsWith('http') ? "noopener noreferrer" : undefined}
+            className="group relative h-64 overflow-hidden rounded-3xl bg-neutral-900 shadow-2xl cursor-pointer block"
             whileHover={{ y: -5 }}
             transition={{ duration: 0.3 }}
         >
@@ -27,29 +30,19 @@ const SurvivorSupportCard: React.FC<{ resource: Resource }> = ({ resource }) => 
             {/* Content Container */}
             <div className="absolute inset-0 z-10 p-6 flex flex-col justify-end">
                 <div className="transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
-                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-brand-red transition-colors duration-300">
+                    <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-white transition-colors duration-300">
                         {resource.title}
                     </h3>
                     
                     {/* Animated Accent Line */}
-                    <div className="h-1 w-12 bg-brand-red rounded-full mb-4 transition-all duration-500 ease-out group-hover:w-full" />
+                    <div className="h-px w-full bg-brand-red/20 mb-4" />
                     
                     {/* Description - Hidden initially, revealed on hover */}
                     <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500">
                         <div className="overflow-hidden">
-                             <p className="text-gray-300 text-sm mb-6 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                             <p className="text-gray-300 text-base mb-6 leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                 {resource.description}
                             </p>
-                            
-                            <a 
-                                href={resource.link} 
-                                className="inline-flex items-center text-white text-sm font-semibold hover:text-brand-red transition-colors group/link"
-                            >
-                                Learn More 
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transform transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +54,7 @@ const SurvivorSupportCard: React.FC<{ resource: Resource }> = ({ resource }) => 
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
             </div>
-        </motion.div>
+        </motion.a>
     );
 };
 

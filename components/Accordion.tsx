@@ -109,9 +109,9 @@ const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false, lay
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="w-full bg-[#0d0202] backdrop-blur-sm border border-[#5a2301] rounded-xl overflow-hidden"
+                    className="w-full bg-[#0d0202] backdrop-blur-sm rounded-xl overflow-hidden"
                 >
-                    <div className="p-6 sm:p-10">
+                    <div className="p-2 sm:p-4">
                         {items[openIndex].content}
                     </div>
                 </motion.div>

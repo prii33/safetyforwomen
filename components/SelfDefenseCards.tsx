@@ -80,10 +80,10 @@ const DemoCard: React.FC<DemoCardProps> = ({ image, stat, statLabel, quote, cate
             {/* Bottom Content */}
             <div className="mt-auto">
               <div className="mb-6">
-                <h3 className="text-6xl font-extrabold text-white mb-2 tracking-tight">
+                <h3 className="text-6xl font-extrabold text-white mb-2 ">
                   {stat}
                 </h3>
-                <p className="text-xl text-brand-dull-white font-medium">
+                <p className="text-3xl text-brand-dull-white ">
                   {statLabel}
                 </p>
               </div>
@@ -107,19 +107,18 @@ const SelfDefenseCards: React.FC = () => {
       
       statLabel: "Basic Escape Techniques",
       quote: "Learn the fundamental moves to break free from wrist grabs and holds effectively.",
-      category: "Beginner",
-      video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/k9Jn0eP-ZVg?si=pbHr2aARGoJGXqyB&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
+      category: "Beginner"
     },
     {
       image: slide3,
-      stat: "02",
+      
       statLabel: "Situational Awareness",
       quote: "The best self-defense is avoiding danger. Learn to spot threats before they escalate.",
       category: "Essential"
     },
     {
       image: bk2,
-      stat: "03",
+      
       statLabel: "Defensive Stance",
       quote: "Master the core stance that provides stability and readiness for any confrontation.",
       category: "Foundation"

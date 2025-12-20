@@ -1,6 +1,45 @@
 import React, { useState } from 'react';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
-import certificateUrl from '../assets/certificate.pdf';
+import certificateUrl from '../assets/SFW Certificate.pdf';
+
+const states = [
+    { code: 'AN', name: 'Andaman and Nicobar Islands' },
+    { code: 'AP', name: 'Andhra Pradesh' },
+    { code: 'AR', name: 'Arunachal Pradesh' },
+    { code: 'AS', name: 'Assam' },
+    { code: 'BR', name: 'Bihar' },
+    { code: 'CH', name: 'Chandigarh' },
+    { code: 'CG', name: 'Chhattisgarh' },
+    { code: 'DN', name: 'Dadra and Nagar Haveli and Daman and Diu' },
+    { code: 'DL', name: 'Delhi' },
+    { code: 'GA', name: 'Goa' },
+    { code: 'GJ', name: 'Gujarat' },
+    { code: 'HR', name: 'Haryana' },
+    { code: 'HP', name: 'Himachal Pradesh' },
+    { code: 'JK', name: 'Jammu and Kashmir' },
+    { code: 'JH', name: 'Jharkhand' },
+    { code: 'KA', name: 'Karnataka' },
+    { code: 'KL', name: 'Kerala' },
+    { code: 'LA', name: 'Ladakh' },
+    { code: 'LD', name: 'Lakshadweep' },
+    { code: 'MP', name: 'Madhya Pradesh' },
+    { code: 'MH', name: 'Maharashtra' },
+    { code: 'MN', name: 'Manipur' },
+    { code: 'ML', name: 'Meghalaya' },
+    { code: 'MZ', name: 'Mizoram' },
+    { code: 'NL', name: 'Nagaland' },
+    { code: 'OD', name: 'Odisha' },
+    { code: 'PY', name: 'Puducherry' },
+    { code: 'PB', name: 'Punjab' },
+    { code: 'RJ', name: 'Rajasthan' },
+    { code: 'SK', name: 'Sikkim' },
+    { code: 'TN', name: 'Tamil Nadu' },
+    { code: 'TG', name: 'Telangana' },
+    { code: 'TR', name: 'Tripura' },
+    { code: 'UP', name: 'Uttar Pradesh' },
+    { code: 'UK', name: 'Uttarakhand' },
+    { code: 'WB', name: 'West Bengal' }
+];
 
 export const PledgeForm: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -29,10 +68,10 @@ export const PledgeForm: React.FC = () => {
             const firstPage = pages[0];
             const { width, height } = firstPage.getSize();
             
-            // Place the participant's name on the horizontal white rule
-            const fontSize = 30;
+            // Place the participant's name on the horizontal red rule
+            const fontSize = 28;
             const textWidth = helveticaFont.widthOfTextAtSize(name, fontSize);
-            const yPosition = (height * 0.445) - (fontSize / 2); // nudge closer to the white line
+            const yPosition = (height * 0.60) - (fontSize / 2); // nudge closer to the red line
             
             firstPage.drawText(name, {
                 x: (width - textWidth) / 2,
@@ -90,8 +129,8 @@ export const PledgeForm: React.FC = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-transparent rounded-lg shadow-xl">
-            <h2 className="text-l  mb-6 text-center text-brand-light">Take the Safety Pledge. Receive your Certificate of Commitment.</h2>
+        <div className="max-w-md mx-auto p-0 bg-transparent rounded-lg shadow-none">
+            <h2 className="text-base  mb-6 text-center text-brand-light">Take the Safety Pledge. Receive your Certificate of Commitment.</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-red-100">Name</label>
@@ -135,15 +174,21 @@ export const PledgeForm: React.FC = () => {
                 </div>
                 <div>
                     <label htmlFor="state" className="block text-sm font-medium text-red-100">State</label>
-                    <input
-                        type="text"
+                    <select
                         id="state"
                         name="state"
                         value={formData.state}
                         onChange={handleChange}
                         required
-                        className="mt-1 block w-full px-3 py-2 bg-[#3f1212] border border-[#5c1c1c] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white placeholder-red-200/30"
-                    />
+                        className="mt-1 block w-full px-3 py-2 bg-[#3f1212] border border-[#5c1c1c] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white"
+                    >
+                        <option value="" className="bg-[#3f1212] text-gray-400">Select State</option>
+                        {states.map((state) => (
+                            <option key={state.code} value={state.code} className="bg-[#3f1212]">
+                                {state.name}
+                            </option>
+                        ))}
+                    </select>
                 </div>
                 <button
                     type="submit"

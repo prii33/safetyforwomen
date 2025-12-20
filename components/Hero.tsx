@@ -8,7 +8,7 @@ interface HeroProps {
   subtitle: string | string[];
   description: string | React.ReactNode;
   videoSrc: string;
-  scrollY: number;
+  scrollY?: number;
   isAnimated?: boolean;
   imageSrc?: string;
   slideImages?: string[];
@@ -17,7 +17,7 @@ interface HeroProps {
   className?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scrollY, isAnimated, imageSrc, slideImages, children, transparent, className }) => {
+const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scrollY = 0, isAnimated, imageSrc, slideImages, children, transparent, className }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
 

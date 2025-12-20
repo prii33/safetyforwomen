@@ -99,7 +99,7 @@ export const partners: Partner[] = [
 ];
 
 export const survivorSupport: Resource[] = [
-    { title: "National Commission for Women", description: "A statutory body for advising the government on all policy matters affecting women.", link: "#", image: ncw },
+    { title: "National Commission for Women", description: "A statutory body for advising the government on all policy matters affecting women.", link: "https://www.ncw.gov.in/", image: ncw },
     { title: "Women's Helpline (181)", description: "A 24/7 toll-free helpline for women in distress.", link: "tel:181", image: bk2 },
     { title: "Local NGO Directory", description: "Find verified local NGOs providing legal, medical, and counseling support.", link: "#", image: pledge },
 ];

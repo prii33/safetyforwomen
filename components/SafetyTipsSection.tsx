@@ -45,9 +45,9 @@ const SafetyTipsSection: React.FC = () => {
     const tips = safetyTips[activeTab as keyof typeof safetyTips];
 
     return (
-        <section className="pb-12 md:pb-24 pt-8">
+        <section className="pb-8 md:pb-12 pt-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <h2 className="text-xl md:text-xl uppercase font-semibold text-brand-red text-center mb-12  tracking-wider">Safety Tips for All Ages</h2>
+                <h2 className="text-xl md:text-xl uppercase font-semibold text-brand-red text-center mb-6  tracking-wider">Safety Tips for All Ages</h2>
                 
                 {/* Tabs Navigation */}
                 <div className="flex justify-center">
