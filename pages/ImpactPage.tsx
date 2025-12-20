@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, useSpring, useMotionValue } from 'framer-motion';
-import { FaUsers, FaCity, FaCalendarCheck, FaHeart, FaHandPaper } from 'react-icons/fa';
+import { FaUsers, FaCity, FaCalendarCheck, FaHeart, FaHandPaper, FaChevronDown } from 'react-icons/fa';
 import Hero from '../components/Hero';
 import { GlowingCard } from '../components/GlowingCard';
 import redmist from '@/assets/redmist2.mov';
@@ -71,22 +71,56 @@ const ImpactPage: React.FC = () => {
                                 variants={{ hover: { scale: 1.02 } }}
                                 transition={{ duration: 0.3, delay: index * 0.1 }}
                             >
-                                <motion.div 
-                                    className="mb-4 p-3 rounded-full bg-brand-brown/20 group-hover:bg-[#7f1d1d] group-hover:text-white transition-colors duration-300 z-10"
-                                    variants={{ hover: { scale: 1.3 } }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                >
-    {stat.isImage ? (
-                                        <img src={stat.icon as string} alt={stat.name} className="w-16 h-16 object-contain" />
-                                    ) : (
-                                        // @ts-ignore
-                                        <stat.icon className="w-16 h-16 text-[#8a3c3c] group-hover:text-brand-red transition-colors duration-300" />
+                                <div className={`flex flex-col items-center justify-center w-full transition-transform duration-500 ${stat.name === 'KSP App Downloads' ? 'group-hover:-translate-y-56' : ''}`}>
+                                    <motion.div 
+                                        className="mb-4 p-3 rounded-full bg-brand-brown/20 group-hover:bg-[#7f1d1d] group-hover:text-white transition-colors duration-300 z-10"
+                                        variants={{ hover: { scale: 1.3 } }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                    >
+        {stat.isImage ? (
+                                            <img src={stat.icon as string} alt={stat.name} className="w-16 h-16 object-contain" />
+                                        ) : (
+                                            // @ts-ignore
+                                            <stat.icon className="w-16 h-16 text-[#8a3c3c] group-hover:text-brand-red transition-colors duration-300" />
+                                        )}
+                                    </motion.div>
+                                    <h3 className="text-4xl lg:text-5xl font-bold text-brand-light-text mb-2 z-10 relative">
+                                        <AnimatedCounter value={stat.value} />+
+                                    </h3>
+                                    <p className="text-brand-dull-white font-bold uppercase text-sm tracking-wide z-10 relative group-hover:text-red-200 transition-colors duration-300">{stat.name}</p>
+                                    {stat.name === 'KSP App Downloads' && (
+                                        <div className="absolute top-full left-0 w-full flex flex-col items-center space-y-3 pt-6 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                            <div className="h-px w-24 bg-brand-red/30 mb-2"></div>
+                                                <p className="text-brand-light-text font-bold text-base tracking-wide">Download Karnataka State Police App</p>
+                                                <p className="text-base text-brand-dull-white/80 max-w-[250px] leading-relaxed">
+                                                    KSP Mobile App is the official mobile app of the Karnataka State Police.
+                                                </p>
+                                                <div className="flex gap-3 pt-2">
+                                                    <a 
+                                                        href="https://play.google.com/store/apps/details?id=com.capulustech.ksppqrs" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer"
+                                                        className="px-4 py-2 bg-brand-red hover:bg-red-700 text-white text-base font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-red-900/50 flex items-center gap-2"
+                                                    >
+                                                        <span>Android</span>
+                                                    </a>
+                                                    <a 
+                                                        href="https://apps.apple.com/in/app/karnataka-state-police/id1358964762" 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer"
+                                                        className="px-4 py-2 bg-brand-red hover:bg-red-700 text-white text-base font-bold rounded-full transition-all duration-300 shadow-lg hover:shadow-red-900/50 flex items-center gap-2"
+                                                    >
+                                                        <span>iOS</span>
+                                                    </a>
+                                                </div>
+                                            </div>
                                     )}
-                                </motion.div>
-                                <h3 className="text-4xl lg:text-5xl font-bold text-brand-light-text mb-2 z-10 relative">
-                                    <AnimatedCounter value={stat.value} />+
-                                </h3>
-                                <p className="text-brand-dull-white font-bold uppercase text-sm tracking-wide z-10 relative group-hover:text-red-200 transition-colors duration-300">{stat.name}</p>
+                                </div>
+                                {stat.name === 'KSP App Downloads' && (
+                                    <div className="absolute bottom-4 right-4 text-brand-red/80 animate-bounce group-hover:opacity-0 transition-opacity duration-300 z-20">
+                                        <FaChevronDown size={20} />
+                                    </div>
+                                )}
                             </GlowingCard>
                         ))}
                     </div>

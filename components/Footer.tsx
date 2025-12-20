@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
                     
                     <div className="w-full flex flex-col md:flex-row items-center justify-between text-sm text-[#9d8c81]">
                         <p className="order-2 md:order-1 mt-2 md:mt-0">
-                            &copy; 2025 Safety for Women Movement. All rights reserved.
+                            &copy; 2025 IRON feather Foundation. All rights reserved. <span className="mx-2">|</span> Design <a href="http://www.mesmerizers.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition-colors">Mesmerizers</a>
                         </p>
                         <div className="flex space-x-6 order-1 md:order-2">
                             <a href="#" className="hover:text-brand-red transition-colors">Privacy Policy</a>

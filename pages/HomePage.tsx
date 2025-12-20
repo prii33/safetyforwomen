@@ -348,8 +348,9 @@ policing? Schedule a tour for your group or community.</p>
             title: "Network of Street-wise Safety Squadrons", 
             summary: "Building a network of volunteers who act as the eyes, ears, and helping hands of the community.",
             hideHeader: true,
+            tag: "Future Roadmap",
             description: (
-            <CardLayout icon={icon3} number="6" title="Network of Street-wise Safety Squadrons" backgroundImage={networkBg}>
+            <CardLayout icon={icon3} number="6" title="Network of Street-wise Safety Squadrons" backgroundImage={networkBg} tag="Future Roadmap">
                 <div>
                     <h3 className={headerClass}>Objective</h3>
                     <p className={textClass}>

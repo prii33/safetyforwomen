@@ -25,6 +25,21 @@ import cambridge12 from '../assets/gallery/3Oct24CambridgeInstitute/12.JPG';
 import cambridge13 from '../assets/gallery/3Oct24CambridgeInstitute/13.JPG';
 import cambridge14 from '../assets/gallery/3Oct24CambridgeInstitute/14.JPG';
 
+import oct19vol1 from '../assets/gallery/19Oct24SFWVolunteersAwareness/1.jpg';
+import oct19vol2 from '../assets/gallery/19Oct24SFWVolunteersAwareness/2.jpg';
+import oct19vol3 from '../assets/gallery/19Oct24SFWVolunteersAwareness/3.jpg';
+import oct19vol4 from '../assets/gallery/19Oct24SFWVolunteersAwareness/4.jpg';
+import oct19vol5 from '../assets/gallery/19Oct24SFWVolunteersAwareness/5.jpg';
+import oct19vol6 from '../assets/gallery/19Oct24SFWVolunteersAwareness/6.jpg';
+import oct19vol7 from '../assets/gallery/19Oct24SFWVolunteersAwareness/7.jpg';
+import oct19vol8 from '../assets/gallery/19Oct24SFWVolunteersAwareness/8.jpg';
+
+import oct271 from '../assets/gallery/27Oct24hiriyarahabba/1.jpeg';
+import oct272 from '../assets/gallery/27Oct24hiriyarahabba/2.jpeg';
+import oct273 from '../assets/gallery/27Oct24hiriyarahabba/3.jpeg';
+import oct274 from '../assets/gallery/27Oct24hiriyarahabba/4.jpeg';
+import oct275 from '../assets/gallery/27Oct24hiriyarahabba/5.jpeg';
+
 import sparshYesh1 from '../assets/gallery/6Nov24SparshHospitalYeshwanthapura/1.JPG';
 import sparshYesh2 from '../assets/gallery/6Nov24SparshHospitalYeshwanthapura/2.JPG';
 import sparshYesh3 from '../assets/gallery/6Nov24SparshHospitalYeshwanthapura/3.JPG';
@@ -256,15 +271,6 @@ import bbmp1 from '../assets/gallery/BBMPNammaRasteMobility/1.jpg';
 import bbmp2 from '../assets/gallery/BBMPNammaRasteMobility/2.jpg';
 import bbmp3 from '../assets/gallery/BBMPNammaRasteMobility/3.jpg';
 
-import vol1 from '../assets/gallery/SFWVolunteersAwareness/1.jpg';
-import vol2 from '../assets/gallery/SFWVolunteersAwareness/2.jpg';
-import vol3 from '../assets/gallery/SFWVolunteersAwareness/3.jpg';
-import vol4 from '../assets/gallery/SFWVolunteersAwareness/4.jpg';
-import vol5 from '../assets/gallery/SFWVolunteersAwareness/5.jpg';
-import vol6 from '../assets/gallery/SFWVolunteersAwareness/6.jpg';
-import vol7 from '../assets/gallery/SFWVolunteersAwareness/7.jpg';
-import vol8 from '../assets/gallery/SFWVolunteersAwareness/8.jpg';
-
 import team1 from '../assets/gallery/SFWTeamMeetups/1.jpg';
 import team2 from '../assets/gallery/SFWTeamMeetups/2.jpg';
 import team3 from '../assets/gallery/SFWTeamMeetups/3.jpg';
@@ -348,14 +354,6 @@ export const collaborationEvents = [
                 ]
             },
             {
-                title: "SFW Volunteers Awareness",
-                description: "Empowering our volunteers.",
-                image: vol1,
-                galleryImages: [
-                    vol1, vol2, vol3, vol4, vol5, vol6, vol7, vol8
-                ]
-            },
-            {
                 title: "SFW Team Meetups",
                 description: "Internal team strategy and bonding.",
                 image: team1,
@@ -396,10 +394,16 @@ export const timelineEvents = [
         title: "Awareness Program for Volunteers",
         location: "SHVNM Government Girls Pre-University College",
         stats: ["30+ Volunteers", "20+ KSP App Downloads"],
-        image: "https://picsum.photos/seed/shvnm/600/400",
+        image: oct19vol1,
         galleryImages: [
-            "https://picsum.photos/seed/shvnm1/1200/800",
-            "https://picsum.photos/seed/shvnm2/1200/800",
+            oct19vol1,
+            oct19vol2,
+            oct19vol3,
+            oct19vol4,
+            oct19vol5,
+            oct19vol6,
+            oct19vol7,
+            oct19vol8,
         ],
     },
     {
@@ -407,10 +411,13 @@ export const timelineEvents = [
         title: "Women Empowerment & Livelihood Program (Hiriyara Habba)",
         location: "St. Joseph’s Institute of Management (in collaboration with Parihar)",
         stats: ["1,000+ Senior Citizens", "Supported livelihood of women affected by domestic violence"],
-        image: "https://picsum.photos/seed/stjosephs/600/400",
+        image: oct271,
         galleryImages: [
-            "https://picsum.photos/seed/stjosephs1/1200/800",
-            "https://picsum.photos/seed/stjosephs2/1200/800",
+            oct271,
+            oct272,
+            oct273,
+            oct274,
+            oct275,
         ],
     },
     {

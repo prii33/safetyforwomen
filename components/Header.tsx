@@ -21,7 +21,7 @@ const MobileNavLinks = ({ closeMenu }: { closeMenu: () => void }) => {
             <NavLink to="/impact" className={linkClass} onClick={closeMenu}>Our Impact</NavLink>
             <NavLink to="/resources" className={linkClass} onClick={closeMenu}>Resources</NavLink>
             <NavLink to="/events-media" className={linkClass} onClick={closeMenu}>Events & Media</NavLink>
-            <NavLink to="/get-involved" className={linkClass} onClick={closeMenu}>Get Involved</NavLink>
+            <NavLink to="/get-involved" className={linkClass} onClick={closeMenu}>Join Us</NavLink>
             <NavLink to="/blog" className={linkClass} onClick={closeMenu}>Blog</NavLink>
             <NavLink to="/faq" className={linkClass} onClick={closeMenu}>FAQ</NavLink>
         </>

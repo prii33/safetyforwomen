@@ -14,7 +14,7 @@ const links: LinkData[] = [
     { title: "Our Impact", href: "/impact" },
     { title: "Resources", href: "/resources" },
     { title: "Events & Media", href: "/events-media" },
-    { title: "Get Involved", href: "/get-involved" },
+    { title: "Join Us", href: "/get-involved" },
     { title: "Blog", href: "/blog" },
     { title: "FAQ", href: "/faq" },
 ];

@@ -182,9 +182,9 @@ export const PledgeForm: React.FC = () => {
                         required
                         className="mt-1 block w-full px-3 py-2 bg-[#3f1212] border border-[#5c1c1c] rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red text-white"
                     >
-                        <option value="" className="bg-[#3f1212] text-gray-400">Select State</option>
+                        <option value="" className="bg-[#3f1212] text-gray-400 hover:bg-[#FF0440]">Select State</option>
                         {states.map((state) => (
-                            <option key={state.code} value={state.code} className="bg-[#3f1212]">
+                            <option key={state.code} value={state.code} className="bg-[#3f1212] hover:bg-[#FF0440]">
                                 {state.name}
                             </option>
                         ))}
