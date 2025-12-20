@@ -11,9 +11,11 @@ import GetInvolvedPage from './pages/GetInvolvedPage';
 import FAQPage from './pages/FAQPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import TermsConditionsPage from './pages/TermsConditionsPage';
 import FluidCursor from './components/FluidCursor';
 import FloatingSocialIcons from './components/FloatingSocialIcons';
 import ScrollToTop from './components/ScrollToTop';
+import GoToTopButton from './components/GoToTopButton';
 
 const App: React.FC = () => {
   return (
@@ -34,9 +36,11 @@ const App: React.FC = () => {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/terms-conditions" element={<TermsConditionsPage />} />
           </Routes>
         </main>
         <Footer />
+        <GoToTopButton />
       </div>
     </HashRouter>
   );

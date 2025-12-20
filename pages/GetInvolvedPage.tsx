@@ -94,6 +94,25 @@ const GetInvolvedPage: React.FC = () => {
                     </button>
                 </div>
             )
+        },
+        {
+            number: "6",
+            title: "Join the National Survivor Support System",
+            content: (
+                <div className="text-center">
+                    <p className="mb-6 text-brand-light-text text-l">Connect with a supportive community dedicated to healing, empowerment, and justice for survivors.</p>
+                    <button 
+                        onClick={() => window.open(
+                            'https://docs.google.com/forms/d/1h0AZLB5OkGn8oBA0aFLJKr4r9gjK56rXCaRPUjZ6_xE/viewform?edit_requested=true',
+                            'googleFormPopup',
+                            'width=800,height=800,scrollbars=yes,resizable=yes,status=no,location=no,toolbar=no,menubar=no'
+                        )}
+                        className="bg-brand-red text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition-opacity"
+                    >
+                        Join Now
+                    </button>
+                </div>
+            )
         }
     ];
 

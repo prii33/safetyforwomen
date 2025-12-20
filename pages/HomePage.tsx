@@ -28,7 +28,6 @@ import awardsBg from '@/assets/9awards.jpg';
 import JoinSection from '../components/JoinSection';
 import '../components/JoinSection.css';
 import UNSDGSection from '../components/UNSDGSection';
-import GoToTopButton from '../components/GoToTopButton';
 import { ExpandableCard } from '../components/ExpandableCard';
 
 import networkGif from '@/assets/network.gif';
@@ -643,7 +642,6 @@ policing? Schedule a tour for your group or community.</p>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
                 <LogoCloud />
             </div>
-            <GoToTopButton />
         </div>
     );
 };
