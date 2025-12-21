@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@config "./tailwind.config.js";
+
 /* Global Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 16px;

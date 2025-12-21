@@ -86,7 +86,7 @@ const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false, lay
     return (
       <div className="w-full mx-auto">
         {/* Buttons Grid */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-4 ">
           {items.map((item, index) => (
             <div key={index} className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc((100%-2rem)/3)]">
               <AccordionHeader

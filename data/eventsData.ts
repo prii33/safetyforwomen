@@ -286,6 +286,10 @@ import team12 from '../assets/gallery/SFWTeamMeetups/12.jpg';
 import team13 from '../assets/gallery/SFWTeamMeetups/13.jpg';
 import team14 from '../assets/gallery/SFWTeamMeetups/14.jpg';
 
+import mphasis1 from '../assets/Mphasis.jpeg';
+import rotaract1 from '../assets/Rotaract.jpeg';
+import vayah1 from '../assets/VayahVikas.jpeg';
+
 export const collaborationEvents = [
     {
         title: "Various Police Departments",
@@ -534,10 +538,9 @@ export const timelineEvents = [
         title: "Awareness Program",
         location: "Vayah Vikas – Senior Citizens",
         stats: ["200+ Senior Citizens", "150+ KSP App Downloads"],
-        image: "https://picsum.photos/seed/vayah/600/400",
+        image: vayah1,
         galleryImages: [
-            "https://picsum.photos/seed/vayah1/1200/800",
-            "https://picsum.photos/seed/vayah2/1200/800",
+            vayah1,
         ],
     },
     {
@@ -596,7 +599,10 @@ export const timelineEvents = [
         title: "Awareness Program (Online)",
         location: "Rotaract Club of Lakshmibai College, Delhi",
         stats: ["75+ College Students"],
-        image: "https://picsum.photos/seed/rotaract/600/400",
+        image: rotaract1,
+        galleryImages: [
+            rotaract1,
+        ],
     },
     {
         date: "1 March 2025",
@@ -694,10 +700,9 @@ export const timelineEvents = [
         title: "Awareness Program (Online)",
         location: "MPhasis – BPO Employees",
         stats: ["250+ Participants", "150+ KSP App Downloads"],
-        image: "https://picsum.photos/seed/mphasis/600/400",
+        image: mphasis1,
         galleryImages: [
-            "https://picsum.photos/seed/mphasis1/1200/800",
-            "https://picsum.photos/seed/mphasis2/1200/800",
+            mphasis1,
         ],
     },
     {

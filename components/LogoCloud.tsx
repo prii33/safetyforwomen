@@ -17,12 +17,17 @@ import cl12 from '/assets/cl12.png';
 import cl13 from '/assets/cl13.png';
 import cl14 from '/assets/cl14.png';
 import cl15 from '/assets/cl15.png';
+import cl16 from '/assets/cl16.png';
+import cl17 from '/assets/cl17.png';
+import cl18 from '/assets/cl18.png';
+import cl19 from '/assets/cl19.png';
 
 const LogoCloud: React.FC = () => {
   const logos = [
     cl1, cl2, cl3, cl4, cl5, 
     cl6, cl7, cl8, cl9, cl10, 
-    cl11, cl12, cl13, cl14, cl15
+    cl11, cl12, cl13, cl14, cl15,
+    cl16, cl17, cl18, cl19
   ];
 
   const [direction, setDirection] = useState<number>(-1); // -1 for left, 1 for right
@@ -33,7 +38,7 @@ const LogoCloud: React.FC = () => {
   const LOGO_WIDTH = 256; // w-64
   const GAP = 32; // mx-4 * 2 = 32px
   const TOTAL_ITEM_WIDTH = LOGO_WIDTH + GAP;
-  const NUM_LOGOS = 15;
+  const NUM_LOGOS = 19;
   const LOOP_WIDTH = TOTAL_ITEM_WIDTH * NUM_LOGOS; // Width of one set of logos
 
   useAnimationFrame((t, delta) => {

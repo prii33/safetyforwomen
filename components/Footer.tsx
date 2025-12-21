@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                             &copy; 2025 IRON feather Foundation. All rights reserved. <span className="mx-2">|</span> Design <a href="http://www.mesmerizers.com/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-red transition-colors">Mesmerizers</a>
                         </p>
                         <div className="flex space-x-6 order-1 md:order-2">
-                            <a href="#" className="hover:text-brand-red transition-colors">Privacy Policy</a>
+                            <Link to="/privacy-policy" className="hover:text-brand-red transition-colors">Privacy Policy</Link>
                             <Link to="/terms-conditions" className="hover:text-brand-red transition-colors">Terms & Conditions</Link>
                         </div>
                     </div>

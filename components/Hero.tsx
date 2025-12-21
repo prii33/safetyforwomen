@@ -44,7 +44,12 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
       <section className="relative h-screen text-center">
         <div className="sticky top-0 h-screen flex flex-col justify-center items-center overflow-hidden">
           {slideImages && slideImages.length > 0 ? (
-            slideImages.map((img, index) => (
+            slideImages.map((img, index) => {
+              // Only render current and next slide to save bandwidth
+              const shouldRender = index === currentSlide || index === (currentSlide + 1) % slideImages.length;
+              if (!shouldRender) return null;
+              
+              return (
               <div
                 key={index}
                 className="absolute top-0 left-0 w-full h-full z-20 hero-background-image transition-opacity duration-1000 ease-in-out"
@@ -57,7 +62,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
                   opacity: index === currentSlide ? 0.7 : 0,
                 }}
               ></div>
-            ))
+            )})
           ) : imageSrc && (
             <div
               className="absolute top-0 left-0 w-full h-full z-20 hero-background-image"
@@ -76,6 +81,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
             loop
             muted
             playsInline
+            preload="metadata"
             className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
             style={{ opacity: 0.8 }}
           >

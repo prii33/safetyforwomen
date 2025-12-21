@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaLink } from 'react-icons/fa';
 import OrbsBackground from '../components/OrbsBackground';
-import blog1 from '../assets/blog1.png';
+import blog1 from '../assets/blog1.webp';
 
 const SafeStreetsArticle: React.FC = () => {
     const handleShare = () => {

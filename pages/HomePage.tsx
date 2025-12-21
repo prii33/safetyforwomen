@@ -29,6 +29,7 @@ import JoinSection from '../components/JoinSection';
 import '../components/JoinSection.css';
 import UNSDGSection from '../components/UNSDGSection';
 import { ExpandableCard } from '../components/ExpandableCard';
+import LazyImage from '../components/LazyImage';
 
 import networkGif from '@/assets/network.gif';
 import safetyGif from '@/assets/safety.gif';
@@ -46,10 +47,11 @@ const CardLayout = ({ icon, number, title, backgroundImage, children, tag }: any
             <div className="absolute inset-0 z-0 h-full">
                     <div className="absolute inset-0 bg-[#ff0440] mix-blend-multiply z-10 opacity-60"></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20"></div>
-                    <img 
+                    <LazyImage 
                     src={backgroundImage} 
                     alt={title} 
-                    className="w-full h-full object-cover contrast-110"
+                    className="w-full h-full"
+                    style={{ position: 'absolute', inset: 0 }}
                 />
             </div>
 
@@ -66,9 +68,9 @@ const CardLayout = ({ icon, number, title, backgroundImage, children, tag }: any
                     </span>
                 )}
                     {/* Icon */}
-                <div className="mb-4 relative">
+                <div className="mb-4 relative w-16 h-16">
                         <div className="absolute inset-0 bg-[#ff0440] blur-2xl opacity-10 rounded-full"></div>
-                        <img src={icon} alt="Icon" className="w-16 h-16 object-contain relative z-10" />
+                        <LazyImage src={icon} alt="Icon" className="w-16 h-16 relative z-10" style={{ objectFit: 'contain' }} />
                 </div>
                 
                 {/* Title Group */}

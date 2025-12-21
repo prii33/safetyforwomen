@@ -1,43 +1,52 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ImpactPage from './pages/ImpactPage';
-import ResourcesPage from './pages/ResourcesPage';
-import EventsMediaPage from './pages/EventsMediaPage';
-import GetInvolvedPage from './pages/GetInvolvedPage';
-import FAQPage from './pages/FAQPage';
-import BlogPage from './pages/BlogPage';
-import BlogPostPage from './pages/BlogPostPage';
-import TermsConditionsPage from './pages/TermsConditionsPage';
-import FluidCursor from './components/FluidCursor';
 import FloatingSocialIcons from './components/FloatingSocialIcons';
+
+const FluidCursor = lazy(() => import('./components/FluidCursor'));
 import ScrollToTop from './components/ScrollToTop';
 import GoToTopButton from './components/GoToTopButton';
+import LoadingSpinner from './components/LoadingSpinner';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ImpactPage = lazy(() => import('./pages/ImpactPage'));
+const ResourcesPage = lazy(() => import('./pages/ResourcesPage'));
+const EventsMediaPage = lazy(() => import('./pages/EventsMediaPage'));
+const GetInvolvedPage = lazy(() => import('./pages/GetInvolvedPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
+const TermsConditionsPage = lazy(() => import('./pages/TermsConditionsPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 
 const App: React.FC = () => {
   return (
     <HashRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen font-sans">
-        <FluidCursor />
+        <Suspense fallback={null}>
+          <FluidCursor />
+        </Suspense>
         <FloatingSocialIcons />
         <Header />
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/impact" element={<ImpactPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-            <Route path="/events-media" element={<EventsMediaPage />} />
-            <Route path="/get-involved" element={<GetInvolvedPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/terms-conditions" element={<TermsConditionsPage />} />
-          </Routes>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/impact" element={<ImpactPage />} />
+              <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/events-media" element={<EventsMediaPage />} />
+              <Route path="/get-involved" element={<GetInvolvedPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
+              <Route path="/faq" element={<FAQPage />} />
+              <Route path="/terms-conditions" element={<TermsConditionsPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
         <GoToTopButton />

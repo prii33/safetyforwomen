@@ -8,8 +8,8 @@ const TermsConditionsPage: React.FC = () => {
             <div className="relative z-10">
                 <div className="relative">
                     <Hero
-                        title="Terms & Conditions"
-                        subtitle="Policies and Guidelines"
+                        title="Policies and Guidelines"
+                        subtitle="Terms & Conditions"
                         description=""
                         videoSrc={redmist}
                         scrollY={0}

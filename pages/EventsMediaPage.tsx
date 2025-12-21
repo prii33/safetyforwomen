@@ -599,7 +599,7 @@ const EventsMediaPage: React.FC = () => {
                                                                 <li>Priyanka Upendra – Cine Actor</li>
                                                                 <li>Snehal – Joint Commissioner, BBMP East</li>
                                                                 <li>Pushpa S – Chief GM (Corporate Affairs), BESCOM</li>
-                                                                <li>Poornima Shetty – Founder, Safety for Women Foundation</li>
+                                                                <li>Poornima Shetty – Founder Director - Iron Feather Foundation</li>
                                                             </ul>
                                                         </div>
                                                         <div>

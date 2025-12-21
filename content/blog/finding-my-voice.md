@@ -5,7 +5,7 @@ excerpt: "I remember the day with crystal clarity. I was wearing a lemon-yellow 
 date: "2025-03-10"
 author: "Dr. Varsha Pillai"
 readTime: "4 min read"
-image: "/assets/blog2.png"
+image: "/assets/blog2.webp"
 tags:
   - SurvivorStories
   - Empowerment
