@@ -121,7 +121,12 @@ const LogoCloud: React.FC = () => {
         {/* Tripling the logos to ensure smooth infinite scroll even on large screens */}
         {[...logos, ...logos, ...logos, ...logos].map((logo, index) => (
           <div key={index} className="flex-shrink-0 w-64 h-32 flex items-center justify-center mx-4 bg-gradient-to-br from-[#2a100e] to-black rounded-xl p-4 shadow-lg hover:bg-[#e1d5d5] hover:from-[#e1d5d5] hover:to-[#e1d5d5] hover:shadow-brand-red/20 hover:scale-105 transition-all duration-300 group border border-[#5a2301]/30">
-            <img src={logo} alt={`Partner ${index}`} className="max-h-full max-w-full object-contain filter grayscale invert opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:invert-0 transition-all duration-300" />
+            <img 
+              src={logo} 
+              alt={`Partner ${index}`} 
+              loading="lazy"
+              className="max-h-full max-w-full object-contain filter grayscale invert opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:invert-0 transition-all duration-300" 
+            />
           </div>
         ))}
       </motion.div>
@@ -130,7 +135,12 @@ const LogoCloud: React.FC = () => {
       <div className="grid grid-cols-2 gap-4 px-4 md:hidden">
         {logos.map((logo, index) => (
           <div key={index} className="h-24 flex items-center justify-center p-3 bg-gradient-to-br from-[#2a100e] to-black rounded-lg shadow-lg border border-[#5a2301]/30">
-            <img src={logo} alt={`Partner ${index}`} className="max-h-full max-w-full object-contain filter grayscale invert" />
+            <img 
+              src={logo} 
+              alt={`Partner ${index}`} 
+              loading="lazy"
+              className="max-h-full max-w-full object-contain filter grayscale invert" 
+            />
           </div>
         ))}
       </div>

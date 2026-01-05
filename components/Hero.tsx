@@ -112,20 +112,25 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
   return (
     <section className={`relative ${transparent ? 'bg-transparent' : 'bg-brand-dark'} py-8 md:py-14 flex items-center justify-center text-center overflow-hidden ${className || ''}`}>
        {!transparent && slideImages && slideImages.length > 0 ? (
-            slideImages.map((img, index) => (
-              <div
-                key={index}
-                className="absolute top-0 left-0 w-full h-full z-20 hero-background-image transition-opacity duration-1000 ease-in-out"
-                style={{
-                  backgroundImage: `url(${img})`,
-                  backgroundAttachment: 'fixed',
-                  backgroundPosition: isMobile ? 'center 80px' : 'center top',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: 'contain',
-                  opacity: index === currentSlide ? 0.60 : 0,
-                }}
-              ></div>
-            ))
+            slideImages.map((img, index) => {
+              const shouldRender = index === currentSlide || index === (currentSlide + 1) % slideImages.length;
+              if (!shouldRender) return null;
+
+              return (
+                <div
+                  key={index}
+                  className="absolute top-0 left-0 w-full h-full z-20 hero-background-image transition-opacity duration-1000 ease-in-out"
+                  style={{
+                    backgroundImage: `url(${img})`,
+                    backgroundAttachment: 'fixed',
+                    backgroundPosition: isMobile ? 'center 80px' : 'center top',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'contain',
+                    opacity: index === currentSlide ? 0.60 : 0,
+                  }}
+                ></div>
+              );
+            })
           ) : imageSrc && (
         <div
           className="absolute top-0 left-0 w-full h-full z-20 hero-background-image"

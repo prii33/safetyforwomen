@@ -15,7 +15,6 @@ import icon6 from '../assets/icon6.gif';
 import icon7 from '../assets/icon7.gif';
 import icon8 from '../assets/icon8.gif';
 import icon9 from '../assets/icon9.gif';
-import image5 from '@/assets/image5.png';
 import awarenessBg from '@/assets/1awareness.jpg';
 import sssImage from '@/assets/3sss.jpg';
 import safeWellLitImage from '@/assets/4Safe&WellLit.jpg';
@@ -30,14 +29,6 @@ import '../components/JoinSection.css';
 import UNSDGSection from '../components/UNSDGSection';
 import { ExpandableCard } from '../components/ExpandableCard';
 import LazyImage from '../components/LazyImage';
-
-import networkGif from '@/assets/network.gif';
-import safetyGif from '@/assets/safety.gif';
-import livesGif from '@/assets/lives.gif';
-import programsGif from '@/assets/programs.gif';
-import goalGif from '@/assets/goal.gif';
-import impactGif from '@/assets/impact.gif';
-import deviceGif from '@/assets/device.gif';
 
 const CardLayout = ({ icon, number, title, backgroundImage, children, tag }: any) => (
     <div className="flex flex-col md:flex-row gap-4 h-full items-stretch">
