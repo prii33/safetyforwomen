@@ -12,10 +12,12 @@ interface ExpandableCardProps {
   totalCards: number;
   hideHeader?: boolean;
   tag?: string;
+  isVisible?: boolean;
 }
 
-export const ExpandableCard = ({ title, summary, children, icon, index, totalCards, hideHeader = false, tag }: ExpandableCardProps) => {
+export const ExpandableCard = ({ title, summary, children, icon, index, totalCards, hideHeader = false, tag, isVisible = true }: ExpandableCardProps) => {
   const [active, setActive] = useState<boolean>(false);
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   const collapsedRef = useRef<HTMLDivElement>(null);
   const id = useId();
@@ -28,6 +30,12 @@ export const ExpandableCard = ({ title, summary, children, icon, index, totalCar
     collapsedRef.current.style.setProperty("--x", `${x}px`);
     collapsedRef.current.style.setProperty("--y", `${y}px`);
   };
+
+  useEffect(() => {
+    if (isVisible) {
+      setHasLoaded(true);
+    }
+  }, [isVisible]);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -192,7 +200,9 @@ export const ExpandableCard = ({ title, summary, children, icon, index, totalCar
                     layoutId={`image-${title}-${id}`} 
                     className="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
                 >
-                    <img src={icon} alt={title} className="w-12 h-12 md:w-14 md:h-14 text-white group-hover:scale-110 transition-transform duration-300" />
+                    {(isVisible || hasLoaded) && (
+                        <img src={icon} alt={title} className="w-12 h-12 md:w-14 md:h-14 text-white group-hover:scale-110 transition-transform duration-300" />
+                    )}
                 </motion.div>
                 
                 <div className="flex flex-col items-center md:items-start flex-1">

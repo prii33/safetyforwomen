@@ -85,7 +85,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
             className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
             style={{ opacity: 0.8 }}
           >
-            <source src={videoSrc} type="video/mp4" />
+            <source src={videoSrc} type={videoSrc.endsWith('.mov') ? "video/quicktime" : "video/mp4"} />
             Your browser does not support the video tag.
           </video>
           <div style={{ transform: `scale(${scale})`, opacity }} className="relative z-30 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -152,7 +152,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
         className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
         style={{ opacity: 0.8 }}
       >
-        <source src={videoSrc} type="video/mp4" />
+        <source src={videoSrc} type={videoSrc.endsWith('.mov') ? "video/quicktime" : "video/mp4"} />
         Your browser does not support the video tag.
       </video>
       )}

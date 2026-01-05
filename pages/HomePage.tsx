@@ -544,6 +544,14 @@ policing? Schedule a tour for your group or community.</p>
             filter: `blur(${blur}px) brightness(${brightness})`
         };
     };
+
+    const isCardVisible = (index: number) => {
+        if (!sectionTop) return false;
+        const animationStart = sectionTop - window.innerHeight / 2;
+        // Start loading slightly before it fades in
+        return scrollY > (animationStart - window.innerHeight * 0.2); 
+    };
+
     return (
         <div className="bg-brand-dark">
             <div id="home">
@@ -622,6 +630,7 @@ policing? Schedule a tour for your group or community.</p>
                                 totalCards={values.length}
                                 hideHeader={value.hideHeader}
                                 tag={value.tag}
+                                isVisible={isCardVisible(index)}
                             >
                                 {value.description}
                             </ExpandableCard>
