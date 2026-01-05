@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import video from '@/assets/smoke2.mp4';
+import video from '@/assets/smoke2.mov';
 import Hero from '../components/Hero';
 import slide1 from '@/assets/slide1.webp';
 import slide2 from '@/assets/slide2.webp';
