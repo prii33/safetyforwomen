@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="none"
             className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
             style={{ opacity: 0.8 }}
           >
@@ -149,6 +149,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, description, videoSrc, scr
         loop
         muted
         playsInline
+        preload="none"
         className="absolute z-10 w-auto min-w-full min-h-full max-w-none"
         style={{ opacity: 0.8 }}
       >
