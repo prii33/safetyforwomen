@@ -29,6 +29,7 @@ import '../components/JoinSection.css';
 import UNSDGSection from '../components/UNSDGSection';
 import { ExpandableCard } from '../components/ExpandableCard';
 import LazyImage from '../components/LazyImage';
+import ChatWidget from '../components/ChatWidget';
 
 const CardLayout = ({ icon, number, title, backgroundImage, children, tag }: any) => (
     <div className="flex flex-col md:flex-row gap-4 h-full items-stretch">
@@ -644,6 +645,7 @@ policing? Schedule a tour for your group or community.</p>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
                 <LogoCloud />
             </div>
+            <ChatWidget />
         </div>
     );
 };
