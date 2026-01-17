@@ -12,7 +12,11 @@ const API_BASE_URL =
   (import.meta as ImportMeta & { env?: Record<string, string> }).env?.VITE_API_BASE_URL ||
   "https://safety-api.prii33.workers.dev";
 
-const ChatWidget: React.FC = () => {
+interface ChatWidgetProps {
+  isInline?: boolean;
+}
+
+const ChatWidget: React.FC<ChatWidgetProps> = ({ isInline = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -111,7 +115,7 @@ const ChatWidget: React.FC = () => {
         <ul key={`list-${blocks.length}`} className="ml-4 space-y-1.5 mt-2">
           {listItems.map((item, idx) => (
             <li key={`item-${idx}`} className="text-[13px] leading-relaxed flex gap-2">
-              <span className={isUser ? "text-white/70 mt-0.5" : "text-brand-red mt-0.5"}>•</span>
+              <span className={isUser ? "text-white/70 mt-0.5" : "text-white/40 mt-0.5"}>•</span>
               <span>{item}</span>
             </li>
           ))}
@@ -135,7 +139,7 @@ const ChatWidget: React.FC = () => {
       flushList();
       if (line.endsWith(":")) {
         blocks.push(
-          <p key={`heading-${idx}`} className={`text-xs font-bold uppercase tracking-wider mt-3 first:mt-0 ${isUser ? "text-white/80" : "text-brand-red"}`}>
+          <p key={`heading-${idx}`} className={`text-xs font-bold uppercase tracking-wider mt-3 first:mt-0 ${isUser ? "text-white/80" : "text-white/70"}`}>
             {line.slice(0, -1)}
           </p>
         );
@@ -154,10 +158,12 @@ const ChatWidget: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 font-sans flex flex-col items-end">
+    <div className={isInline ? "relative z-50 font-sans flex flex-col items-center" : "fixed bottom-20 right-4 z-50 font-sans flex flex-col items-end"}>
       {/* Chat Panel */}
       <div
-        className={`mb-3 w-[340px] sm:w-[400px] rounded-2xl overflow-hidden transition-all duration-300 ease-out origin-bottom-right border border-[#5a2301] ${
+        className={`w-[340px] sm:w-[400px] rounded-2xl overflow-hidden transition-all duration-300 ease-out border border-[#5a2301] ${
+          isInline ? "absolute bottom-full right-0 mb-2 origin-bottom" : "mb-3 origin-bottom-right"
+        } ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-4 pointer-events-none"
@@ -234,9 +240,10 @@ const ChatWidget: React.FC = () => {
                         boxShadow: "0 4px 15px -3px rgba(220, 38, 38, 0.4)",
                       }
                     : {
-                        background: "#271111",
-                        color: "#e1d5d5",
-                        border: "1px solid #000000",
+                        background: "linear-gradient(135deg, #0a0a0a 0%, #000000 100%)",
+                        color: "#f5f5f5",
+                        border: "1px solid rgba(255, 255, 255, 0.08)",
+                        boxShadow: "0 4px 20px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.02) inset",
                       }
                 }
               >
@@ -244,11 +251,11 @@ const ChatWidget: React.FC = () => {
                   {renderMessageContent(message.content, message.role === "user")}
                 </div>
                 {message.sources && message.sources.length > 0 && (
-                  <div 
+                  <div
                     className="mt-3 pt-3 space-y-1.5"
-                    style={{ borderTop: message.role === "user" ? "1px solid rgba(255, 255, 255, 0.2)" : "1px solid #000000" }}
+                    style={{ borderTop: message.role === "user" ? "1px solid rgba(255, 255, 255, 0.2)" : "1px solid rgba(255, 255, 255, 0.1)" }}
                   >
-                    <p className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: message.role === "user" ? "rgba(255,255,255,0.7)" : "#8a4a3b" }}>
+                    <p className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: message.role === "user" ? "rgba(255,255,255,0.7)" : "rgba(255, 255, 255, 0.5)" }}>
                       Sources
                     </p>
                     {message.sources.map((source) => (
@@ -273,8 +280,9 @@ const ChatWidget: React.FC = () => {
               <div
                 className="rounded-2xl rounded-bl-md px-4 py-3"
                 style={{
-                  background: "#271111",
-                  border: "1px solid #000000",
+                  background: "linear-gradient(135deg, #0a0a0a 0%, #000000 100%)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  boxShadow: "0 4px 20px -4px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.02) inset",
                 }}
               >
                 <div className="flex items-center gap-2">
@@ -283,7 +291,7 @@ const ChatWidget: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-brand-red animate-bounce" style={{ animationDelay: "150ms" }} />
                     <span className="w-2 h-2 rounded-full bg-brand-red animate-bounce" style={{ animationDelay: "300ms" }} />
                   </div>
-                  <span className="text-xs text-[#e1d5d5]">Thinking...</span>
+                  <span className="text-xs text-[#f5f5f5]">Thinking...</span>
                 </div>
               </div>
             </div>
@@ -344,33 +352,55 @@ const ChatWidget: React.FC = () => {
       </div>
 
       {/* Toggle Button */}
-      <button
-        type="button"
-        onClick={() => setIsOpen((prev) => !prev)}
-        className="group relative flex items-center justify-center transition-all duration-300"
-        aria-label="Open chat"
-      >
-        <div
-          className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105 border-2 border-brand-red"
-          style={{
-            background: "linear-gradient(135deg, #DC2626 0%, #991B1B 100%)",
-            boxShadow: isOpen
-              ? "0 0 15px rgba(220, 38, 38, 0.5)"
-              : "0 0 25px rgba(220, 38, 38, 0.6), 0 8px 25px -5px rgba(0, 0, 0, 0.4)",
-          }}
-        >
-          {isOpen ? (
-            <FiX className="w-6 h-6 text-white transition-transform duration-300" />
-          ) : (
-            <FiMessageCircle className="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-110" />
-          )}
+      {isInline ? (
+        <div className="chat-widget-inline-icon">
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              setIsOpen((prev) => !prev);
+            }}
+            data-label="AI Chat"
+          >
+            <i>
+              <FiMessageCircle style={{ width: '1em', height: '1em' }} />
+            </i>
+            {!isOpen && (
+              <span
+                className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+                style={{ pointerEvents: 'none' }}
+              />
+            )}
+          </a>
         </div>
-        {!isOpen && (
-          <span
-            className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-[#991B1B] animate-pulse"
-          />
-        )}
-      </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className="group relative flex items-center justify-center transition-all duration-300"
+          aria-label="Open chat"
+        >
+          <div
+            className="w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105 border-2 border-brand-red"
+            style={{
+              background: "linear-gradient(135deg, #DC2626 0%, #991B1B 100%)",
+              boxShadow: isOpen
+                ? "0 0 15px rgba(220, 38, 38, 0.5)"
+                : "0 0 25px rgba(220, 38, 38, 0.6), 0 8px 25px -5px rgba(0, 0, 0, 0.4)",
+            }}
+          >
+            {isOpen ? (
+              <FiX className="w-6 h-6 text-white transition-transform duration-300" />
+            ) : (
+              <FiMessageCircle className="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-110" />
+            )}
+          </div>
+          {!isOpen && (
+            <span
+              className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-[#991B1B] animate-pulse"
+            />
+          )}
+        </button>
+      )}
     </div>
   );
 };

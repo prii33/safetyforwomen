@@ -32,11 +32,15 @@
     top: 9px;
     left: 9px;
     transition: all 265ms ease-out;
+    pointer-events: none;
 }
 
 .social-icons a, .social-icons-horizontal a {
     display: inline-block;
     position: relative;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
 }
 
 .social-icons a:hover::after {
@@ -80,6 +84,7 @@
     border: 0px solid #FF0440;
     transition: all 265ms ease-out;
     box-sizing: border-box;
+    pointer-events: none;
 }
 
 .social-icons a:hover:before, .social-icons-horizontal a:hover:before {
@@ -93,4 +98,72 @@
     -webkit-transform: scale(1.8);
     color: #DC2626;
     transition: all 265ms ease-in;
+}
+
+/* Chat Widget Inline Styles */
+.chat-widget-inline-icon {
+    margin: 0.2em 0;
+    position: relative;
+    font-size: 1.6em;
+    display: block;
+}
+
+.chat-widget-inline-icon a {
+    display: inline-block;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.chat-widget-inline-icon a:before {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    content: " ";
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    display: block;
+    background: transparent;
+    border: 0px solid #FF0440;
+    transition: all 265ms ease-out;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.chat-widget-inline-icon a:hover:before {
+    transform: scale(0);
+    transition: all 265ms ease-in;
+}
+
+.chat-widget-inline-icon a i {
+    color: #19e1b8;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    transition: all 265ms ease-out;
+    pointer-events: none;
+}
+
+.chat-widget-inline-icon a:hover i {
+    transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+    color: #DC2626;
+    transition: all 265ms ease-in;
+}
+
+.chat-widget-inline-icon a:hover::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: #e1d5d5;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.6em;
 }

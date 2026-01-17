@@ -503,13 +503,16 @@ policing? Schedule a tour for your group or community.</p>
         const baseTop = isMobile ? 8 : 9; // rem
         const step = isMobile ? 0.8 : 1;
         const top = baseTop + index * step;
+        const totalCards = values.length;
+        const zIndex = totalCards - index;
 
         if (!sectionTop) {
             return {
                 transform: 'scale(0.95)',
                 top: `${top}rem`,
                 transformOrigin: 'top center',
-                opacity: 0
+                opacity: 0,
+                zIndex: zIndex,
             };
         }
 
@@ -530,7 +533,7 @@ policing? Schedule a tour for your group or community.</p>
         if (scrollY > cardZoomOutStart) {
             const zoomOutProgress = Math.min(1, (scrollY - cardZoomOutStart) / zoomOutDistance);
             scale = 1 - zoomOutProgress * 0.1; // Increased scale down effect
-            
+
             blur = zoomOutProgress * 10; // Stronger blur
             opacity = Math.max(0.3, 1 - zoomOutProgress * 0.8); // More transparency
         }
@@ -542,7 +545,8 @@ policing? Schedule a tour for your group or community.</p>
             top: `${top}rem`,
             transformOrigin: 'top center',
             opacity: opacity,
-            filter: `blur(${blur}px) brightness(${brightness})`
+            filter: `blur(${blur}px) brightness(${brightness})`,
+            zIndex: zIndex,
         };
     };
 
@@ -645,7 +649,9 @@ policing? Schedule a tour for your group or community.</p>
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
                 <LogoCloud />
             </div>
-            <ChatWidget />
+            <div className="md:hidden">
+                <ChatWidget />
+            </div>
         </div>
     );
 };

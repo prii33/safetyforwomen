@@ -226,9 +226,17 @@ export const ExpandableCard = ({ title, summary, children, icon, index, totalCar
                 </div>
 
                 <div className="shrink-0">
-                    <button className="px-6 py-2 rounded-full bg-white/5 text-white text-sm font-medium border border-white/10 group-hover:bg-[#ff0440] group-hover:border-[#ff0440] transition-colors duration-300">
-                        Learn More
-                    </button>
+                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#ff0440] group-hover:border-[#ff0440] transition-all duration-300 group-hover:scale-110">
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            className="h-5 w-5 text-white/60 group-hover:text-white transition-colors duration-300" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>

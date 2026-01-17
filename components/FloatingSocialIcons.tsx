@@ -1,9 +1,10 @@
 import React from 'react';
 import './FloatingSocialIcons.css';
+import ChatWidget from './ChatWidget';
 
 const FloatingSocialIcons: React.FC = () => {
     return (
-        <div className="hidden md:block fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center">
+        <div className="hidden md:block fixed right-4 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center">
              <a href="tel:112" className="mb-4 group relative inline-flex items-center justify-center w-16 h-16 p-[2px] overflow-hidden rounded-full font-bold text-black transition-all duration-300 ease-in-out hover:scale-110 star-border z-50">
                 <span className="relative w-full h-full flex items-center justify-center transition-all ease-in duration-75 bg-gradient-to-br from-[#19e1b8] to-[#10b981] rounded-full group-hover:bg-opacity-90 shadow-[inset_0_-4px_6px_rgba(0,0,0,0.3),0_8px_16px_rgba(25,225,184,0.4)]">
                     <span className="text-black font-black text-base text-center leading-tight">Call<br/>112</span>
@@ -34,6 +35,7 @@ const FloatingSocialIcons: React.FC = () => {
                 </a></li>
                 <li><a href="mailto:teamsafetyforwomen@gmail.com" data-label="Email"><i className="fa fa-envelope"></i></a></li>
             </ul>
+            <ChatWidget isInline={true} />
         </div>
     );
 };
